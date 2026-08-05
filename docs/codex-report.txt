@@ -1,0 +1,84 @@
+﻿Fishing Log App ZIP反映 作業完了報告
+作成日: 2026-07-24 (Asia/Tokyo)
+
+1. 作成したブランチ名
+codex/apply-mvp-no005-20260724
+
+2. 反映したファイル一覧
+変更（3ファイル）:
+- app.js
+- index.html
+- style.css
+
+追加（6ファイル）:
+- data/kure-2026.js
+- package.json
+- providers/kure-provider.js
+- tests/tide.test.js
+- tide/domain.js
+- tide/view.js
+
+ZIPの9ファイルと反映後ファイルのSHA-256は全件一致。
+
+3. 自動テスト結果
+コマンド: npm.cmd test
+結果: 成功（8件中8件成功、失敗0、スキップ0）
+補足: PowerShellの実行ポリシーにより npm test が npm.ps1 で拒否されたため、同じnpmのWindowsランチャー npm.cmd test を使用。
+
+4. 構文確認結果
+コマンド: node --check <各JavaScriptファイル>
+結果: 全6ファイル成功
+- app.js
+- data/kure-2026.js
+- providers/kure-provider.js
+- tests/tide.test.js
+- tide/domain.js
+- tide/view.js
+追加確認: git diff --check 成功（空白エラーなし）
+
+5. Git差分の要約
+変更3ファイル、追加6ファイル、合計9ファイル。
+追跡済み3ファイル: 372行追加、291行削除。
+新規6ファイル: 736行追加。
+全体: 1,108行追加、291行削除。
+主な内容: 呉の2026年潮汐データ、潮汐Provider/ドメイン計算/SVG表示、潮汐スナップショット保存、関連テスト、UI更新。
+
+6. 未コミット・未追跡ファイル一覧
+未コミット（変更）:
+- app.js
+- index.html
+- style.css
+
+未追跡（追加）:
+- data/kure-2026.js
+- package.json
+- providers/kure-provider.js
+- tests/tide.test.js
+- tide/domain.js
+- tide/view.js
+
+7. localhostで確認する手順
+リポジトリ直下で次を実行:
+  npx.cmd --yes http-server@14.1.1 . -p 8000 -c-1
+初回はパッケージ取得のためネットワーク接続が必要。
+ブラウザで http://localhost:8000/ を開く。
+終了は実行中のターミナルで Ctrl+C。
+確認推奨: 潮汐パネル、グラフ、満干潮一覧、既存釣果の表示、新規保存、ページ再読込後の保持。既存localStorageデータの削除は行わない。
+
+8. 既知の問題
+- 潮汐データは呉観測地点の2026-01-01から2026-12-31に限定。対象期間外は説明付きエラー表示。
+- 潮位線は満干潮値から補間した推定値で、航海・安全判断には使用不可。
+- 現在地、地名、天気はブラウザ許可と外部API/ネットワークに依存。
+- 自動テストは潮汐ロジックとSVG生成を対象とし、実ブラウザでの統合動作・見た目・既存localStorageデータとの互換表示は未確認。
+- この環境では npm.ps1 が実行ポリシーで拒否されるため、PowerShellでは npm.cmd を使用する。
+
+9. コミット前に社長が確認すべき内容
+- localhostで日本語表示、レイアウト、スマートフォン幅の見た目が期待どおりか。
+- 既存localStorageの釣果が消えずに表示され、新規釣果の保存・再読込・削除が期待どおりか。
+- 潮汐パネルの呉固定、2026年限定、推定値である旨が製品要件として妥当か。
+- 位置情報許可時の地名・天気取得と、拒否/通信失敗時の表示が妥当か。
+- Git差分9ファイルが承認済みZIPの範囲と一致しているか。
+
+禁止事項の遵守
+コミット、Push、mainへのマージ、GitHub Pages公開、localStorage削除、ZIP外仕様追加はいずれも未実施。
+現在は未コミットのまま承認待ち。

@@ -3,62 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1720">
     <title>釣果メモアプリ</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <main class="app-shell">
+        <header class="app-header">
+            <p class="eyebrow">FISHING LOG</p>
+            <h1>釣果メモ</h1>
+            <p class="lead">釣れた瞬間を、30秒で記録。</p>
+        </header>
 
-    <h1>釣果メモアプリ</h1>
+        <section id="tidePanel" class="tide-panel" aria-labelledby="tideHeading">
+            <div class="tide-heading-row">
+                <div>
+                    <p class="section-kicker">TODAY'S TIDE</p>
+                    <h2 id="tideHeading">呉の潮汐</h2>
+                </div>
+                <span id="tideStation" class="station-badge">読込中</span>
+            </div>
+            <div class="tide-summary" aria-live="polite">
+                <div><span class="summary-label">潮の状態</span><strong id="tideStatus">読込中…</strong></div>
+                <div><span class="summary-label">推定潮位</span><strong id="tideLevel">—</strong></div>
+            </div>
+            <p id="nextTide" class="next-tide">満干潮を確認しています</p>
+            <svg id="tideGraph" class="tide-graph"></svg>
+            <ul id="tideExtremes" class="tide-extremes" aria-label="本日の満潮と干潮"></ul>
+            <p class="tide-note">天文潮位の推定値です。実際の潮位とは異なる場合があります。航海・安全判断には使用しないでください。</p>
+            <a id="tideSource" class="source-link" href="#" target="_blank" rel="noreferrer">出典を確認</a>
+        </section>
 
-    <div class="form-area">
-        <label>場所</label>
-        <input type="text" id="fishingPlace">
+        <section id="catchFormCard" class="form-card" aria-labelledby="formHeading">
+            <div class="section-heading">
+                <p id="formKicker" class="section-kicker">NEW CATCH</p>
+                <h2 id="formHeading">釣果を記録</h2>
+                <p id="editModeStatus" class="edit-mode-status" role="status" hidden>保存済みログを編集中です。保存日時・天気・潮情報は変更されません。</p>
+            </div>
 
-        <button id="locationButton">
-            現在地取得
-        </button>
+            <div class="form-grid">
+                <div class="field field-wide">
+                    <label for="fishingPlace">場所</label>
+                    <div class="location-row">
+                        <input type="text" id="fishingPlace" autocomplete="off" placeholder="例：呉港">
+                        <button id="locationButton" class="button button-secondary" type="button">現在地</button>
+                    </div>
+                    <p id="locationText" class="field-status">緯度経度：未取得</p>
+                    <p id="weatherText" class="field-status">天気：未取得</p>
+                </div>
 
-        <p id="locationText">
-            緯度経度: 未取得
-        </p>
+                <div class="field">
+                    <label for="fishName">魚種 <span class="required">必須</span></label>
+                    <input type="text" id="fishName" autocomplete="off" placeholder="例：アジ">
+                </div>
+                <div class="field">
+                    <label for="fishSize">サイズ</label>
+                    <div class="input-unit"><input type="number" id="fishSize" inputmode="decimal" min="0" step="0.1" placeholder="25"><span>cm</span></div>
+                </div>
+                <div class="field field-wide">
+                    <label for="fishingMethod">釣り方</label>
+                    <input type="text" id="fishingMethod" autocomplete="off" placeholder="例：アジング">
+                </div>
+                <div class="field field-wide">
+                    <label for="memo">メモ</label>
+                    <textarea id="memo" placeholder="ルアー、反応、気づいたこと"></textarea>
+                </div>
+                <div class="field field-wide">
+                    <label for="catchPhoto">釣果写真 <span class="optional">任意・1枚</span></label>
+                    <input id="catchPhoto" class="photo-input" type="file" accept="image/jpeg,image/png,image/*">
+                    <div id="photoSelection" class="photo-selection" hidden>
+                        <img id="photoSelectionPreview" class="photo-selection-preview" alt="選択した釣果写真のプレビュー">
+                        <div>
+                            <p id="photoSelectionName" class="photo-selection-name"></p>
+                            <button id="photoRemoveButton" class="button button-secondary photo-remove" type="button">写真を外す</button>
+                        </div>
+                    </div>
+                    <p id="photoError" class="field-error" role="alert" hidden></p>
+                    <p class="field-status">JPEGまたはPNG。保存時に最大1600pxのJPEGへ縮小します。</p>
+                </div>
+            </div>
+            <p id="refreshStatus" class="refresh-status" role="status" aria-live="polite" hidden></p>
+            <button id="editCancelButton" class="button button-secondary edit-cancel" type="button" hidden>キャンセル</button>
+            <button id="saveButton" class="button button-primary" type="button">この釣果を保存</button>
+        </section>
 
-        <p id="weatherText">
-            天気: 未取得
-        </p>
+        <section class="logs-section" aria-labelledby="logsHeading">
+            <div class="section-heading">
+                <p class="section-kicker">CATCH HISTORY</p>
+                <h2 id="logsHeading">釣果一覧</h2>
+            </div>
+            <div id="resultArea" class="result-area"></div>
+        </section>
+    </main>
 
-        <!--
-        <p id="windText">
-            風速: 未取得
-        </p>
-        -->
-        
-        <label>魚種</label>
-        <input type="text" id="fishName">
+    <dialog id="catchDetailDialog" class="detail-dialog" aria-labelledby="detailTitle">
+        <div class="detail-sheet">
+            <header class="detail-header">
+                <div>
+                    <p class="section-kicker">CATCH DETAIL</p>
+                    <h2 id="detailTitle">釣果詳細</h2>
+                </div>
+                <button id="detailCloseButton" class="detail-close" type="button" aria-label="釣果詳細を閉じる">×</button>
+            </header>
+            <div id="detailContent" class="detail-content"></div>
+            <button id="detailDoneButton" class="button button-primary detail-done" type="button">閉じる</button>
+        </div>
+    </dialog>
 
-        <label>サイズ(cm)</label>
-        <input type="number" id="fishSize">
-
-        <label>釣り方</label>
-        <input type="text" id="fishingMethod">
-
-        <label>メモ</label>
-        <textarea id="memo"></textarea>
-
-        <button id="saveButton">
-            保存
-        </button>
-
-    </div>
-
-    <h2>釣果一覧</h2>
-
-<div id="resultArea">
-
-</div>
-
-    <script src="app.js"></script>
-
+    <dialog id="snsCardDialog" class="sns-dialog" aria-labelledby="snsCardHeading">
+        <div class="sns-sheet">
+            <header class="detail-header">
+                <div>
+                    <p class="section-kicker">SNS CARD PREVIEW</p>
+                    <h2 id="snsCardHeading">SNSカード</h2>
+                </div>
+                <button id="snsCloseButton" class="detail-close" type="button" aria-label="SNSカードを閉じる">×</button>
+            </header>
+            <div class="sns-preview-stage">
+                <article id="snsCardPreview" class="sns-card-classic" aria-label="SNSカードプレビュー"></article>
+            </div>
+            <fieldset class="sns-photo-controls">
+                <legend>写真の位置・拡大</legend>
+                <p class="sns-photo-help">写真をドラッグして位置を調整できます。スマートフォンでは2本指で拡大・縮小できます。</p>
+                <label for="snsPhotoScale">拡大率 <output id="snsPhotoScaleValue" for="snsPhotoScale">100%</output></label>
+                <input id="snsPhotoScale" type="range" min="100" max="300" step="1" value="100">
+                <button id="snsPhotoResetButton" class="button button-secondary sns-reset-button" type="button">位置をリセット</button>
+            </fieldset>
+            <fieldset id="snsCardControls" class="sns-card-controls">
+                <legend>カードに表示する情報</legend>
+                <label><input type="checkbox" name="place" checked>場所</label>
+                <label><input type="checkbox" name="tide" checked>潮情報</label>
+                <label><input type="checkbox" name="weather" checked>天気</label>
+                <label><input type="checkbox" name="method">釣り方</label>
+                <label><input type="checkbox" name="memo" checked>メモ</label>
+                <label><input type="checkbox" name="date">日付</label>
+            </fieldset>
+            <p id="snsActionStatus" class="sns-action-status" role="status" aria-live="polite"></p>
+            <div class="sns-actions">
+                <button id="snsShareButton" class="button button-primary sns-share-button" type="button">共有</button>
+                <button id="snsSaveButton" class="button button-secondary" type="button">JPEGを保存</button>
+            </div>
+            <button id="snsDoneButton" class="button button-primary" type="button">詳細へ戻る</button>
+        </div>
+    </dialog>
+    <script type="module" src="app.js"></script>
 </body>
 </html>
