@@ -10,6 +10,8 @@ import { canShareSnsCard, createSnsCardFilename, downloadSnsCard, generateSnsCar
 import { applySnsPhotoAdjustmentToLogs, normalizeSnsPhotoAdjustment, SNS_PHOTO_ADJUSTMENT_DEFAULTS } from "./sns-photo-adjustment.js";
 import { resetCatchForm } from "./catch-form.js";
 import { updateFishingLog } from "./log-editor.js";
+import { createFishNameCandidates, filterFishNameCandidates, prepareFishName,
+  renderFishNameCandidates } from "./fish-name.js";
 
 const elements = {
   catchFormCard: document.getElementById("catchFormCard"),
@@ -20,6 +22,7 @@ const elements = {
   saveButton: document.getElementById("saveButton"),
   fishingPlace: document.getElementById("fishingPlace"),
   fishName: document.getElementById("fishName"),
+  fishNameCandidates: document.getElementById("fishNameCandidates"),
   fishSize: document.getElementById("fishSize"),
   fishingMethod: document.getElementById("fishingMethod"),
   memo: document.getElementById("memo"),
@@ -76,6 +79,25 @@ let snsPhotoGesture = null;
 let environmentRefreshId = 0;
 let editingLogId = "";
 let editPhotoAction = "keep";
+
+function hideFishNameCandidates() {
+  elements.fishNameCandidates.hidden = true;
+}
+
+function showFishNameCandidates() {
+  try {
+    const candidates = filterFishNameCandidates(
+      createFishNameCandidates(fishingLogs), elements.fishName.value);
+    renderFishNameCandidates(elements.fishNameCandidates, candidates, (candidate) => {
+      elements.fishName.value = candidate;
+      hideFishNameCandidates();
+      elements.fishName.focus();
+    });
+  } catch (error) {
+    hideFishNameCandidates();
+    console.warn("魚種候補を表示できませんでした", error);
+  }
+}
 
 function loadFishingLogs() {
   try {
@@ -245,15 +267,20 @@ async function deleteLog(index) {
 }
 
 elements.saveButton.addEventListener("click", async () => {
-  const name = elements.fishName.value.trim();
-  if (!name) {
-    alert("魚種を入力してください");
+  let name;
+  try {
+    const currentLog = editingLogId
+      ? fishingLogs.find((log) => log?.id === editingLogId)
+      : undefined;
+    name = prepareFishName(elements.fishName.value, currentLog?.name);
+  } catch (error) {
+    alert(error.message);
     elements.fishName.focus();
     return;
   }
 
   if (editingLogId) {
-    await saveEditedLog();
+    await saveEditedLog(name);
     return;
   }
 
@@ -413,7 +440,7 @@ async function startEditingLog(log) {
   elements.fishName.focus();
 }
 
-async function saveEditedLog() {
+async function saveEditedLog(name) {
   hidePhotoError();
   elements.saveButton.disabled = true;
   elements.editCancelButton.disabled = true;
@@ -423,7 +450,7 @@ async function saveEditedLog() {
       targetId: editingLogId,
       values: {
         place: elements.fishingPlace.value.trim(),
-        name: elements.fishName.value.trim(),
+        name,
         size: elements.fishSize.value,
         method: elements.fishingMethod.value.trim(),
         memo: elements.memo.value.trim()
@@ -466,6 +493,12 @@ elements.editCancelButton.addEventListener("click", () => {
   leaveEditMode();
   elements.fishName.focus();
   void refreshEnvironment();
+});
+
+elements.fishName.addEventListener("focus", showFishNameCandidates);
+elements.fishName.addEventListener("input", showFishNameCandidates);
+elements.fishName.addEventListener("blur", () => {
+  setTimeout(hideFishNameCandidates, 0);
 });
 
 function showPhotoError(message) {

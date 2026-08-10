@@ -54,7 +54,10 @@
 
                 <div class="field">
                     <label for="fishName">魚種 <span class="required">必須</span></label>
-                    <input type="text" id="fishName" autocomplete="off" placeholder="例：アジ">
+                    <div class="fish-name-input-wrap">
+                        <input type="text" id="fishName" autocomplete="off" placeholder="例：アジ" aria-controls="fishNameCandidates" aria-autocomplete="list">
+                        <div id="fishNameCandidates" class="fish-name-candidates" role="listbox" aria-label="過去に保存した魚種" hidden></div>
+                    </div>
                 </div>
                 <div class="field">
                     <label for="fishSize">サイズ</label>
