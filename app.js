@@ -8,7 +8,7 @@ import { deletePhoto, getPhoto, savePhoto } from "./photo-store.js";
 import { SNS_CARD_DEFAULTS, redrawSnsCardPhoto, renderSnsCard } from "./sns-card.js";
 import { canShareSnsCard, createSnsCardFilename, downloadSnsCard, generateSnsCardJpeg, shareSnsCardFile } from "./sns-card-export.js";
 import { applySnsPhotoAdjustmentToLogs, normalizeSnsPhotoAdjustment, SNS_PHOTO_ADJUSTMENT_DEFAULTS } from "./sns-photo-adjustment.js";
-import { resetCatchForm } from "./catch-form.js";
+import { readCatchDateTime, resetCatchForm, setCatchDateTime } from "./catch-form.js";
 import { updateFishingLog } from "./log-editor.js";
 import { createFishNameCandidates, filterFishNameCandidates, prepareFishName,
   renderFishNameCandidates } from "./fish-name.js";
@@ -20,6 +20,9 @@ const elements = {
   editModeStatus: document.getElementById("editModeStatus"),
   editCancelButton: document.getElementById("editCancelButton"),
   saveButton: document.getElementById("saveButton"),
+  catchDateTimeFields: document.getElementById("catchDateTimeFields"),
+  catchDate: document.getElementById("catchDate"),
+  catchTime: document.getElementById("catchTime"),
   fishingPlace: document.getElementById("fishingPlace"),
   fishName: document.getElementById("fishName"),
   fishNameCandidates: document.getElementById("fishNameCandidates"),
@@ -284,6 +287,14 @@ elements.saveButton.addEventListener("click", async () => {
     return;
   }
 
+  let catchDateTime;
+  try {
+    catchDateTime = readCatchDateTime(elements);
+  } catch (error) {
+    alert(error.message);
+    elements.catchDate.focus();
+    return;
+  }
   const now = new Date();
   const logId = createUuid();
   let photoId = "";
@@ -313,9 +324,9 @@ elements.saveButton.addEventListener("click", async () => {
   }
 
   let tide = null;
-  if (currentTideDay) {
+  if (currentTideDay?.date === catchDateTime.dateKey) {
     try {
-      tide = createTideSnapshot(currentTideDay, now);
+      tide = createTideSnapshot(currentTideDay, catchDateTime.caughtAt);
     } catch (error) {
       console.warn("潮汐情報なしで釣果を保存します", error);
     }
@@ -323,8 +334,8 @@ elements.saveButton.addEventListener("click", async () => {
 
   const log = {
     id: logId,
-    date: now.toLocaleDateString("ja-JP"),
-    time: now.toLocaleTimeString("ja-JP", { hour: "2-digit", minute: "2-digit" }),
+    date: catchDateTime.date,
+    time: catchDateTime.time,
     place: elements.fishingPlace.value.trim(),
     temperature: currentTemperature,
     windSpeed: "",
@@ -412,6 +423,7 @@ async function startEditingLog(log) {
   elements.fishSize.value = log.size ?? "";
   elements.fishingMethod.value = log.method ?? "";
   elements.memo.value = log.memo ?? "";
+  elements.catchDateTimeFields.hidden = true;
   elements.catchFormCard.classList.add("is-editing");
   elements.formKicker.textContent = "EDIT CATCH";
   elements.formHeading.textContent = "釣果ログを編集";
@@ -484,6 +496,7 @@ function leaveEditMode() {
   elements.formHeading.textContent = "釣果を記録";
   elements.editModeStatus.hidden = true;
   elements.editCancelButton.hidden = true;
+  elements.catchDateTimeFields.hidden = false;
   elements.saveButton.textContent = "この釣果を保存";
   elements.locationButton.disabled = false;
   resetEnvironmentState();
@@ -813,4 +826,5 @@ async function initializeTide() {
 }
 
 showLogs();
+setCatchDateTime(elements);
 void initializeTide();
