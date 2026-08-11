@@ -58,7 +58,7 @@ export function renderTideGraph(svg, tideDay, at) {
     const nowX = x(at);
     svg.append(svgElement("line", { x1: nowX, x2: nowX, y1: padding.top, y2: height - padding.bottom, class: "tide-now-line" }));
     const nowLabel = svgElement("text", { x: nowX, y: 13, class: "tide-now-label", "text-anchor": "middle" });
-    nowLabel.textContent = "現在";
+    nowLabel.textContent = "釣果時刻";
     svg.append(nowLabel);
   }
 }
@@ -69,8 +69,9 @@ function toDateKey(date) {
 
 export function renderTidePanel(elements, tideDay, at) {
   const state = deriveTideState(tideDay, at);
+  elements.panel.classList.remove("tide-panel-error");
   elements.status.textContent = `${getTideCycle(at)} ・ ${state.trendLabel}`;
-  elements.level.textContent = `現在 約${state.estimatedHeight}cm`;
+  elements.level.textContent = `選択時刻 約${state.estimatedHeight}cm`;
   const nextLabel = state.nextExtreme.type === "high" ? "次の満潮" : "次の干潮";
   elements.next.textContent = `${nextLabel} ${formatTime(state.nextExtreme.time)}（${state.nextExtreme.height}cm）`;
   elements.station.textContent = `基準地点：${tideDay.station.name}`;
@@ -85,10 +86,33 @@ export function renderTidePanel(elements, tideDay, at) {
   renderTideGraph(elements.graph, tideDay, at);
 }
 
+function clearTidePanel(elements) {
+  elements.panel.classList.remove("tide-panel-error");
+  elements.graph.replaceChildren();
+  elements.extremes.replaceChildren();
+  elements.station.textContent = "基準地点：呉";
+  elements.source.textContent = "";
+  elements.source.removeAttribute("href");
+}
+
+export function renderTideLoading(elements) {
+  clearTidePanel(elements);
+  elements.status.textContent = "潮データを確認中…";
+  elements.level.textContent = "日時に対応する潮情報を確認しています";
+  elements.next.textContent = "入力と保存は続けられます";
+}
+
+export function renderTideUnavailable(elements) {
+  clearTidePanel(elements);
+  elements.status.textContent = "この日時の潮データはありません";
+  elements.level.textContent = "潮情報なしで保存できます";
+  elements.next.textContent = "別の日付・年の潮情報は代用しません";
+}
+
 export function renderTideError(elements, error) {
+  clearTidePanel(elements);
   elements.panel.classList.add("tide-panel-error");
   elements.status.textContent = "潮汐データを表示できません";
   elements.level.textContent = "釣果は潮汐情報なしで保存できます";
   elements.next.textContent = error.message;
-  elements.graph.replaceChildren();
 }

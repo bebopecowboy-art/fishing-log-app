@@ -1,6 +1,6 @@
 import { KureTideProvider } from "./providers/kure-provider.js";
 import { createTideSnapshot } from "./tide/domain.js";
-import { renderTideError, renderTidePanel } from "./tide/view.js";
+import { renderTideLoading, renderTidePanel, renderTideUnavailable } from "./tide/view.js";
 import { renderCatchDetail } from "./catch-detail.js";
 import { createUuid, ensureLogIds } from "./log-model.js";
 import { resizePhoto } from "./image-processor.js";
@@ -80,6 +80,7 @@ let snsPhotoAdjustment = { ...SNS_PHOTO_ADJUSTMENT_DEFAULTS };
 const snsPhotoPointers = new Map();
 let snsPhotoGesture = null;
 let environmentRefreshId = 0;
+let tideRefreshId = 0;
 let editingLogId = "";
 let editPhotoAction = "keep";
 
@@ -323,10 +324,11 @@ elements.saveButton.addEventListener("click", async () => {
     }
   }
 
+  const tideDay = await getTideDayForCatchDateTime(catchDateTime);
   let tide = null;
-  if (currentTideDay?.date === catchDateTime.dateKey) {
+  if (tideDay) {
     try {
-      tide = createTideSnapshot(currentTideDay, catchDateTime.caughtAt);
+      tide = createTideSnapshot(tideDay, catchDateTime.caughtAt);
     } catch (error) {
       console.warn("潮汐情報なしで釣果を保存します", error);
     }
@@ -513,6 +515,8 @@ elements.fishName.addEventListener("input", showFishNameCandidates);
 elements.fishName.addEventListener("blur", () => {
   setTimeout(hideFishNameCandidates, 0);
 });
+elements.catchDate.addEventListener("change", () => void initializeTide());
+elements.catchTime.addEventListener("change", () => void initializeTide());
 
 function showPhotoError(message) {
   elements.photoError.textContent = message;
@@ -814,15 +818,37 @@ async function getPlaceName(latitude, longitude) {
   }
 }
 
-async function initializeTide() {
+async function getTideDayForCatchDateTime(catchDateTime) {
   const provider = new KureTideProvider();
   try {
-    currentTideDay = await provider.getTideDay({ date: new Date() });
-    renderTidePanel(elements.tide, currentTideDay, new Date());
-  } catch (error) {
-    currentTideDay = null;
-    renderTideError(elements.tide, error);
+    const tideDay = await provider.getTideDay({ date: catchDateTime.dateKey });
+    createTideSnapshot(tideDay, catchDateTime.caughtAt);
+    return tideDay;
+  } catch (_error) {
+    return null;
   }
+}
+
+async function initializeTide() {
+  const refreshId = ++tideRefreshId;
+  currentTideDay = null;
+  renderTideLoading(elements.tide);
+  let catchDateTime;
+  try {
+    catchDateTime = readCatchDateTime(elements);
+  } catch (_error) {
+    if (refreshId === tideRefreshId) renderTideUnavailable(elements.tide);
+    return;
+  }
+  const tideDay = await getTideDayForCatchDateTime(catchDateTime);
+  if (refreshId !== tideRefreshId) return;
+  if (!tideDay) {
+    currentTideDay = null;
+    renderTideUnavailable(elements.tide);
+    return;
+  }
+  currentTideDay = tideDay;
+  renderTidePanel(elements.tide, tideDay, catchDateTime.caughtAt);
 }
 
 showLogs();
