@@ -54,7 +54,7 @@ test("unavailable rendering clears stale tide information", () => {
 
 test("date and time changes trigger tide refresh and save revalidates selected tide data", () => {
   const app = fs.readFileSync(new URL("../app.js", import.meta.url), "utf8");
-  assert.match(app, /catchDate\.addEventListener\("change", \(\) => void initializeTide\(\)\)/);
+  assert.match(app, /catchDate\.addEventListener\("change", \(\) => \{[\s\S]*?void initializeTide\(\);[\s\S]*?\}\)/);
   assert.match(app, /catchTime\.addEventListener\("change", \(\) => void initializeTide\(\)\)/);
   assert.match(app, /const tideDay = await getTideDayForCatchDateTime\(catchDateTime\)/);
   assert.match(app, /createTideSnapshot\(tideDay, catchDateTime\.caughtAt\)/);

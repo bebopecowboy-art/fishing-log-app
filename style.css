@@ -156,6 +156,14 @@ textarea { min-height: 88px; resize: vertical; }
 .button-primary { width: 100%; margin-top: 20px; padding: 15px; color: #05201e; background: linear-gradient(135deg, var(--accent), #8ce8d9); }
 .button-secondary { padding: 0 14px; color: var(--text); background: rgba(93, 183, 255, 0.16); border: 1px solid rgba(93, 183, 255, 0.32); }
 .button-danger { margin-top: 8px; padding: 8px 11px; color: var(--danger); background: rgba(255, 141, 141, 0.08); border: 1px solid rgba(255, 141, 141, 0.2); }
+
+.data-tools { margin-top: 18px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(13, 31, 41, 0.72); }
+.data-tools h2 { margin: 4px 0 0; font-size: 1.15rem; }
+.data-tools-note { margin: 8px 0 0; color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
+.data-tools-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.data-tools-actions .button { min-height: 44px; padding: 10px 12px; }
+.backup-status { min-height: 1.5em; margin: 10px 2px 0; color: #d8f5f1; font-size: 0.8rem; }
+.backup-status-error { color: var(--danger); }
 .edit-cancel { width: 100%; margin-top: 10px; padding: 13px; }
 
 .logs-section { margin-top: 32px; }
@@ -295,6 +303,7 @@ textarea { min-height: 88px; resize: vertical; }
     .tide-summary { grid-template-columns: 1fr; }
     .tide-extremes { grid-template-columns: 1fr; }
     .form-grid { grid-template-columns: 1fr; }
+    .data-tools-actions { grid-template-columns: 1fr; }
     .field-wide { grid-column: auto; }
     .tide-event-label { font-size: 10px; }
     .detail-dialog {

@@ -8,7 +8,8 @@ import { deletePhoto, getPhoto, savePhoto } from "./photo-store.js";
 import { SNS_CARD_DEFAULTS, redrawSnsCardPhoto, renderSnsCard } from "./sns-card.js";
 import { canShareSnsCard, createSnsCardFilename, downloadSnsCard, generateSnsCardJpeg, shareSnsCardFile } from "./sns-card-export.js";
 import { applySnsPhotoAdjustmentToLogs, normalizeSnsPhotoAdjustment, SNS_PHOTO_ADJUSTMENT_DEFAULTS } from "./sns-photo-adjustment.js";
-import { readCatchDateTime, resetCatchForm, setCatchDateTime } from "./catch-form.js";
+import { readCatchDateTime, resetCatchDateTimeIfDateCleared, resetCatchForm, setCatchDateTime } from "./catch-form.js";
+import { createBackupFilename, mergeFishingLogs, parseFishingLogBackup, serializeFishingLogBackup } from "./log-backup.js";
 import { updateFishingLog } from "./log-editor.js";
 import { createFishNameCandidates, filterFishNameCandidates, prepareFishName,
   renderFishNameCandidates } from "./fish-name.js";
@@ -20,6 +21,10 @@ const elements = {
   editModeStatus: document.getElementById("editModeStatus"),
   editCancelButton: document.getElementById("editCancelButton"),
   saveButton: document.getElementById("saveButton"),
+  backupExportButton: document.getElementById("backupExportButton"),
+  backupImportButton: document.getElementById("backupImportButton"),
+  backupFileInput: document.getElementById("backupFileInput"),
+  backupStatus: document.getElementById("backupStatus"),
   catchDateTimeFields: document.getElementById("catchDateTimeFields"),
   catchDate: document.getElementById("catchDate"),
   catchTime: document.getElementById("catchTime"),
@@ -515,8 +520,61 @@ elements.fishName.addEventListener("input", showFishNameCandidates);
 elements.fishName.addEventListener("blur", () => {
   setTimeout(hideFishNameCandidates, 0);
 });
-elements.catchDate.addEventListener("change", () => void initializeTide());
+elements.catchDate.addEventListener("change", () => {
+  resetCatchDateTimeIfDateCleared(elements);
+  void initializeTide();
+});
 elements.catchTime.addEventListener("change", () => void initializeTide());
+
+function setBackupStatus(message = "", isError = false) {
+  elements.backupStatus.textContent = message;
+  elements.backupStatus.classList.toggle("backup-status-error", isError);
+}
+
+elements.backupExportButton.addEventListener("click", () => {
+  try {
+    const now = new Date();
+    const json = serializeFishingLogBackup(fishingLogs, now);
+    const blob = new Blob([json], { type: "application/json;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = createBackupFilename(now);
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 0);
+    setBackupStatus(`${fishingLogs.length}件の釣果をバックアップしました`);
+  } catch (error) {
+    setBackupStatus(error?.message || "バックアップを書き出せませんでした", true);
+  }
+});
+
+elements.backupImportButton.addEventListener("click", () => {
+  elements.backupFileInput.value = "";
+  elements.backupFileInput.click();
+});
+
+elements.backupFileInput.addEventListener("change", async () => {
+  const file = elements.backupFileInput.files?.[0];
+  if (!file) return;
+  elements.backupImportButton.disabled = true;
+  try {
+    const restoredLogs = parseFishingLogBackup(await file.text());
+    const merged = mergeFishingLogs(fishingLogs, restoredLogs);
+    if (merged.addedCount > 0) {
+      persistFishingLogs(merged.logs);
+      fishingLogs = merged.logs;
+      showLogs();
+      setBackupStatus(`${merged.addedCount}件の釣果を復元しました`);
+    } else {
+      setBackupStatus("復元できる新しい釣果はありませんでした");
+    }
+  } catch (error) {
+    setBackupStatus(`バックアップファイルを読み込めませんでした：${error?.message || "形式が正しくありません"}`, true);
+  } finally {
+    elements.backupImportButton.disabled = false;
+    elements.backupFileInput.value = "";
+  }
+});
 
 function showPhotoError(message) {
   elements.photoError.textContent = message;

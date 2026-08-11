@@ -101,6 +101,20 @@
             <button id="saveButton" class="button button-primary" type="button">この釣果を保存</button>
         </section>
 
+        <section class="data-tools" aria-labelledby="dataToolsHeading">
+            <div>
+                <p class="section-kicker">DATA BACKUP</p>
+                <h2 id="dataToolsHeading">釣果データを守る</h2>
+                <p class="data-tools-note">釣果履歴をJSONファイルへ保存・復元できます。写真は含まれません。</p>
+            </div>
+            <div class="data-tools-actions">
+                <button id="backupExportButton" class="button button-secondary" type="button">バックアップを書き出す</button>
+                <button id="backupImportButton" class="button button-secondary" type="button">バックアップから復元</button>
+                <input id="backupFileInput" type="file" accept="application/json,.json" hidden>
+            </div>
+            <p id="backupStatus" class="backup-status" role="status" aria-live="polite"></p>
+        </section>
+
         <section class="logs-section" aria-labelledby="logsHeading">
             <div class="section-heading">
                 <p class="section-kicker">CATCH HISTORY</p>

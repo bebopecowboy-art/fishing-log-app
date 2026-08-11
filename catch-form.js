@@ -7,6 +7,12 @@ export function setCatchDateTime(elements, now = new Date()) {
   elements.catchTime.value = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
 }
 
+export function resetCatchDateTimeIfDateCleared(elements, now = new Date()) {
+  if (elements.catchDate.value) return false;
+  setCatchDateTime(elements, now);
+  return true;
+}
+
 export function readCatchDateTime(elements) {
   const dateMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(elements.catchDate.value);
   const timeMatch = /^(\d{2}):(\d{2})$/.exec(elements.catchTime.value);
