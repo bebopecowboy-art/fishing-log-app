@@ -108,9 +108,9 @@ button, input, textarea { font: inherit; }
 .field-wide { grid-column: 1 / -1; }
 .field label { display: block; margin-bottom: 7px; color: #d7e5ea; font-size: 0.85rem; font-weight: 700; }
 .field-group-label { display: block; margin-bottom: 7px; color: #d7e5ea; font-size: 0.85rem; font-weight: 700; }
-.datetime-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.datetime-row label { margin: 0; color: var(--muted); font-size: 0.72rem; }
-.datetime-row input { margin-top: 5px; color-scheme: dark; }
+.datetime-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+.datetime-row label { min-width: 0; max-width: 100%; margin: 0; color: var(--muted); font-size: 0.72rem; }
+.datetime-row input { min-width: 0; max-width: 100%; margin-top: 5px; color-scheme: dark; }
 .required { color: var(--accent); font-size: 0.65rem; }
 .optional { color: var(--muted); font-size: 0.72rem; font-weight: 500; }
 input, textarea {
@@ -160,6 +160,7 @@ textarea { min-height: 88px; resize: vertical; }
 .data-tools { margin-top: 18px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(13, 31, 41, 0.72); }
 .data-tools h2 { margin: 4px 0 0; font-size: 1.15rem; }
 .data-tools-note { margin: 8px 0 0; color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
+.data-tools-save-note { margin: 14px 0 0; color: var(--muted); font-size: 0.75rem; line-height: 1.5; }
 .data-tools-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
 .data-tools-actions .button { min-height: 44px; padding: 10px 12px; }
 .backup-status { min-height: 1.5em; margin: 10px 2px 0; color: #d8f5f1; font-size: 0.8rem; }

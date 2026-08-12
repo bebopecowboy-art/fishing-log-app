@@ -535,6 +535,7 @@ function setBackupStatus(message = "", isError = false) {
 }
 
 elements.backupExportButton.addEventListener("click", () => {
+  setBackupStatus();
   try {
     const now = new Date();
     const json = serializeFishingLogBackup(fishingLogs, now);
@@ -545,7 +546,6 @@ elements.backupExportButton.addEventListener("click", () => {
     link.download = createBackupFilename(now);
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 0);
-    setBackupStatus("保存画面を開きました。表示された画面から保存先を選んでください。iPhoneなどでは共有メニューから「ファイルに保存」を選ぶ場合があります。");
   } catch (error) {
     setBackupStatus(error?.message || "バックアップを書き出せませんでした", true);
   }

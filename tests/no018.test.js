@@ -26,9 +26,18 @@ test("backup UI uses plain language and explains emergency file saving", () => {
   assert.match(html, /端末のデータが消えた場合に備えて/);
   assert.match(html, /写真は含まれません/);
   assert.match(html, /保存するたびに新しいファイルが作成されます/);
+  assert.match(html, /iPhoneなどでは、次の画面で共有ボタンを押し、「ファイルに保存」を選んで保存してください。/);
   assert.doesNotMatch(html, /バックアップを書き出す|バックアップから復元/);
-  assert.match(app, /保存画面を開きました/);
-  assert.match(app, /iPhoneなどでは共有メニューから「ファイルに保存」/);
+  assert.match(app, /backupExportButton\.addEventListener\("click", \(\) => \{\s*setBackupStatus\(\);\s*try/);
+  assert.doesNotMatch(app, /保存画面を開きました/);
   assert.doesNotMatch(app, /件の釣果をバックアップしました/);
   assert.match(app, /件の釣果データを読み込みました/);
+});
+
+test("date and time inputs can shrink inside the form card on smartphone widths", () => {
+  const css = fs.readFileSync(new URL("../style.css", import.meta.url), "utf8");
+  assert.match(css, /\.datetime-row\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)/);
+  assert.match(css, /\.datetime-row label\s*\{[^}]*min-width:\s*0;[^}]*max-width:\s*100%/);
+  assert.match(css, /\.datetime-row input\s*\{[^}]*min-width:\s*0;[^}]*max-width:\s*100%/);
+  assert.match(css, /@media \(max-width:\s*420px\)\s*\{\s*\.datetime-row\s*\{\s*grid-template-columns:\s*1fr/);
 });
