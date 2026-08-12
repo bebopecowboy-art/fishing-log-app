@@ -8,7 +8,7 @@ import { deletePhoto, getPhoto, savePhoto } from "./photo-store.js";
 import { SNS_CARD_DEFAULTS, redrawSnsCardPhoto, renderSnsCard } from "./sns-card.js";
 import { canShareSnsCard, createSnsCardFilename, downloadSnsCard, generateSnsCardJpeg, shareSnsCardFile } from "./sns-card-export.js";
 import { applySnsPhotoAdjustmentToLogs, normalizeSnsPhotoAdjustment, SNS_PHOTO_ADJUSTMENT_DEFAULTS } from "./sns-photo-adjustment.js";
-import { readCatchDateTime, resetCatchDateTimeIfDateCleared, resetCatchForm, setCatchDateTime } from "./catch-form.js";
+import { readCatchDateTime, resetCatchDateTimeIfDateCleared, resetCatchForm, resetCatchTimeIfCleared, setCatchDateTime } from "./catch-form.js";
 import { createBackupFilename, mergeFishingLogs, parseFishingLogBackup, serializeFishingLogBackup } from "./log-backup.js";
 import { updateFishingLog } from "./log-editor.js";
 import { createFishNameCandidates, filterFishNameCandidates, prepareFishName,
@@ -524,7 +524,10 @@ elements.catchDate.addEventListener("change", () => {
   resetCatchDateTimeIfDateCleared(elements);
   void initializeTide();
 });
-elements.catchTime.addEventListener("change", () => void initializeTide());
+elements.catchTime.addEventListener("change", () => {
+  resetCatchTimeIfCleared(elements);
+  void initializeTide();
+});
 
 function setBackupStatus(message = "", isError = false) {
   elements.backupStatus.textContent = message;
@@ -542,7 +545,7 @@ elements.backupExportButton.addEventListener("click", () => {
     link.download = createBackupFilename(now);
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 0);
-    setBackupStatus(`${fishingLogs.length}件の釣果をバックアップしました`);
+    setBackupStatus("保存画面を開きました。表示された画面から保存先を選んでください。iPhoneなどでは共有メニューから「ファイルに保存」を選ぶ場合があります。");
   } catch (error) {
     setBackupStatus(error?.message || "バックアップを書き出せませんでした", true);
   }
@@ -564,12 +567,12 @@ elements.backupFileInput.addEventListener("change", async () => {
       persistFishingLogs(merged.logs);
       fishingLogs = merged.logs;
       showLogs();
-      setBackupStatus(`${merged.addedCount}件の釣果を復元しました`);
+      setBackupStatus(`${merged.addedCount}件の釣果データを読み込みました`);
     } else {
-      setBackupStatus("復元できる新しい釣果はありませんでした");
+      setBackupStatus("新しく読み込める釣果データはありませんでした");
     }
   } catch (error) {
-    setBackupStatus(`バックアップファイルを読み込めませんでした：${error?.message || "形式が正しくありません"}`, true);
+    setBackupStatus(`保存したデータを読み込めませんでした：${error?.message || "形式が正しくありません"}`, true);
   } finally {
     elements.backupImportButton.disabled = false;
     elements.backupFileInput.value = "";

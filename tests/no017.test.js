@@ -88,10 +88,10 @@ test("invalid backups are rejected before existing logs can change", () => {
 test("backup UI exports, imports, redraws, and reports restore counts", () => {
   const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
   const app = fs.readFileSync(new URL("../app.js", import.meta.url), "utf8");
-  assert.match(html, /バックアップを書き出す/);
-  assert.match(html, /バックアップから復元/);
+  assert.match(html, /データを保存する/);
+  assert.match(html, /保存したデータを読み込む/);
   assert.match(html, /写真は含まれません/);
   assert.match(app, /persistFishingLogs\(merged\.logs\)[\s\S]*?fishingLogs = merged\.logs;[\s\S]*?showLogs\(\)/);
-  assert.match(app, /件の釣果を復元しました/);
+  assert.match(app, /件の釣果データを読み込みました/);
   assert.doesNotMatch(app, /localStorage\.clear|deleteDatabase/);
 });

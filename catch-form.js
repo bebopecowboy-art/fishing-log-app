@@ -13,6 +13,12 @@ export function resetCatchDateTimeIfDateCleared(elements, now = new Date()) {
   return true;
 }
 
+export function resetCatchTimeIfCleared(elements, now = new Date()) {
+  if (elements.catchTime.value) return false;
+  elements.catchTime.value = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
+  return true;
+}
+
 export function readCatchDateTime(elements) {
   const dateMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(elements.catchDate.value);
   const timeMatch = /^(\d{2}):(\d{2})$/.exec(elements.catchTime.value);
