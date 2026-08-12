@@ -38,6 +38,9 @@ test("date and time inputs can shrink inside the form card on smartphone widths"
   const css = fs.readFileSync(new URL("../style.css", import.meta.url), "utf8");
   assert.match(css, /\.datetime-row\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)/);
   assert.match(css, /\.datetime-row label\s*\{[^}]*min-width:\s*0;[^}]*max-width:\s*100%/);
-  assert.match(css, /\.datetime-row input\s*\{[^}]*min-width:\s*0;[^}]*max-width:\s*100%/);
+  assert.match(css, /\.datetime-row input\[type="date"\],\s*\.datetime-row input\[type="time"\]\s*\{/);
+  assert.match(css, /\.datetime-row input\[type="time"\]\s*\{[^}]*display:\s*block;[^}]*width:\s*100%;[^}]*min-width:\s*0;[^}]*max-width:\s*100%/);
+  assert.match(css, /\.datetime-row input\[type="time"\]\s*\{[^}]*inline-size:\s*100%;[^}]*min-inline-size:\s*0;[^}]*max-inline-size:\s*100%/);
+  assert.match(css, /\.datetime-row input\[type="time"\]\s*\{[^}]*box-sizing:\s*border-box;[^}]*-webkit-appearance:\s*none;[^}]*appearance:\s*none/);
   assert.match(css, /@media \(max-width:\s*420px\)\s*\{\s*\.datetime-row\s*\{\s*grid-template-columns:\s*1fr/);
 });

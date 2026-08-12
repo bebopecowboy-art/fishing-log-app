@@ -1,0 +1,126 @@
+AI事業部 開発完了報告書 No.018 追加修正2
+
+作成日：2026/08/12
+件名：Otomo Fishing iPhone日時入力欄の横幅再修正
+
+【再調査で特定した原因】
+・添付実機画像により、前回修正公開後も日付・時刻inputの左端はカード内にある一方、右枠がカード外へ越えていることを確認した。
+・style.cssの指定順と詳細度を確認した結果、前回のmin-width／max-width指定を上書きする後続のdate／time専用ルールやiOS専用ルールは存在しなかった。
+・親要素のapp-shell、form-card、form-grid、field-wide、datetime-row、labelにも、固定幅や余白によって右側だけを押し出す別ルールはなかった。
+・原因は、iOSのネイティブdate／timeコントロールが外観と内部表示に固有寸法を持ち、通常のwidth／min-width／max-widthだけでは描画上のインライン寸法が十分に制約されなかったことと判断した。
+
+【前回の対策だけでは解消しなかった理由】
+・minmax(0, 1fr)とmin-width: 0は、グリッド列と要素のCSS最小幅を縮める対策であり、iOSネイティブコントロールの外観と内部固有寸法自体は解除していなかった。
+・max-width: 100%と物理width: 100%だけでは、iOS上の論理インライン寸法とネイティブappearanceを明示的に制御できていなかった。
+・前回ルールの詳細度不足や後続ルールによる上書きではなく、date／time特有のネイティブ描画が残ったことが主因と判断した。
+
+【修正内容】
+・日時inputだけを対象とする詳細度の高いセレクターへ変更した。
+・date／time inputへdisplay: blockを指定した。
+・物理幅としてwidth: 100%、min-width: 0、max-width: 100%を指定した。
+・論理幅としてinline-size: 100%、min-inline-size: 0、max-inline-size: 100%を指定した。
+・box-sizing: border-boxを日時input専用ルール内でも明示した。
+・iOSネイティブ外観による固有寸法を解除するため、-webkit-appearance: noneとappearance: noneを指定した。
+・inputのtype属性、date／time値、changeイベント、ピッカーを開くHTML構造は変更していない。
+・overflowで切り取る対策、端末固有の固定ピクセル幅は使用していない。
+
+【変更ファイル】
+・style.css
+・tests/no018.test.js
+
+【追加ファイル】
+・docs/development-instruction-no018-additional-fix-2-20260812.txt
+・docs/development-report-no018-additional-fix-2-20260812.txt
+・assets/84ED9A83-EC01-4281-B354-E43E852B4A14.jpeg（社長提供の実機確認画像。実装では変更していない）
+
+【最終的に有効となる日時入力専用CSS】
+・対象は.datetime-row input[type="date"]と.datetime-row input[type="time"]だけである。
+・セレクターは後続の汎用input, textareaルールより詳細度が高く、width等の日時専用指定が最終的に有効になる。
+・display、物理幅、論理幅、box-sizing、appearanceを同一ルール内で指定し、iOSの固有寸法を含めて入力欄自体の描画幅を親幅へ合わせる。
+・既存のdatetime-rowのminmax(0, 1fr)、labelのmin-width: 0、420px以下の1列表示も維持した。
+
+【各テスト幅の実測結果】
+・320px：DOM実測値は未取得。
+・375px：DOM実測値は未取得。
+・390px：DOM実測値は未取得。
+・430px：DOM実測値は未取得。
+・このセッションでは実ブラウザおよびiPhone DOMへ接続できないため、getBoundingClientRect、scrollWidth、clientWidthの実測は行っていない。
+・代替として、各幅に共通して働く相対幅100%、論理幅100%、最小幅0、最大幅100%、border-box、420px以下1列表示を静的テストで確認した。
+
+【日時欄以外への影響】
+・なし。
+・セレクターを.datetime-row内のdate／time inputへ限定した。
+・魚種、サイズ、場所、釣り方、メモ、写真、ボタン、カード、PCレイアウトは変更していない。
+
+【時刻クリア・日付クリア・潮情報更新への影響】
+・影響なし。
+・HTMLとJavaScriptは変更していない。
+・時刻クリア時の現在時刻復帰、入力中日付の維持、復帰後の潮情報再計算を維持した。
+・日付クリア、通常の日付変更、通常の時刻変更の既存仕様を維持した。
+
+【保存・読込への影響】
+・影響なし。
+・合格済みの保存前案内の位置、文言、表示方法を変更していない。
+・保存開始時の状態メッセージ消去、JSON生成、Blob URL、download属性、読込処理を変更していない。
+
+【JSONへの影響】
+・影響なし。format、version 1、ファイル名、生成内容、検証、重複除外、既存ログ優先、一覧再描画を変更していない。
+
+【localStorageへの影響】
+・影響なし。読み書き処理を変更せず、削除・初期化を行っていない。
+
+【IndexedDBへの影響】
+・影響なし。読み書き、削除、初期化を行っていない。
+
+【写真への影響】
+・影響なし。写真の保存、表示、削除、バックアップ対象外仕様を変更していない。
+
+【実施したテスト】
+・npm.cmd test（No.007～No.018追加修正2を含む全自動テスト）
+・date／time専用セレクターの存在確認
+・display: block、width、min-width、max-widthの確認
+・inline-size、min-inline-size、max-inline-sizeの確認
+・box-sizing、-webkit-appearance、appearanceの確認
+・既存のminmaxグリッド、label幅制約、420px以下1列表示の維持確認
+・時刻クリア、日付維持、潮再計算、日付クリアの回帰テスト
+・保存前案内、保存開始時状態、JSON生成・検証・読込の回帰テスト
+・全JavaScriptファイルのnode --check
+・git diff --check
+
+【テスト結果】
+・自動テスト：79件成功、0件失敗。
+・JavaScript構文チェック：28ファイル成功、失敗0件。
+・git diff --check：エラーなし。Windowsの改行変換予告のみ。
+
+【実ブラウザおよびiPhone実機で未確認の項目】
+・修正後の320px、375px、390px、430px実描画。
+・修正後のiPhoneホーム画面版での日付・時刻外枠、横スクロール、値の欠け・重なり。
+・修正後の日付ピッカーと時刻ピッカーの操作。
+・本報告では「実機確認済み」としていない。添付画像は修正前状態の再現証拠としてのみ使用した。
+
+【既知の問題】
+・なし。
+
+【残るリスク】
+・appearance: none適用後のdate／time内部表示とピッカー起動はiOSバージョンにより差がある可能性があり、最終確認にはiPhone実機が必要。
+・Chromium相当の幅確認だけではiOS固有のdate／time表示を完全には保証できない。
+
+【改善提案】
+・承認後に公開し、添付画像と同じiPhoneホーム画面版で左右端、横スクロール、値表示、両ピッカー起動を優先確認する。
+・実機で問題が残る場合は、実測したinputと親要素のgetBoundingClientRect値を取得して次の判断材料にする。
+
+【Codex利用状況】
+・取得不可。
+
+【作業規模】
+・小
+・理由：変更2ファイル、追加3ファイル。日時input専用CSSとその静的回帰テストだけを変更した。
+
+【作業難易度】
+・中
+・実施したテスト数：79件。
+・特に難しかった点：実機画像から、CSS上の幅制約ではなくiOSネイティブ外観の固有寸法が残っている可能性を切り分けること。
+・特に簡単だった点：保存・読込およびJavaScriptを変更対象から完全に除外すること。
+
+【Git・プッシュ・公開】
+・追加修正2指示書の承認待ち要件に従い、コミット、プッシュ、GitHub Pages反映、その他の公開は実施していない。
