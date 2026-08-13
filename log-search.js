@@ -1,7 +1,11 @@
 const SEARCH_FIELDS = ["name", "place", "method", "memo"];
 
 export function normalizeSearchText(value) {
-  return String(value ?? "").normalize("NFKC").toLocaleLowerCase().trim();
+  return String(value ?? "")
+    .normalize("NFKC")
+    .toLocaleLowerCase()
+    .replace(/[ァ-ヶ]/gu, (character) => String.fromCodePoint(character.codePointAt(0) - 0x60))
+    .trim();
 }
 
 export function createSearchTerms(query) {
