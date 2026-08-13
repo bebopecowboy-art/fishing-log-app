@@ -121,8 +121,17 @@
                 <p class="section-kicker">CATCH HISTORY</p>
                 <h2 id="logsHeading">釣果一覧</h2>
             </div>
+            <div class="log-search">
+                <label for="logSearchInput">釣果を検索</label>
+                <div class="log-search-row">
+                    <input id="logSearchInput" type="search" autocomplete="off" placeholder="魚種・場所・釣り方・メモを検索">
+                    <button id="logSearchClearButton" class="button button-secondary log-search-clear" type="button" hidden>クリア</button>
+                </div>
+                <p id="logResultCount" class="log-result-count" role="status" aria-live="polite">0件の釣果</p>
+            </div>
             <div id="resultArea" class="result-area"></div>
         </section>
+        <footer class="app-footer">Otomo Fishing Beta / Version 0.19.0</footer>
     </main>
 
     <dialog id="catchDetailDialog" class="detail-dialog" aria-labelledby="detailTitle">

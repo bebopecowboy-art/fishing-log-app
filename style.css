@@ -182,6 +182,12 @@ textarea { min-height: 88px; resize: vertical; }
 .edit-cancel { width: 100%; margin-top: 10px; padding: 13px; }
 
 .logs-section { margin-top: 32px; }
+.log-search { display: grid; gap: 8px; margin: 14px 0 16px; }
+.log-search label { color: var(--muted); font-size: 0.8rem; font-weight: 700; }
+.log-search-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; min-width: 0; }
+.log-search-row input { min-width: 0; }
+.log-search-clear { min-height: 44px; padding: 0 14px; }
+.log-result-count { margin: 0; color: var(--muted); font-size: 0.8rem; }
 .result-area { display: grid; gap: 12px; }
 .result-card { padding: 17px; border: 1px solid var(--line); border-radius: 15px; background: rgba(16, 33, 43, 0.72); }
 .result-card { cursor: pointer; }
@@ -192,6 +198,7 @@ textarea { min-height: 88px; resize: vertical; }
 .result-card p { margin: 8px 0 0; color: #d8e4e8; font-size: 0.88rem; line-height: 1.5; }
 .log-label { color: var(--muted); }
 .empty-state { padding: 28px; border: 1px dashed var(--line); border-radius: 15px; text-align: center; color: var(--muted); }
+.app-footer { padding: 30px 0 max(20px, env(safe-area-inset-bottom)); color: var(--muted); font-size: 0.7rem; text-align: center; overflow-wrap: anywhere; }
 
 .detail-dialog {
     width: min(100% - 28px, 620px);

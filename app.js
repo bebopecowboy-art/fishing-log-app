@@ -11,6 +11,7 @@ import { applySnsPhotoAdjustmentToLogs, normalizeSnsPhotoAdjustment, SNS_PHOTO_A
 import { readCatchDateTime, resetCatchDateTimeIfDateCleared, resetCatchForm, resetCatchTimeIfCleared, setCatchDateTime } from "./catch-form.js";
 import { createBackupFilename, mergeFishingLogs, parseFishingLogBackup, serializeFishingLogBackup } from "./log-backup.js";
 import { updateFishingLog } from "./log-editor.js";
+import { filterFishingLogs } from "./log-search.js";
 import { createFishNameCandidates, filterFishNameCandidates, prepareFishName,
   renderFishNameCandidates } from "./fish-name.js";
 
@@ -45,6 +46,9 @@ const elements = {
   weatherText: document.getElementById("weatherText"),
   refreshStatus: document.getElementById("refreshStatus"),
   resultArea: document.getElementById("resultArea"),
+  logSearchInput: document.getElementById("logSearchInput"),
+  logSearchClearButton: document.getElementById("logSearchClearButton"),
+  logResultCount: document.getElementById("logResultCount"),
   detailDialog: document.getElementById("catchDetailDialog"),
   detailTitle: document.getElementById("detailTitle"),
   detailContent: document.getElementById("detailContent"),
@@ -143,7 +147,12 @@ function addLine(container, label, value) {
 
 function showLogs() {
   elements.resultArea.replaceChildren();
-  if (fishingLogs.length === 0) {
+  const query = elements.logSearchInput.value;
+  const displayedLogs = filterFishingLogs(fishingLogs, query);
+  const isSearching = query.trim().length > 0;
+  elements.logSearchClearButton.hidden = !isSearching;
+  elements.logResultCount.textContent = `${displayedLogs.length}件の釣果`;
+  if (fishingLogs.length === 0 && !isSearching) {
     const empty = document.createElement("p");
     empty.className = "empty-state";
     empty.textContent = "最初の釣果を記録してみましょう。";
@@ -151,7 +160,15 @@ function showLogs() {
     return;
   }
 
-  fishingLogs.forEach((log, index) => {
+  if (displayedLogs.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "empty-state search-empty-state";
+    empty.textContent = "該当する釣果はありません";
+    elements.resultArea.append(empty);
+    return;
+  }
+
+  displayedLogs.forEach(({ log, index }) => {
     const card = document.createElement("article");
     card.className = "result-card";
     card.tabIndex = 0;
@@ -533,6 +550,13 @@ function setBackupStatus(message = "", isError = false) {
   elements.backupStatus.textContent = message;
   elements.backupStatus.classList.toggle("backup-status-error", isError);
 }
+
+elements.logSearchInput.addEventListener("input", showLogs);
+elements.logSearchClearButton.addEventListener("click", () => {
+  elements.logSearchInput.value = "";
+  showLogs();
+  elements.logSearchInput.focus();
+});
 
 elements.backupExportButton.addEventListener("click", () => {
   setBackupStatus();
