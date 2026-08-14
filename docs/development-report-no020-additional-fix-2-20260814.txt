@@ -1,0 +1,34 @@
+AI事業部 開発完了報告書 No.020追加修正（第2回）
+
+完了日：2026/08/14
+
+【変更内容】
+sns-card-renderer.jsのOtomo Y座標、4テーマの背景・写真枠色と、index.htmlの表示バージョンだけを変更した。関連テストを更新・追加した。
+
+Otomoは変更前x=580、y=900、幅400pxから、x=580、y=970、幅400pxへ変更。ワードマークはx=650、y=1195、幅390pxを維持した。ローカルHTTP上で共通レンダラーから生成した1080×1350画像を目視し、見える尻尾・下端がワードマーク上端へ接して重なり、座って見えることを確認した。画像、向き、回転、幅、横位置は変更していない。
+
+【テーマ色】
+クリーム：背景 #F7F3EA→#F3E9D8、枠 #EEE7D9→#E5D7C0
+ミント：背景 #E1F0EC→#CFE6E1、枠 #CFE3DD→#BBD8D1
+スカイ：背景 #E4EDF5→#D4E3EF、枠 #D0DEE9→#BED2E1
+サンド：背景 #F0E4D5→#E6D2BA、枠 #DFCFBC→#D2B99B
+文字、区切り線、アイコン色、写真filter、暖色オーバーレイは変更していない。UIの色見本も共通SNS_CARD_THEMESを参照するため新背景色と一致する。
+
+【ローカル確認】
+依存追加なしのNode HTTPサーバーを127.0.0.1:8765で起動し、HTTP 200とVersion 0.20.2を確認した。接続可能な対話ブラウザがなかったため、ローカルChromeヘッドレスで共通renderSnsCardCanvasを実行した。一時確認HTMLは生成後に削除し、本番コードへ残していない。
+
+確認画像：
+docs/no020-additional-fix-2-verification/sns-card-cream.png
+docs/no020-additional-fix-2-verification/sns-card-mint.png
+docs/no020-additional-fix-2-verification/sns-card-sky.png
+docs/no020-additional-fix-2-verification/sns-card-sand.png
+すべて1080×1350px。同じ写真、情報、位置、倍率、ロゴ、Otomoを使用した。プレビューと保存JPEGは引き続き同じCanvas描画結果を使用する。
+
+【データ・既存機能】
+釣果、写真、localStorageキー、IndexedDB、バックアップJSON version:1に変更なし。新しいキー、依存関係、デバッグUIは追加していない。ファーストビュー、空状態、登録・編集・削除・検索・潮・現在地・バックアップ処理も変更していない。
+
+【検証】
+全自動テスト、全JavaScript構文チェック、git diff --checkを実施。iPhone実機とホーム画面版は未確認。残る確認点は実機での約15～25pxの見た目上の重なりとワードマーク判読性の最終承認である。
+
+【公開】
+コミット、プッシュ、GitHub Pages反映、その他の公開は実施していない。見た目承認待ち。

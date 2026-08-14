@@ -7,13 +7,13 @@ export const SNS_CARD_WORDMARK_URL = "assets/otomo-fishing-wordmark.png";
 export const SNS_CARD_LAYOUT = Object.freeze({
   photo: Object.freeze({ x: 43, y: 43, width: 994, height: 740, radius: 30, borderWidth: 6 }),
   wordmark: Object.freeze({ x: 650, y: 1195, width: 390 }),
-  character: Object.freeze({ x: 580, y: 900, width: 400 })
+  character: Object.freeze({ x: 580, y: 970, width: 400 })
 });
 export const SNS_CARD_THEMES = Object.freeze({
-  cream: Object.freeze({ label: "クリーム", background: "#F7F3EA", photoFrame: "#EEE7D9", text: "#111820", rule: "#C7C0B3", icon: "#173E67" }),
-  mint: Object.freeze({ label: "ミント", background: "#E1F0EC", photoFrame: "#CFE3DD", text: "#15333A", rule: "#B5D0C8", icon: "#1F6F6A" }),
-  sky: Object.freeze({ label: "スカイ", background: "#E4EDF5", photoFrame: "#D0DEE9", text: "#172D40", rule: "#B8CAD8", icon: "#2D6080" }),
-  sand: Object.freeze({ label: "サンド", background: "#F0E4D5", photoFrame: "#DFCFBC", text: "#392B23", rule: "#CAB8A3", icon: "#6E5B35" })
+  cream: Object.freeze({ label: "クリーム", background: "#F3E9D8", photoFrame: "#E5D7C0", text: "#111820", rule: "#C7C0B3", icon: "#173E67" }),
+  mint: Object.freeze({ label: "ミント", background: "#CFE6E1", photoFrame: "#BBD8D1", text: "#15333A", rule: "#B5D0C8", icon: "#1F6F6A" }),
+  sky: Object.freeze({ label: "スカイ", background: "#D4E3EF", photoFrame: "#BED2E1", text: "#172D40", rule: "#B8CAD8", icon: "#2D6080" }),
+  sand: Object.freeze({ label: "サンド", background: "#E6D2BA", photoFrame: "#D2B99B", text: "#392B23", rule: "#CAB8A3", icon: "#6E5B35" })
 });
 export const SNS_CARD_DEFAULT_THEME = "cream";
 export const SNS_CARD_PHOTO_FILTER = Object.freeze({ canvas: "saturate(92%) contrast(96%) sepia(6%) brightness(102%)", warmOverlay: "rgba(244, 218, 178, 0.055)" });
