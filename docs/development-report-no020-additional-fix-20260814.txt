@@ -1,0 +1,31 @@
+AI事業部 開発完了報告書 No.020追加修正
+
+完了日：2026/08/14
+
+【実装内容】
+SNSカードのプレビューをHTML/CSS近似から1080×1350pxの最終Canvasへ変更し、保存・共有は画面で確認した同じCanvasからJPEG Blobを生成する構造へ統一した。クリーム、ミント、スカイ、サンドの4テーマ選択、顔なしワードマーク、ワードマーク上へ座るOtomo、Version 0.20.1を追加した。
+
+【変更・追加】
+共通描画：sns-card-renderer.js。連携変更：sns-card.js、sns-card-export.js、app.js、index.html、style.css。追加画像：assets/otomo-fishing-wordmark.png（1526×605px、RGBA、相対URL参照）。追加テスト：tests/no020-additional-fix.test.js。既存バージョンテストも0.20.1へ更新した。
+
+【テーマ】
+cream：#F7F3EA/#EEE7D9/#111820/#C7C0B3/#173E67
+mint：#E1F0EC/#CFE3DD/#15333A/#B5D0C8/#1F6F6A
+sky：#E4EDF5/#D0DEE9/#172D40/#B8CAD8/#2D6080
+sand：#F0E4D5/#DFCFBC/#392B23/#CAB8A3/#6E5B35
+順序は背景、写真枠、本文文字、区切り線、アイコン。SNS_CARD_THEMES一か所で管理する。初期値はcream。不正値もcreamへ戻す。選択IDは釣果とは別のlocalStorageキーotomoFishingSnsCardThemeへ保存し、バックアップJSONへ含めない。
+
+【描画構造と配置】
+renderSnsCardCanvasが背景、写真枠、写真、情報、ワードマーク、Otomoを順に描画する。プレビューとJPEG生成が同じ関数を使用し、通常の保存・共有は表示中Canvasを直接toBlobする。写真、ワードマーク、OtomoはPromise.allで読込完了を待つ。ワードマークはx=650、y=1195、幅390px。Otomoはx=580、y=900、幅400pxで左右反転なし。透明余白を含む1枚のPNGのまま、下側がワードマーク上端へ重なって座る関係とした。情報行幅を500pxへ制限し、右側の竿・キャラクターと主要情報の間隔を確保した。旧Fishing Log表記は描画しない。
+
+【写真】
+枠x=43、y=43、994×740px、角丸30px、線幅6pxを維持。既存の位置、拡大、cover切抜きとsaturate(92%) contrast(96%) sepia(6%) brightness(102%)、rgba(244,218,178,0.055)を共通Canvas内で維持した。filter非対応時は写真を通常描画する。写真なし・取得失敗時は空枠を出さず、テーマ、情報、ロゴ、Otomoを描画する。ロゴ・Otomo失敗は利用者向けエラーへ伝播する。
+
+【データ影響】
+新しいテーマ設定キー以外、釣果、写真、ID、IndexedDB、既存localStorageキー、バックアップJSON version:1に変更なし。ファーストビューと2つの空状態も変更なし。
+
+【検証】
+全自動テスト94件成功。全JavaScript構文チェック成功。git diff --check成功。実ブラウザ、iPhone Safari、ホーム画面版、4色の実画像保存は未確認であり、次回は座り位置、文字との間隔、各色の実機発色を確認する。
+
+【Codex・規模・公開】
+Codexを実装、テスト、報告作成に利用。詳細使用量は取得不能。規模：中。難易度：高（プレビュー・出力統一、非同期画像、操作状態、テーマを同時に扱うため）。コミット、プッシュ、GitHub Pages反映、公開は実施していない。社長承認待ち。

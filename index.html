@@ -130,7 +130,7 @@
             </div>
             <div id="resultArea" class="result-area"></div>
         </section>
-        <footer class="app-footer">Otomo Fishing Beta / Version 0.20.0</footer>
+        <footer class="app-footer">Otomo Fishing Beta / Version 0.20.1</footer>
     </main>
 
     <dialog id="catchDetailDialog" class="detail-dialog" aria-labelledby="detailTitle">
@@ -159,6 +159,15 @@
             <div class="sns-preview-stage">
                 <article id="snsCardPreview" class="sns-card-classic" aria-label="SNSカードプレビュー"></article>
             </div>
+            <fieldset id="snsThemeControls" class="sns-theme-controls">
+                <legend>カードカラー</legend>
+                <div class="sns-theme-options">
+                    <button type="button" data-theme="cream" aria-pressed="true"><span class="sns-theme-swatch"></span>クリーム</button>
+                    <button type="button" data-theme="mint" aria-pressed="false"><span class="sns-theme-swatch"></span>ミント</button>
+                    <button type="button" data-theme="sky" aria-pressed="false"><span class="sns-theme-swatch"></span>スカイ</button>
+                    <button type="button" data-theme="sand" aria-pressed="false"><span class="sns-theme-swatch"></span>サンド</button>
+                </div>
+            </fieldset>
             <fieldset class="sns-photo-controls">
                 <legend>写真の位置・拡大</legend>
                 <p class="sns-photo-help">写真をドラッグして位置を調整できます。スマートフォンでは2本指で拡大・縮小できます。</p>

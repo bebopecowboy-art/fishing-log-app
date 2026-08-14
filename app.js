@@ -5,8 +5,9 @@ import { renderCatchDetail } from "./catch-detail.js";
 import { createUuid, ensureLogIds } from "./log-model.js";
 import { resizePhoto } from "./image-processor.js";
 import { deletePhoto, getPhoto, savePhoto } from "./photo-store.js";
-import { SNS_CARD_DEFAULTS, redrawSnsCardPhoto, renderSnsCard } from "./sns-card.js";
+import { SNS_CARD_DEFAULTS, renderSnsCard } from "./sns-card.js";
 import { canShareSnsCard, createSnsCardFilename, downloadSnsCard, generateSnsCardJpeg, shareSnsCardFile } from "./sns-card-export.js";
+import { normalizeSnsCardTheme, SNS_CARD_DEFAULT_THEME, SNS_CARD_THEMES } from "./sns-card-renderer.js";
 import { applySnsPhotoAdjustmentToLogs, normalizeSnsPhotoAdjustment, SNS_PHOTO_ADJUSTMENT_DEFAULTS } from "./sns-photo-adjustment.js";
 import { readCatchDateTime, resetCatchDateTimeIfDateCleared, resetCatchForm, resetCatchTimeIfCleared, setCatchDateTime } from "./catch-form.js";
 import { createBackupFilename, mergeFishingLogs, parseFishingLogBackup, serializeFishingLogBackup } from "./log-backup.js";
@@ -57,6 +58,7 @@ const elements = {
   snsDialog: document.getElementById("snsCardDialog"),
   snsPreview: document.getElementById("snsCardPreview"),
   snsControls: document.getElementById("snsCardControls"),
+  snsThemeControls: document.getElementById("snsThemeControls"),
   snsCloseButton: document.getElementById("snsCloseButton"),
   snsDoneButton: document.getElementById("snsDoneButton"),
   snsSaveButton: document.getElementById("snsSaveButton"),
@@ -86,6 +88,8 @@ let detailPhotoUrl = "";
 let activeDetailLog = null;
 let detailOpening = false;
 let snsPhotoAdjustment = { ...SNS_PHOTO_ADJUSTMENT_DEFAULTS };
+const SNS_THEME_STORAGE_KEY = "otomoFishingSnsCardTheme";
+let snsCardTheme = SNS_CARD_DEFAULT_THEME;
 const snsPhotoPointers = new Map();
 let snsPhotoGesture = null;
 let environmentRefreshId = 0;
@@ -648,8 +652,10 @@ function openSnsCard(log) {
   if (elements.snsDialog.open) return;
   resetSnsVisibility();
   snsPhotoAdjustment = normalizeSnsPhotoAdjustment(log.snsPhotoAdjustment);
+  snsCardTheme = normalizeSnsCardTheme(localStorage.getItem(SNS_THEME_STORAGE_KEY));
+  updateSnsThemeControls();
   updateSnsPhotoScaleControl();
-  renderSnsCard(elements.snsPreview, log, detailPhotoUrl, getSnsVisibility(), snsPhotoAdjustment);
+  void redrawActiveSnsCard();
   setSnsActionStatus("");
   elements.snsShareButton.hidden = false;
   elements.snsDialog.showModal();
@@ -661,7 +667,7 @@ function closeSnsCard() {
 
 elements.snsControls.addEventListener("change", () => {
   if (!activeDetailLog || !detailPhotoUrl) return;
-  renderSnsCard(elements.snsPreview, activeDetailLog, detailPhotoUrl, getSnsVisibility(), snsPhotoAdjustment);
+  void redrawActiveSnsCard();
 });
 elements.snsCloseButton.addEventListener("click", closeSnsCard);
 elements.snsDoneButton.addEventListener("click", closeSnsCard);
@@ -682,10 +688,26 @@ function updateSnsPhotoScaleControl() {
   elements.snsPhotoScaleValue.textContent = `${percent}%`;
 }
 
-function redrawActiveSnsPhoto() {
-  redrawSnsCardPhoto(getSnsPhotoCanvas(), snsPhotoAdjustment);
+async function redrawActiveSnsCard() {
   updateSnsPhotoScaleControl();
+  try { await renderSnsCard(elements.snsPreview, activeDetailLog, detailPhotoUrl, getSnsVisibility(), snsPhotoAdjustment, snsCardTheme); }
+  catch (error) { setSnsActionStatus(error?.message || "SNSカードを表示できませんでした", true); }
 }
+
+function updateSnsThemeControls() {
+  elements.snsThemeControls.querySelectorAll("[data-theme]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.theme === snsCardTheme));
+    button.querySelector(".sns-theme-swatch").style.backgroundColor = SNS_CARD_THEMES[button.dataset.theme].background;
+  });
+}
+elements.snsThemeControls.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-theme]");
+  if (!button) return;
+  snsCardTheme = normalizeSnsCardTheme(button.dataset.theme);
+  localStorage.setItem(SNS_THEME_STORAGE_KEY, snsCardTheme);
+  updateSnsThemeControls();
+  void redrawActiveSnsCard();
+});
 
 function saveSnsPhotoAdjustment() {
   if (!activeDetailLog?.id) return;
@@ -738,7 +760,7 @@ elements.snsPreview.addEventListener("pointermove", (event) => {
       y: snsPhotoGesture.adjustment.y - ((event.clientY - snsPhotoGesture.y) * 2 / Math.max(1, bounds.height))
     });
   }
-  redrawActiveSnsPhoto();
+  void redrawActiveSnsCard();
 });
 
 function finishSnsPhotoPointer(event) {
@@ -754,12 +776,12 @@ elements.snsPreview.addEventListener("pointercancel", finishSnsPhotoPointer);
 
 elements.snsPhotoScale.addEventListener("input", () => {
   snsPhotoAdjustment = normalizeSnsPhotoAdjustment({ ...snsPhotoAdjustment, scale: Number(elements.snsPhotoScale.value) / 100 });
-  redrawActiveSnsPhoto();
+  void redrawActiveSnsCard();
 });
 elements.snsPhotoScale.addEventListener("change", saveSnsPhotoAdjustment);
 elements.snsPhotoResetButton.addEventListener("click", () => {
   snsPhotoAdjustment = { ...SNS_PHOTO_ADJUSTMENT_DEFAULTS };
-  redrawActiveSnsPhoto();
+  void redrawActiveSnsCard();
   saveSnsPhotoAdjustment();
 });
 
@@ -771,7 +793,10 @@ function setSnsActionStatus(message, isError = false) {
 async function createActiveSnsFile() {
   if (!activeDetailLog || !detailPhotoUrl) throw new Error("カードの写真を読み込めませんでした");
   const exportLog = { ...activeDetailLog, snsPhotoAdjustment: normalizeSnsPhotoAdjustment(snsPhotoAdjustment) };
-  const blob = await generateSnsCardJpeg(exportLog, detailPhotoUrl, getSnsVisibility());
+  const canvas = getSnsPhotoCanvas();
+  const blob = canvas
+    ? await new Promise((resolve, reject) => canvas.toBlob((value) => value ? resolve(value) : reject(new Error("JPEG画像を生成できませんでした")), "image/jpeg", 0.92))
+    : await generateSnsCardJpeg(exportLog, detailPhotoUrl, getSnsVisibility(), { themeId: snsCardTheme });
   const filename = createSnsCardFilename(activeDetailLog);
   return { blob, filename, file: new File([blob], filename, { type: blob.type }) };
 }

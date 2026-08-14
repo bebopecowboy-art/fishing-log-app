@@ -37,7 +37,7 @@ test("No.020: logo, distinct empty states, responsive sizing, and display versio
   assert.match(html, /assets\/otomo-fishing-logo-horizontal\.png[^>]+alt="Otomo Fishing"/);
   assert.doesNotMatch(html, />FISHING LOG<|<h1>Otomo Fishing<\/h1>/);
   assert.match(html, /釣れた瞬間を、30秒で記録。/);
-  assert.match(html, /Otomo Fishing Beta \/ Version 0\.20\.0/);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.20\.1/);
   assert.match(app, /fishingLogs\.length === 0 && !isSearching[\s\S]+otomo-character-empty-history\.png/);
   assert.match(app, /displayedLogs\.length === 0[\s\S]+otomo-character-search-empty\.png/);
   assert.match(app, /aria-hidden/);
@@ -87,13 +87,12 @@ test("No.020: export keeps 4:5 output, frames and tones only the card photo, the
   assert.equal(SNS_CARD_HEIGHT, 1350);
   assert.equal(blob.type, "image/jpeg");
   assert.deepEqual(SNS_CARD_LAYOUT.photo, {
-    x: 43, y: 43, width: 994, height: 740, radius: 30, borderWidth: 6, borderColor: "#eee7d9"
+    x: 43, y: 43, width: 994, height: 740, radius: 30, borderWidth: 6
   });
   assert.match(SNS_CARD_PHOTO_FILTER.canvas, /saturate\(92%\).*contrast\(96%\).*sepia\(6%\)/);
   const draws = operations.filter(([operation]) => operation === "drawImage");
-  assert.equal(draws.length, 2, "photo and fully loaded character must both be drawn");
-  assert.deepEqual(draws.at(-1).slice(-4, -1), [410, 700, 680]);
-  assert.ok(Math.abs(draws.at(-1).at(-1) - 544.194) < 0.01);
+  assert.equal(draws.length, 3, "photo, wordmark, and fully loaded character must all be drawn");
+  assert.deepEqual(draws.at(-1).slice(-4, -1), [580, 900, 400]);
 });
 
 test("No.020: a missing catch photo falls back to a card with Otomo and no empty frame", async () => {
@@ -102,5 +101,5 @@ test("No.020: a missing catch photo falls back to a card with Otomo and no empty
     { name: "写真なし" }, null, SNS_CARD_DEFAULTS,
     { documentObject: createCanvasEnvironment(operations), ImageConstructor: DeferredImage }
   );
-  assert.equal(operations.filter(([operation]) => operation === "drawImage").length, 1);
+  assert.equal(operations.filter(([operation]) => operation === "drawImage").length, 2);
 });
