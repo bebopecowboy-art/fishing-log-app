@@ -7,7 +7,7 @@ export const SNS_CARD_WORDMARK_URL = "assets/otomo-fishing-wordmark.png";
 export const SNS_CARD_LAYOUT = Object.freeze({
   photo: Object.freeze({ x: 43, y: 43, width: 994, height: 740, radius: 30, borderWidth: 6 }),
   wordmark: Object.freeze({ x: 650, y: 1195, width: 390 }),
-  character: Object.freeze({ x: 580, y: 970, width: 400 })
+  character: Object.freeze({ x: 610, y: 970, width: 400 })
 });
 export const SNS_CARD_THEMES = Object.freeze({
   cream: Object.freeze({ label: "クリーム", background: "#F3E9D8", photoFrame: "#E5D7C0", text: "#111820", rule: "#C7C0B3", icon: "#173E67" }),

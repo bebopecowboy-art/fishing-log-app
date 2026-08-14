@@ -130,7 +130,7 @@
             </div>
             <div id="resultArea" class="result-area"></div>
         </section>
-        <footer class="app-footer">Otomo Fishing Beta / Version 0.20.2</footer>
+        <footer class="app-footer">Otomo Fishing Beta / Version 0.20.3</footer>
     </main>
 
     <dialog id="catchDetailDialog" class="detail-dialog" aria-labelledby="detailTitle">
@@ -159,6 +159,13 @@
             <div class="sns-preview-stage">
                 <article id="snsCardPreview" class="sns-card-classic" aria-label="SNSカードプレビュー"></article>
             </div>
+            <fieldset class="sns-photo-controls">
+                <legend>写真の位置・拡大</legend>
+                <p class="sns-photo-help">写真をドラッグして位置を調整できます。スマートフォンでは2本指で拡大・縮小できます。</p>
+                <label for="snsPhotoScale">拡大率 <output id="snsPhotoScaleValue" for="snsPhotoScale">100%</output></label>
+                <input id="snsPhotoScale" type="range" min="100" max="300" step="1" value="100">
+                <button id="snsPhotoResetButton" class="button button-secondary sns-reset-button" type="button">位置をリセット</button>
+            </fieldset>
             <fieldset id="snsThemeControls" class="sns-theme-controls">
                 <legend>カードカラー</legend>
                 <div class="sns-theme-options">
@@ -167,13 +174,6 @@
                     <button type="button" data-theme="sky" aria-pressed="false"><span class="sns-theme-swatch"></span>スカイ</button>
                     <button type="button" data-theme="sand" aria-pressed="false"><span class="sns-theme-swatch"></span>サンド</button>
                 </div>
-            </fieldset>
-            <fieldset class="sns-photo-controls">
-                <legend>写真の位置・拡大</legend>
-                <p class="sns-photo-help">写真をドラッグして位置を調整できます。スマートフォンでは2本指で拡大・縮小できます。</p>
-                <label for="snsPhotoScale">拡大率 <output id="snsPhotoScaleValue" for="snsPhotoScale">100%</output></label>
-                <input id="snsPhotoScale" type="range" min="100" max="300" step="1" value="100">
-                <button id="snsPhotoResetButton" class="button button-secondary sns-reset-button" type="button">位置をリセット</button>
             </fieldset>
             <fieldset id="snsCardControls" class="sns-card-controls">
                 <legend>カードに表示する情報</legend>
