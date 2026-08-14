@@ -248,9 +248,9 @@ test("日付を簡潔な形式へ変換する", () => {
   assert.equal(SNS_CARD_DEFAULTS.date, false);
 });
 
-test("プレビューは4:5固定で、写真と情報欄を58:42に分ける", async () => {
+test("プレビューは4:5固定で、余白付き写真枠と情報欄を分ける", async () => {
   const css = await readFile(new URL("../style.css", import.meta.url), "utf8");
-  assert.match(css, /\.sns-card-classic[\s\S]*?grid-template-rows:\s*58%\s+42%/);
+  assert.match(css, /\.sns-card-classic[\s\S]*?grid-template-rows:\s*61%\s+39%/);
   assert.match(css, /\.sns-card-classic[\s\S]*?aspect-ratio:\s*4\s*\/\s*5/);
   assert.match(css, /\.sns-card-photo[\s\S]*?touch-action:\s*none/);
   assert.doesNotMatch(css, /\.sns-card-classic[\s\S]*?overflow:\s*(auto|scroll)/);

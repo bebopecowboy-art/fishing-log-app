@@ -112,6 +112,12 @@ export function renderSnsCard(container, log, photoUrl, visibility, adjustment =
   brand.className = "sns-card-brand";
   brand.textContent = model.appName;
   information.append(brand);
+  const character = document.createElement("img");
+  character.className = "sns-card-character";
+  character.src = "assets/otomo-character-fishing-back-final.png";
+  character.alt = "";
+  character.setAttribute("aria-hidden", "true");
+  information.append(character);
   container.append(photo, information);
 }
 import { drawAdjustedSnsPhoto, normalizeSnsPhotoAdjustment } from "./sns-photo-adjustment.js";

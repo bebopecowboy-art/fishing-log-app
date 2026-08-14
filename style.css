@@ -33,7 +33,8 @@ button, input, textarea { font: inherit; }
 }
 
 .app-header { margin-bottom: 24px; }
-.app-header h1 { margin: 4px 0 6px; font-size: clamp(2rem, 10vw, 3.25rem); letter-spacing: -0.05em; }
+.app-logo-heading { margin: 0 0 8px; line-height: 0; }
+.app-logo { display: block; width: min(100%, 430px); height: auto; }
 .eyebrow, .section-kicker { margin: 0; color: var(--accent); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; }
 .lead { margin: 0; color: var(--muted); }
 
@@ -197,7 +198,11 @@ textarea { min-height: 88px; resize: vertical; }
 .result-card time { color: var(--muted); font-size: 0.75rem; }
 .result-card p { margin: 8px 0 0; color: #d8e4e8; font-size: 0.88rem; line-height: 1.5; }
 .log-label { color: var(--muted); }
-.empty-state { padding: 28px; border: 1px dashed var(--line); border-radius: 15px; text-align: center; color: var(--muted); }
+.empty-state { display: grid; justify-items: center; gap: 10px; padding: 20px 16px; border: 1px dashed var(--line); border-radius: 15px; text-align: center; color: var(--muted); }
+.empty-state p { margin: 0; }
+.empty-state-character { display: block; height: auto; max-width: 100%; }
+.empty-state-character-history { width: min(var(--empty-history-width, 150px), 48vw); }
+.empty-state-character-search { width: min(var(--empty-search-width, 138px), 44vw); }
 .app-footer { padding: 30px 0 max(20px, env(safe-area-inset-bottom)); color: var(--muted); font-size: 0.7rem; text-align: center; overflow-wrap: anywhere; }
 
 .detail-dialog {
@@ -271,8 +276,14 @@ textarea { min-height: 88px; resize: vertical; }
     --card-muted: #555b5f;
     --card-rule: #c8cccd;
     container-type: inline-size;
+    --sns-photo-margin: 4cqw;
+    --sns-photo-radius: 2.8cqw;
+    --sns-character-width: 68cqw;
+    --sns-character-right: 0cqw;
+    --sns-character-bottom: 6.5cqw;
     display: grid;
-    grid-template-rows: 58% 42%;
+    grid-template-rows: 61% 39%;
+    padding: var(--sns-photo-margin) var(--sns-photo-margin) 0;
     width: min(100%, calc(70dvh * 0.8), 440px);
     aspect-ratio: 4 / 5;
     overflow: hidden;
@@ -283,9 +294,9 @@ textarea { min-height: 88px; resize: vertical; }
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
     font-family: "Hiragino Sans", "Yu Gothic UI", sans-serif;
 }
-.sns-card-photo { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+.sns-card-photo { display: block; width: 100%; height: 100%; border: 0.55cqw solid #eee7d9; border-radius: var(--sns-photo-radius); cursor: grab; filter: saturate(0.92) contrast(0.96) sepia(0.06) brightness(1.02); touch-action: none; }
 .sns-card-photo:active { cursor: grabbing; }
-.sns-card-information { position: relative; min-height: 0; padding: 4.2cqw 5.5cqw 7cqw; overflow: hidden; }
+.sns-card-information { position: relative; min-height: 0; margin: 0 calc(-1 * var(--sns-photo-margin)); padding: 4.2cqw 5.5cqw 7cqw; }
 .sns-card-headline { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 3cqw; padding-bottom: 2.2cqw; border-bottom: 1px solid var(--card-rule); }
 .sns-card-fish, .sns-card-size { min-width: 0; overflow: hidden; color: var(--card-text); line-height: 1.12; text-overflow: ellipsis; white-space: nowrap; }
 .sns-card-fish { font-size: 7.4cqw; }
@@ -295,6 +306,7 @@ textarea { min-height: 88px; resize: vertical; }
 .sns-card-icon { color: #102e5d; font-size: 1.05em; font-weight: 900; text-align: center; }
 .sns-card-value {
     display: -webkit-box;
+    max-width: 58cqw;
     overflow: hidden;
     overflow-wrap: anywhere;
     -webkit-box-orient: vertical;
@@ -302,6 +314,7 @@ textarea { min-height: 88px; resize: vertical; }
 }
 .sns-card-row-memo .sns-card-value { -webkit-line-clamp: 2; }
 .sns-card-brand { position: absolute; right: 5.5cqw; bottom: 2.7cqw; color: var(--card-muted); font-size: 2.8cqw; }
+.sns-card-character { position: absolute; z-index: 2; right: var(--sns-character-right); bottom: var(--sns-character-bottom); width: var(--sns-character-width); height: auto; pointer-events: none; }
 .sns-card-controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin: 16px 0 0; padding: 14px; border: 1px solid var(--line); border-radius: 14px; }
 .sns-card-controls legend { padding: 0 6px; color: var(--muted); font-size: 0.78rem; font-weight: 700; }
 .sns-card-controls label { display: flex; align-items: center; gap: 7px; padding: 8px; border-radius: 9px; background: rgba(3, 12, 18, 0.3); font-size: 0.82rem; }

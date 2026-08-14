@@ -153,17 +153,31 @@ function showLogs() {
   elements.logSearchClearButton.hidden = !isSearching;
   elements.logResultCount.textContent = `${displayedLogs.length}件の釣果`;
   if (fishingLogs.length === 0 && !isSearching) {
-    const empty = document.createElement("p");
-    empty.className = "empty-state";
-    empty.textContent = "最初の釣果を記録してみましょう。";
+    const empty = document.createElement("div");
+    empty.className = "empty-state empty-state-history";
+    const character = document.createElement("img");
+    character.className = "empty-state-character empty-state-character-history";
+    character.src = "assets/otomo-character-empty-history.png";
+    character.alt = "";
+    character.setAttribute("aria-hidden", "true");
+    const message = document.createElement("p");
+    message.textContent = "最初の釣果を記録してみましょう。";
+    empty.append(character, message);
     elements.resultArea.append(empty);
     return;
   }
 
   if (displayedLogs.length === 0) {
-    const empty = document.createElement("p");
+    const empty = document.createElement("div");
     empty.className = "empty-state search-empty-state";
-    empty.textContent = "該当する釣果はありません";
+    const character = document.createElement("img");
+    character.className = "empty-state-character empty-state-character-search";
+    character.src = "assets/otomo-character-search-empty.png";
+    character.alt = "";
+    character.setAttribute("aria-hidden", "true");
+    const message = document.createElement("p");
+    message.textContent = "該当する釣果はありません";
+    empty.append(character, message);
     elements.resultArea.append(empty);
     return;
   }

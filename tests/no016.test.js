@@ -10,7 +10,7 @@ test("user-facing application name is Otomo Fishing and No.015 icons remain", ()
   assert.match(html, /<title>Otomo Fishing<\/title>/);
   assert.match(html, /name="application-name" content="Otomo Fishing"/);
   assert.match(html, /name="apple-mobile-web-app-title" content="Otomo Fishing"/);
-  assert.match(html, /<h1>Otomo Fishing<\/h1>/);
+  assert.match(html, /<h1 class="app-logo-heading"><img[^>]+alt="Otomo Fishing"[^>]*><\/h1>/);
   assert.doesNotMatch(html, /釣果メモアプリ|<h1>釣果メモ<\/h1>/);
   assert.match(html, /otomo-icon-32\.png\?v=15/);
   assert.match(html, /otomo-icon-180\.png\?v=15/);
