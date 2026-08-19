@@ -1,0 +1,2892 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-17T05:22:10.940Z",
+  "converterVersion": "1.0.0",
+  "source": "https://www.data.jma.go.jp/kaiyou/db/tide/suisan/index.php",
+  "years": {
+    "2026": {
+      "stationListUrl": "https://www.data.jma.go.jp/kaiyou/db/tide/suisan/station",
+      "files": {
+        "WN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/WN.txt",
+          "days": 365,
+          "bytes": 52418,
+          "sha256": "754a028ac48597f29aac418421548b648b388fced1bc1bd7e4123f8320e90069"
+        },
+        "KE": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KE.txt",
+          "days": 365,
+          "bytes": 58396,
+          "sha256": "cfcc00526ec69a2b7108d2d4cb1e32179455135ee9809b0c785de06238b51084"
+        },
+        "A0": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/A0.txt",
+          "days": 365,
+          "bytes": 58127,
+          "sha256": "a2abe316ddb7d6c355acdb22fb194c773dd050506fbaebf774596d90520a0d03"
+        },
+        "AS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/AS.txt",
+          "days": 365,
+          "bytes": 57870,
+          "sha256": "4638226bffb07af70a445b11151a63afc93ead51cdd4f77f5faadfae4eab756a"
+        },
+        "A6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/A6.txt",
+          "days": 365,
+          "bytes": 57907,
+          "sha256": "8f26f1ebbaa2e5922b9949c6d923185dbbae90d9b5610a7d0462d5931e474ed9"
+        },
+        "NM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/NM.txt",
+          "days": 365,
+          "bytes": 66648,
+          "sha256": "9d63c862cb5d01b481c22d030f3481e2070b6b41f5fadbf093b364b22f7f2144"
+        },
+        "HN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/HN.txt",
+          "days": 365,
+          "bytes": 65697,
+          "sha256": "0918a046b564e87e240549d13bb50432c20e099f381bee3ce8d8cf6d0d0a0416"
+        },
+        "KP": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KP.txt",
+          "days": 365,
+          "bytes": 65552,
+          "sha256": "ca58aa30537a7b72615482b239c1f88c5093bbaf198b4e039376767d61683d9a"
+        },
+        "KR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KR.txt",
+          "days": 365,
+          "bytes": 66534,
+          "sha256": "a1497205e84f2f082913f92c103b540e97f711bc3893fd1cdce2db9f827919ab"
+        },
+        "B1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/B1.txt",
+          "days": 365,
+          "bytes": 66107,
+          "sha256": "8686f4ea3455181c2c0eb54a421ecaeb75dc8658db87088bbdca765f52dbeb1d"
+        },
+        "A9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/A9.txt",
+          "days": 365,
+          "bytes": 67425,
+          "sha256": "fc810b8e8b0cf6fbfd070a17cce10d93407151e3419d30f1990447099455db8d"
+        },
+        "C8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/C8.txt",
+          "days": 365,
+          "bytes": 67052,
+          "sha256": "5814cb79368215b9b99ebf1431fbcf715da688a966e669f2853e92409c636b7b"
+        },
+        "TM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/TM.txt",
+          "days": 365,
+          "bytes": 67030,
+          "sha256": "587a0236afcd7fb8a17a6ec889f0c01b5410994ac75663d5d60320993c9bbce7"
+        },
+        "SO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SO.txt",
+          "days": 365,
+          "bytes": 67025,
+          "sha256": "73bf475517fe68512a44a612ed96d3c2a83549c3806aa3dcdb7a7a7ea6837c0e"
+        },
+        "A8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/A8.txt",
+          "days": 365,
+          "bytes": 68354,
+          "sha256": "add01b482c9bc4320836f749490877bf7d15bd81abdf4980558f27dec22bf645"
+        },
+        "A3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/A3.txt",
+          "days": 365,
+          "bytes": 68207,
+          "sha256": "6c421cde64fe589a3efc3234d47df28cd47b46120a9a897628714c9e4190fbe6"
+        },
+        "HK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/HK.txt",
+          "days": 365,
+          "bytes": 62752,
+          "sha256": "10f75c2c0101052ac177a0aac17a3d8ad135120b5c5b84fcc101b33e040ee2c5"
+        },
+        "Q0": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Q0.txt",
+          "days": 365,
+          "bytes": 61961,
+          "sha256": "44b03e963c2ce5c78b38c88e78d9c791ff5354066b5350e2247b015b7b8de527"
+        },
+        "A5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/A5.txt",
+          "days": 365,
+          "bytes": 61049,
+          "sha256": "ae272becd46cde78585b62f71d948cc4b5f0d36dd36f81cc169648fa4c6d0031"
+        },
+        "ES": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ES.txt",
+          "days": 365,
+          "bytes": 55200,
+          "sha256": "61236621065fcec2471160cbe80ebc2e1b9b7ae96df8e56c58db9376b224e37a"
+        },
+        "ZP": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZP.txt",
+          "days": 365,
+          "bytes": 59327,
+          "sha256": "ac23e933a718feff50f735d9719b6899d1668917c76a68c19a1471f981f48005"
+        },
+        "OR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/OR.txt",
+          "days": 365,
+          "bytes": 59369,
+          "sha256": "212165d0becd7d6f735223196efb151dc47444be7814a3cfe851bb1ce88b6907"
+        },
+        "SE": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SE.txt",
+          "days": 365,
+          "bytes": 57363,
+          "sha256": "0ed9ff09e5c70a99dbe4c25c840fface729ffff9b461fea7f496c02884729716"
+        },
+        "B6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/B6.txt",
+          "days": 365,
+          "bytes": 58376,
+          "sha256": "55fed7fc348435a09cc3dfde25647ed097ddbc30bae31c67d97e9c0b0dca6324"
+        },
+        "B5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/B5.txt",
+          "days": 365,
+          "bytes": 57828,
+          "sha256": "2e4dd6070af74e87a644b0a7b0a5b0c4b16be9a8a52713b1206730eaa29234ac"
+        },
+        "Z8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Z8.txt",
+          "days": 365,
+          "bytes": 57295,
+          "sha256": "8d8e6d921dc936eb535a2290e51026ea93e5f8b9dbded88f77237e77dd8b25d6"
+        },
+        "B3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/B3.txt",
+          "days": 365,
+          "bytes": 57602,
+          "sha256": "3c78b156c5ca66e71f79c5ca23e61c26842573e009f90813c5aa98f9a794be10"
+        },
+        "IK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/IK.txt",
+          "days": 365,
+          "bytes": 57771,
+          "sha256": "c04baeb99fc7db40c140d45e006ece993132245c05df8dbadaa99d4c0422a6ad"
+        },
+        "B2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/B2.txt",
+          "days": 365,
+          "bytes": 57763,
+          "sha256": "37f2026f5ad785d7f5a2e30d627c73a6975c739e4d02d4710926377284756f4f"
+        },
+        "F3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/F3.txt",
+          "days": 365,
+          "bytes": 56060,
+          "sha256": "2345a6771b5ebaa98d3fe0bc4441cc2646ff97f44da2a5ab2c70627dfa51e9b8"
+        },
+        "Q1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Q1.txt",
+          "days": 365,
+          "bytes": 62806,
+          "sha256": "02f9cfb2df39f9d3a292ec44b533d22886fc31c90ae24f7c774689f483317a4e"
+        },
+        "AO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/AO.txt",
+          "days": 365,
+          "bytes": 63217,
+          "sha256": "1b26f86590f9fc34288170473b5042ef2975679a31fa9163638019031d343d39"
+        },
+        "ZA": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZA.txt",
+          "days": 365,
+          "bytes": 63218,
+          "sha256": "82dea35ff403bf05863b1772069ea2dc1c07c69b1071a3ece0b58d21abe21314"
+        },
+        "Q2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Q2.txt",
+          "days": 365,
+          "bytes": 63300,
+          "sha256": "3e1f4f8822f1a15a4b04cb5a1d490dbce97010ebd8f05d184886ff99bec39a4e"
+        },
+        "B4": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/B4.txt",
+          "days": 365,
+          "bytes": 63140,
+          "sha256": "4cd9f97569727c2c1e2a1509d213d765da45e9c7acf1f0fa0810008fbce16ad0"
+        },
+        "SH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SH.txt",
+          "days": 365,
+          "bytes": 66282,
+          "sha256": "fae7f5da17bac8c775d349e57e6020057403f7c7b338fadf27c5ec9a671ff237"
+        },
+        "XS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/XS.txt",
+          "days": 365,
+          "bytes": 66538,
+          "sha256": "e75fc2279892ae91115e6c6a250742ad9d508c9e2715284017eb5174cd8ca968"
+        },
+        "HG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/HG.txt",
+          "days": 365,
+          "bytes": 66651,
+          "sha256": "3264900b5225b142ad74c3b875e1cc5f65ef1e9428f978d0d209f56df6f5c6d0"
+        },
+        "XT": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/XT.txt",
+          "days": 365,
+          "bytes": 67076,
+          "sha256": "550336132b1f7d24058482424e1eb8872c1ae6807cc52d66e25fe9ad9b24fc73"
+        },
+        "MY": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MY.txt",
+          "days": 365,
+          "bytes": 66172,
+          "sha256": "c3d1262e20ff75b9c22beda543f2d68feef6b7c91fcfc5c4ed4bda5b9f8bb233"
+        },
+        "Q6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Q6.txt",
+          "days": 365,
+          "bytes": 66625,
+          "sha256": "2a5939fef0ed591517befb075a5efbde7f28a7ed3118ada1b668b09125280d48"
+        },
+        "OF": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/OF.txt",
+          "days": 365,
+          "bytes": 66956,
+          "sha256": "38892fcb94da89ec2cd5448c2114435a0047a5a51ea4dd42da7873058dec9c2d"
+        },
+        "AY": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/AY.txt",
+          "days": 365,
+          "bytes": 66998,
+          "sha256": "f31e2ab1011ec6fbf4eb30bbba406c5a882207f496590017dede24885e78b157"
+        },
+        "E6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/E6.txt",
+          "days": 365,
+          "bytes": 67292,
+          "sha256": "e4e85f04b9ae3fb4a2acd45ce2768286ccab9cee0d7314f1a8e0a2af8bc99611"
+        },
+        "SG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SG.txt",
+          "days": 365,
+          "bytes": 67835,
+          "sha256": "b77457a043d23b4a8748d691150714d21109d9990002c3db8ffa81d124c24fa3"
+        },
+        "SD": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SD.txt",
+          "days": 365,
+          "bytes": 67667,
+          "sha256": "98341bc8e8096d220e2523d7a9c44ad0ccc7099d8d24438b8541ceb2a5df31fa"
+        },
+        "ZM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZM.txt",
+          "days": 365,
+          "bytes": 67174,
+          "sha256": "44a76c2a652f5b160d0beb12193623919ec52d27605e2d4e4f0149f3c7693ce0"
+        },
+        "ON": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ON.txt",
+          "days": 365,
+          "bytes": 66541,
+          "sha256": "bb93a7d41ffa72d2d7cd6136bb4c3b84ab6e7b08f347bc3d314435e1a3ef8cb1"
+        },
+        "D1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/D1.txt",
+          "days": 365,
+          "bytes": 66971,
+          "sha256": "5991b188781cc7353370a561f5a632fecee9993d349e0debf979fcbc9a8c08e5"
+        },
+        "D3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/D3.txt",
+          "days": 365,
+          "bytes": 66965,
+          "sha256": "7bccd1e7a4b9af9ab9340fc13cf703adf4357c77c398a826978a4202377e1e4d"
+        },
+        "D2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/D2.txt",
+          "days": 365,
+          "bytes": 67308,
+          "sha256": "1dcad601a5e09e0b62be7f059d9fcbc61c5a7f7d291f077dba9c5cc84e72c702"
+        },
+        "CS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/CS.txt",
+          "days": 365,
+          "bytes": 67356,
+          "sha256": "70a5ae3abbe565df113d876f48f5e119627946f8e0302fd336d2bb64964e218f"
+        },
+        "ZF": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZF.txt",
+          "days": 365,
+          "bytes": 68020,
+          "sha256": "a96e3e681c0780ea0126ced5bad42ce1f91cdd29910ca697bb60ee3fd3c26350"
+        },
+        "MR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MR.txt",
+          "days": 365,
+          "bytes": 67942,
+          "sha256": "a7f1b2303420b9f83d9a8504aa98f04f3c9f87b78db473504512f8ec5ed3882b"
+        },
+        "TT": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/TT.txt",
+          "days": 365,
+          "bytes": 69010,
+          "sha256": "906e2cdb3611e583bf0ce0dd3803340c3c876b81e8cea14d62854b6271024011"
+        },
+        "KZ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KZ.txt",
+          "days": 365,
+          "bytes": 70192,
+          "sha256": "1089d376f620c250c6b978407846e7cae7c7988b35a924211507d3756504c008"
+        },
+        "QL": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QL.txt",
+          "days": 365,
+          "bytes": 70335,
+          "sha256": "3ebaf1a421da48b36a356fbe87a85251b232ab0836ad0cb2df21a0849830083d"
+        },
+        "CB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/CB.txt",
+          "days": 365,
+          "bytes": 70353,
+          "sha256": "45db07fe8bfc85f9dbf57ea92c88362c8ac965edf16f12c62a0ccedd0dcab007"
+        },
+        "TK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/TK.txt",
+          "days": 365,
+          "bytes": 70322,
+          "sha256": "8a2d2186d57f6cabeba211b7da77a806f0b8c3dec472e24200c6bf79d15e05fe"
+        },
+        "KW": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KW.txt",
+          "days": 365,
+          "bytes": 70149,
+          "sha256": "e5fea1da7777ee42d8ac3fdd1072704e639bb2c631f94a9de8735896c18dd4c5"
+        },
+        "YK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/YK.txt",
+          "days": 365,
+          "bytes": 70083,
+          "sha256": "d07ed0a2af98529073f9981a37d654c7286d42079ca6d4ac37c5d6ce5e037ef5"
+        },
+        "QS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QS.txt",
+          "days": 365,
+          "bytes": 70163,
+          "sha256": "b603b6635676faf8cfc561fdd8ef7f7051d804dcc742470c4afb7295482866eb"
+        },
+        "HM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/HM.txt",
+          "days": 365,
+          "bytes": 70119,
+          "sha256": "b933e655b99695921a556c1cfb8dd4beff68e5bd3570ab73325a00ed1013019e"
+        },
+        "QN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QN.txt",
+          "days": 365,
+          "bytes": 69725,
+          "sha256": "e991a8b6a359c71c427c41c34aca1474deb73e630796ee9b75c324be0d79f091"
+        },
+        "Z1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Z1.txt",
+          "days": 365,
+          "bytes": 68300,
+          "sha256": "f57d3913e8a01b50c7278a0d1f2cdeea8b2d64ef4c2e9ed19df091e181bc8afb"
+        },
+        "OK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/OK.txt",
+          "days": 365,
+          "bytes": 67824,
+          "sha256": "084c94298f74d7480582edcf29b2a63f36ef3a38e5faf7611c7a91c0cad0652d"
+        },
+        "QO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QO.txt",
+          "days": 365,
+          "bytes": 68800,
+          "sha256": "40a059975ac64fb037a8bedcb569ac2dba06411c00a3443608a683d200998a0c"
+        },
+        "MJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MJ.txt",
+          "days": 365,
+          "bytes": 68181,
+          "sha256": "a629a979363464cc522c195e682b66ec39b617063a3187a26ed95d3dfdccf562"
+        },
+        "QP": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QP.txt",
+          "days": 365,
+          "bytes": 67976,
+          "sha256": "cfafdf0e2a2a259b52fe8a9b7b6f01a244107ac997d0897f7dc8c97ccd7bfe07"
+        },
+        "D4": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/D4.txt",
+          "days": 365,
+          "bytes": 68333,
+          "sha256": "23e63fe7fc268e05ebe5956df196cc66a57e9f0931301cfbb82c7832c8c77d14"
+        },
+        "QQ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QQ.txt",
+          "days": 365,
+          "bytes": 66611,
+          "sha256": "174da5711dc1502fa400bd193a6f50d55abc076f62ddb1e8169596dfabd89b4b"
+        },
+        "CC": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/CC.txt",
+          "days": 365,
+          "bytes": 64694,
+          "sha256": "19534520e6674a790e232b784c899e37f373e26b1220987f20cfa3121ba3d290"
+        },
+        "MC": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MC.txt",
+          "days": 365,
+          "bytes": 57240,
+          "sha256": "fd6219e46e002646786ac0688a287a61e5c8ef7cfcf498575be85dcf85430001"
+        },
+        "D8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/D8.txt",
+          "days": 365,
+          "bytes": 68207,
+          "sha256": "4387f7bd0411af2ef47480c86e36cde0b6f5af3a7da739e7167779ba7436ce9b"
+        },
+        "OD": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/OD.txt",
+          "days": 365,
+          "bytes": 68387,
+          "sha256": "f8d562d88c51f4ab9dca25e748c2d7d94018e6c73cf63b68fa5dd33577e0fd04"
+        },
+        "Z3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Z3.txt",
+          "days": 365,
+          "bytes": 68778,
+          "sha256": "baca9f17872cde027b029bac4d1c7ea1f841073bc8beb24df9298157ea0eb148"
+        },
+        "D6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/D6.txt",
+          "days": 365,
+          "bytes": 69126,
+          "sha256": "99a0fdc5e566335a24621249a6823ed9fe35418de977ff95beabea607656cbe9"
+        },
+        "QK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QK.txt",
+          "days": 365,
+          "bytes": 69135,
+          "sha256": "5d353d9934d54e03126d9b24c4bce912a164a6aba15bd7b0ebf63815ec02b855"
+        },
+        "G9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/G9.txt",
+          "days": 365,
+          "bytes": 69111,
+          "sha256": "e764aaa96317a2b92b9f76e8cc7fed6a328d78bc092135245add1631e88398d5"
+        },
+        "Z4": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Z4.txt",
+          "days": 365,
+          "bytes": 69114,
+          "sha256": "f7ff8bd3c6b7a9f5a523c1af14df80c4990631c8460d0ab585f444701686f633"
+        },
+        "UC": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/UC.txt",
+          "days": 365,
+          "bytes": 69199,
+          "sha256": "1b11cfdad145a20a4243a8f2e458c7aeccb97bc62345769cd97221a48aaf742f"
+        },
+        "SM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SM.txt",
+          "days": 365,
+          "bytes": 68685,
+          "sha256": "5c44017d8443f809895575ce5d21a7ae2ba3541b3a5e7e34860ea3b903ca58b5"
+        },
+        "Z5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Z5.txt",
+          "days": 365,
+          "bytes": 68559,
+          "sha256": "d962b7b575917020ba95a814edeab2aa4cef13fa6b7bfc4d7988a9514d1bc0ea"
+        },
+        "OM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/OM.txt",
+          "days": 365,
+          "bytes": 69066,
+          "sha256": "860d90aedc47d826010f7dc33f3d3b55947ac118f7d3e955434f0340148ea185"
+        },
+        "MI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MI.txt",
+          "days": 365,
+          "bytes": 65454,
+          "sha256": "e498b2c6a9271a1604615500ab214ceda6eaebcc2987ddb58130b1f188843d52"
+        },
+        "I4": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/I4.txt",
+          "days": 365,
+          "bytes": 69594,
+          "sha256": "37d34debc92c48f6c6bf96813b864b8ab25196a1eeaf2c4bd821a1fa3dd11479"
+        },
+        "G4": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/G4.txt",
+          "days": 365,
+          "bytes": 71001,
+          "sha256": "188b2faf6ae23e1f3de50aae6914ee70c7960ab08581d1454da946a848fd27dc"
+        },
+        "G5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/G5.txt",
+          "days": 365,
+          "bytes": 71020,
+          "sha256": "12c478dd4d24134bcdfa9a58c2966567fe1c2f067ee500567b45993abc87f621"
+        },
+        "G8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/G8.txt",
+          "days": 365,
+          "bytes": 70776,
+          "sha256": "27f8c5824b61e95b97b3e5d719699ea8d8c9667ec213b03f652430e8bbc1b6b1"
+        },
+        "ZD": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZD.txt",
+          "days": 365,
+          "bytes": 70734,
+          "sha256": "30f67b5b10db3600ab993343306245577b923e96bf17c37e3722bc9db23d4fa7"
+        },
+        "NG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/NG.txt",
+          "days": 365,
+          "bytes": 71151,
+          "sha256": "058c589b68c41271a6f8c14e25b0303f54b6b9622b82651450fa823e95ed3f1b"
+        },
+        "G3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/G3.txt",
+          "days": 365,
+          "bytes": 70720,
+          "sha256": "b66f5e8e803e7c85ef7ccf09dd8eef8d841a58609d58ce8f5db21b972b17d599"
+        },
+        "TB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/TB.txt",
+          "days": 365,
+          "bytes": 70367,
+          "sha256": "19535acc838d90010b539675e1e4fb5821f29caaef4dcf1ea8af684b4c8980c4"
+        },
+        "OW": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/OW.txt",
+          "days": 365,
+          "bytes": 69598,
+          "sha256": "180e47959166eaa127a5f910ee136ad452a915b6a9c9648a8de4c458a670dc17"
+        },
+        "KN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KN.txt",
+          "days": 365,
+          "bytes": 69359,
+          "sha256": "d5f56d835af294ca5697a60eb0748ac764dbe1b5d3ba5604395deee5c43e3f85"
+        },
+        "UR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/UR.txt",
+          "days": 365,
+          "bytes": 69629,
+          "sha256": "4b3f7440aa78f7d1ea2977b110d3cdc5bb5250b50d5c4d7544b78fe31c277397"
+        },
+        "KS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KS.txt",
+          "days": 365,
+          "bytes": 69594,
+          "sha256": "f89144b6d4066aec31292ab8657bc35d896b99350e45cb68c3505d5c63cd2da5"
+        },
+        "SR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SR.txt",
+          "days": 365,
+          "bytes": 69988,
+          "sha256": "4060a16fa0901814bb5eaada432f21b0fdeeebe4d4fc9af80639353f5a173c86"
+        },
+        "GB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/GB.txt",
+          "days": 365,
+          "bytes": 69964,
+          "sha256": "a2b75715d738848d538bf37e6797f2d886244aebcf476467cef482560559b35b"
+        },
+        "H1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/H1.txt",
+          "days": 365,
+          "bytes": 69676,
+          "sha256": "3028b21e62979a35709d0cc1fcf8e9e45742ab863727fbf969f702c68245a59d"
+        },
+        "Z9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Z9.txt",
+          "days": 365,
+          "bytes": 69735,
+          "sha256": "2d23bb2e5ef4c96e5ba3bb0a5dbcd5846bc165c94f2190c6cb94f2101276a84a"
+        },
+        "WY": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/WY.txt",
+          "days": 365,
+          "bytes": 69762,
+          "sha256": "296ac48fdb4b4aca1144d98d1d9a97958b4d87fcccc722ec81f4ff54c5fd9a11"
+        },
+        "TN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/TN.txt",
+          "days": 365,
+          "bytes": 66972,
+          "sha256": "03c6f14b62c4ff56e8391cb474ef0555cce56e257d8060dadbb6b0ce986306e4"
+        },
+        "KK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KK.txt",
+          "days": 365,
+          "bytes": 66761,
+          "sha256": "4e92ffe2c1bcbf74daa9819128a2f30b7eb543dd36b4398423b043e74e4861a9"
+        },
+        "J2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/J2.txt",
+          "days": 365,
+          "bytes": 66914,
+          "sha256": "a75c5e9e67cedcc5583ef5e87ee57123de8edcd93f20efcab10fb0225a091737"
+        },
+        "IO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/IO.txt",
+          "days": 365,
+          "bytes": 66861,
+          "sha256": "e483ab82c88fb0b8a3bc6fe5ca89fc34479438c725b1234da626a78222caa002"
+        },
+        "SI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SI.txt",
+          "days": 365,
+          "bytes": 66621,
+          "sha256": "423c8817d09dc89c481ecad9abbae7c2b02be0e8e2a746b7123e838f83800a4e"
+        },
+        "OS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/OS.txt",
+          "days": 365,
+          "bytes": 66829,
+          "sha256": "9081e40c08c98c774033ec30f4c3325fd88249537c7d740d692bacdccc7dbca6"
+        },
+        "AM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/AM.txt",
+          "days": 365,
+          "bytes": 66823,
+          "sha256": "63a245c05a1aba3c608c898cd9c1f2cc207973566342ca01f1ea97ff7e796a34"
+        },
+        "J5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/J5.txt",
+          "days": 365,
+          "bytes": 66661,
+          "sha256": "361fea50b4cbeff13e79c8805b96d5ba75b2981832148d0723e9caf51e7b9cbb"
+        },
+        "KB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KB.txt",
+          "days": 365,
+          "bytes": 66362,
+          "sha256": "b210d70dc5bf73f0b20cd3cdadd0b760a2650d0bb82adb4fba16a5bfdf56031d"
+        },
+        "AK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/AK.txt",
+          "days": 365,
+          "bytes": 60792,
+          "sha256": "f5bfd3a2c9800ac9f686c9bbdaa8d28b16f9558a51933ee84dc0c4ad364e568e"
+        },
+        "ST": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ST.txt",
+          "days": 365,
+          "bytes": 66859,
+          "sha256": "c93be1868e0f90f6dddd828428c63b47a932e82a6aedbbc0d204ba38881c02ba"
+        },
+        "EI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/EI.txt",
+          "days": 365,
+          "bytes": 65637,
+          "sha256": "40f85af7e909d07380614051521d6ad8d3133a8565ee4c6faf6a93697594220e"
+        },
+        "K1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/K1.txt",
+          "days": 365,
+          "bytes": 67778,
+          "sha256": "4a082f9c726d9ff21e159a36159bbfa5e5c8445da1af386f894db2eb4bec9822"
+        },
+        "SB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SB.txt",
+          "days": 365,
+          "bytes": 70750,
+          "sha256": "8aa117f51999ddeb670e809e84131ce383a2344f26f28ca44f4d0d5d172ce8e2"
+        },
+        "UN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/UN.txt",
+          "days": 365,
+          "bytes": 71004,
+          "sha256": "8c8631f91eacde679aa1007a8c9f37bb86318cf4e7fccda86f02e6df0292506c"
+        },
+        "MM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MM.txt",
+          "days": 365,
+          "bytes": 71938,
+          "sha256": "483354261fa73075bd6149a676beb36331266b14853353abe2199bbb3178eb17"
+        },
+        "LG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/LG.txt",
+          "days": 365,
+          "bytes": 72190,
+          "sha256": "5b16e2ff087e3b6c07d9a88f82cdc5e269435ec67ad40bbc05ddc440d2bc35be"
+        },
+        "IZ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/IZ.txt",
+          "days": 365,
+          "bytes": 72104,
+          "sha256": "909fd269c8490b6110008e9980ed8f0876fc16f3f1329458d4b97c56d53ffd78"
+        },
+        "TH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/TH.txt",
+          "days": 365,
+          "bytes": 72201,
+          "sha256": "8aa8ea1b76319b469361f729e9530fb0e8e0188fac53d74849ae3305ce4f1a2d"
+        },
+        "Q9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Q9.txt",
+          "days": 365,
+          "bytes": 72258,
+          "sha256": "9c9bdb8a1886e0794999c3fa062053c8c6aaaeb89ba8ffcf7efb1a91e032bb67"
+        },
+        "Q8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Q8.txt",
+          "days": 365,
+          "bytes": 72279,
+          "sha256": "9410ad6d07a05c3684678207bb65ac9f78be33765be895ad044aa08c3f360bc0"
+        },
+        "QA": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QA.txt",
+          "days": 365,
+          "bytes": 72046,
+          "sha256": "0f4c1ca04b715f7af15fb1510d7efb290bcba3dcfd79ff0dc393995f6ce0ca8c"
+        },
+        "J9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/J9.txt",
+          "days": 365,
+          "bytes": 72001,
+          "sha256": "4da9af252fab758108343c1ae78b4c1c37d7feead13712b06a3bd54e3b047a48"
+        },
+        "WH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/WH.txt",
+          "days": 365,
+          "bytes": 72527,
+          "sha256": "e6b6de62661ef125fa7d96d8d3e649ac091d9af69187203474c72de81743511d"
+        },
+        "CF": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/CF.txt",
+          "days": 365,
+          "bytes": 72454,
+          "sha256": "fc67d03b09b33c588dcd98c45aa29cf1f35cf33996689e2bd5f14e498ef53452"
+        },
+        "A1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/A1.txt",
+          "days": 365,
+          "bytes": 70258,
+          "sha256": "5728505013321bdb947468dfc27285c9f20cd4c8dd39a14b310bb49ac072c22e"
+        },
+        "TI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/TI.txt",
+          "days": 365,
+          "bytes": 68840,
+          "sha256": "32ad2a36df4f567331afdcb871016513e7e3886cc9f061a50e39c4c7daee65d3"
+        },
+        "OH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/OH.txt",
+          "days": 365,
+          "bytes": 67984,
+          "sha256": "aeaed5d3ad25c324a8a8a2a2f50bddba70c93fdbfae7b00566b49d1a89f1572e"
+        },
+        "HR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/HR.txt",
+          "days": 365,
+          "bytes": 66436,
+          "sha256": "0058bbc186030f164b3676f9c371faa03297bbfab0fcaa03d4396962e447ca23"
+        },
+        "MT": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MT.txt",
+          "days": 365,
+          "bytes": 72087,
+          "sha256": "76244e378e3f781403b47837b789dbfc32b9ad8f217a142ade2f948b897bbc81"
+        },
+        "M3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/M3.txt",
+          "days": 365,
+          "bytes": 72090,
+          "sha256": "a79eeeb05bbde26c3339c551459927e0108ca11fe8eb4862c0fc63e2679cefd9"
+        },
+        "M0": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/M0.txt",
+          "days": 365,
+          "bytes": 72134,
+          "sha256": "df44a1ced1e8ea6304dfa1acf7051fff3e800b74a8bcf1198efabf93ed1ceb07"
+        },
+        "M1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/M1.txt",
+          "days": 365,
+          "bytes": 72299,
+          "sha256": "b13855e5492603016cf789026082cee965f71cf852850240973daa1372581488"
+        },
+        "L0": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/L0.txt",
+          "days": 365,
+          "bytes": 72358,
+          "sha256": "43ea37641edb31f9dfe899047656694e9c91a7f24c538ff240768f5ea84a545e"
+        },
+        "NI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/NI.txt",
+          "days": 365,
+          "bytes": 72021,
+          "sha256": "b0bfc6286da8b6adcf1603b641a7823c7e8953c34fba12776241c6ae7af43e56"
+        },
+        "L8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/L8.txt",
+          "days": 365,
+          "bytes": 72183,
+          "sha256": "1bd05ff442571b58989dcfda8d6caf6f8a0e1bdd52baac2ab43f9f0ec96284b5"
+        },
+        "TX": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/TX.txt",
+          "days": 365,
+          "bytes": 72126,
+          "sha256": "70bc8d3154f4e3c289bec4b2d45480a0d2dfca4c7c2a591d0faa8a9a22505c91"
+        },
+        "AX": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/AX.txt",
+          "days": 365,
+          "bytes": 72122,
+          "sha256": "5d883d8a754186791c37301b51410716ea3399bbc2e4d97d6a598d0d929dd5ea"
+        },
+        "J8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/J8.txt",
+          "days": 365,
+          "bytes": 71944,
+          "sha256": "18ed8f9f10e0f1d996c766f7751c6d01467687d59003f6ccf1601c3ce7c9cc57"
+        },
+        "TA": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/TA.txt",
+          "days": 365,
+          "bytes": 71002,
+          "sha256": "5b0fa355d91bc773f36c67e2c35b3aebbe7863fd47743ec021c926aa2c2d7371"
+        },
+        "KM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KM.txt",
+          "days": 365,
+          "bytes": 68893,
+          "sha256": "d65e83a70cda5b90073d84dcfd6fcb8531df7d4257905d3c36b582a7cb2f8106"
+        },
+        "J6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/J6.txt",
+          "days": 365,
+          "bytes": 69673,
+          "sha256": "19519e4ae35a4bcbca6db6410f00c773f832f631395ef6685dc5b8f7e6dbbcb4"
+        },
+        "AW": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/AW.txt",
+          "days": 365,
+          "bytes": 69666,
+          "sha256": "ca39024b8ba89fbe221495f2331ded42069244a20924c99d9b9c2eaf6afbea17"
+        },
+        "HW": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/HW.txt",
+          "days": 365,
+          "bytes": 69748,
+          "sha256": "5cde451e76a3499be0466c448832711fe76c8a265bbc5f778c778c4f9a1b919e"
+        },
+        "L7": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/L7.txt",
+          "days": 365,
+          "bytes": 69899,
+          "sha256": "7bef1aab5c414b0fda7bb0cfc72365c0cc9fdbdae75a4b38da49f380ea2cb514"
+        },
+        "MU": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MU.txt",
+          "days": 365,
+          "bytes": 69966,
+          "sha256": "dd6b740e7f64c6e9b8e354f42a5503d5b8718943e8411107f1e9bd009b35475b"
+        },
+        "KC": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KC.txt",
+          "days": 365,
+          "bytes": 69787,
+          "sha256": "660f48b798567c1e23d7521e1d0aafdfe4d0a234d3f8c4b0b822bb37d8ac3676"
+        },
+        "V7": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/V7.txt",
+          "days": 365,
+          "bytes": 70048,
+          "sha256": "831584a6271fd0ad426f40919e531c0e289a968499e0bcd80d04c4572d08752c"
+        },
+        "ZH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZH.txt",
+          "days": 365,
+          "bytes": 69983,
+          "sha256": "a98f66cadb34bbc3bf4845d98fc321ccc584ab47e959935bfcc096f99fe56042"
+        },
+        "L6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/L6.txt",
+          "days": 365,
+          "bytes": 69769,
+          "sha256": "a601b87a62491b1fca2b761ab3bde342c4c659af7a5375216c83c42ccdbe3f6f"
+        },
+        "TS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/TS.txt",
+          "days": 365,
+          "bytes": 70052,
+          "sha256": "a16887ebc437d33875f4852d68472d83da7091306f0554d7e5de59f113e8a2fd"
+        },
+        "SU": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SU.txt",
+          "days": 365,
+          "bytes": 70211,
+          "sha256": "9cbdcb4278bd03ccc360f297d8af440604cda472db25e83fc8aaed32ad2d4553"
+        },
+        "UW": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/UW.txt",
+          "days": 365,
+          "bytes": 70908,
+          "sha256": "e982119a6eb6a41f04fce7ca9e6732754ec45f206acb4121a6a897a9bb598b35"
+        },
+        "N1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/N1.txt",
+          "days": 365,
+          "bytes": 66621,
+          "sha256": "a34732861f4f1519875bd5a999fc13f19c4645731fd5013b87aa00605915808c"
+        },
+        "N0": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/N0.txt",
+          "days": 365,
+          "bytes": 67942,
+          "sha256": "5e13da7cacf6b2b517ba1ec4c7e776b70d5f33b3ef15e7560f0f269d08ae8918"
+        },
+        "MO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MO.txt",
+          "days": 365,
+          "bytes": 70588,
+          "sha256": "d04bd7a79998ead499178439d595692d1de18306a53d06f9634b03567331852b"
+        },
+        "AH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/AH.txt",
+          "days": 365,
+          "bytes": 72465,
+          "sha256": "e9c8a9ceb3751b4d6214578c36ddd7e2ae5ad55e7271ef6c0f47c8caaea8fad0"
+        },
+        "O3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/O3.txt",
+          "days": 365,
+          "bytes": 72500,
+          "sha256": "788a0408051ab3664b774f8de9751cdc42ef2973c76fa2542b77d82dd2d832e2"
+        },
+        "BP": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/BP.txt",
+          "days": 365,
+          "bytes": 70778,
+          "sha256": "eb5c615112b4623407933e7b613237cbb64b0b2bc0f08a236040433e43394fbe"
+        },
+        "QC": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QC.txt",
+          "days": 365,
+          "bytes": 70786,
+          "sha256": "88b8ba877d9818e0c4fb63a0c035a95a0b7e7bcf5e3edbbde11839bade7d14ed"
+        },
+        "X5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/X5.txt",
+          "days": 365,
+          "bytes": 69711,
+          "sha256": "487a83862636f936b1035608476b3adf16b933ef5269d1de4e731e990ffb2aa2"
+        },
+        "Z6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Z6.txt",
+          "days": 365,
+          "bytes": 69573,
+          "sha256": "080c7a4e20722a0892fb4aa6e5cb30a3ef5c11730e6fd9598131c90aeee0e8ed"
+        },
+        "MG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MG.txt",
+          "days": 365,
+          "bytes": 70063,
+          "sha256": "a6a6f6c0cb89c4c7a4c58685b19939ae83f9aebe256998df0903efabf7d19228"
+        },
+        "AB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/AB.txt",
+          "days": 365,
+          "bytes": 70270,
+          "sha256": "1470d78b78f16bfd75b4a65c62300073677ad1bec956d7b30fcc9b8397680b5c"
+        },
+        "X6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/X6.txt",
+          "days": 365,
+          "bytes": 70189,
+          "sha256": "588a7cafa2822c1cca3470dc046a3dd9ccba22d853aeace2c33861aba3b77a3e"
+        },
+        "QG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QG.txt",
+          "days": 365,
+          "bytes": 71229,
+          "sha256": "fb09cdb95cde6b18dc299341cd0bca8bfc090eeec9d8c6c7a358bc6915ba01b4"
+        },
+        "KG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KG.txt",
+          "days": 365,
+          "bytes": 71509,
+          "sha256": "059bb12f58764db5408778b420c268057b9daf56c6668f13da54a5f59e2b51a1"
+        },
+        "MK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MK.txt",
+          "days": 365,
+          "bytes": 71486,
+          "sha256": "2c6418bff8ea233225a44852d5b2be22bf3e32da7d67acb89105fcb8107a982a"
+        },
+        "ZJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZJ.txt",
+          "days": 365,
+          "bytes": 71666,
+          "sha256": "f8ddaa8346e5d5a88fe84430a2a7a24795fdf5ee8ec17fa948c891df0ab693b9"
+        },
+        "QH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QH.txt",
+          "days": 365,
+          "bytes": 70321,
+          "sha256": "6a401abc00a03bdd96c153b91bcaa053e0c2fda695d27b6408abeff0997057cc"
+        },
+        "TJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/TJ.txt",
+          "days": 365,
+          "bytes": 70384,
+          "sha256": "39c88bbd38d3703385c568a0cfb3b4275a60395bab5a6849e46438b63b588af2"
+        },
+        "QI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QI.txt",
+          "days": 365,
+          "bytes": 70620,
+          "sha256": "a039f844ded62b880021db76358851ac0e14d54f035d33b1b6e3d2a477931345"
+        },
+        "QJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QJ.txt",
+          "days": 365,
+          "bytes": 69991,
+          "sha256": "aa11c38479c655591fd3cc2641b507a47205c1e089ec76596f5612421f7bf20f"
+        },
+        "O9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/O9.txt",
+          "days": 365,
+          "bytes": 70330,
+          "sha256": "0e1c58dab99054eaa478874082a5f301d5fc4c2ca94612991d07166d12dce175"
+        },
+        "NK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/NK.txt",
+          "days": 365,
+          "bytes": 70333,
+          "sha256": "010d2d0bcf81858b6fde2eaa058fdb21e6f72130f1236a4e764fd7cc526f3e92"
+        },
+        "ZO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZO.txt",
+          "days": 365,
+          "bytes": 70345,
+          "sha256": "b05ea79459f63f026ff01c91be1b32164224833cd7e7bf80f43295663156406e"
+        },
+        "NH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/NH.txt",
+          "days": 365,
+          "bytes": 70161,
+          "sha256": "87b2cd12235a885c969ea8d128012f9182da0adc89d3578de400b5adf4fe0ff9"
+        },
+        "DJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/DJ.txt",
+          "days": 365,
+          "bytes": 68961,
+          "sha256": "24b9bd76e6bd322e44b4eead70458fb9b393065408d1a4c2b61e636ebd7765cf"
+        },
+        "R1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/R1.txt",
+          "days": 365,
+          "bytes": 69247,
+          "sha256": "d2e28ae382f7dea3863d76a7d0e002e668981847684a31755f0cee57de97090f"
+        },
+        "IS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/IS.txt",
+          "days": 365,
+          "bytes": 69469,
+          "sha256": "40ffe1c71ec3e5ec6417eb0d9160e017ff0a246bc64fcd4e246f91fdab4bcc3d"
+        },
+        "IJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/IJ.txt",
+          "days": 365,
+          "bytes": 69374,
+          "sha256": "f3833076b5879eaf0223bc09cb4f1171a0cb4131376b025840e80535c0ea4adc"
+        },
+        "YJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/YJ.txt",
+          "days": 365,
+          "bytes": 68930,
+          "sha256": "a4cdad47d5f664815e19c55284c06383f8221ae99a466ebb2353e7acba0dcfd1"
+        },
+        "O7": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/O7.txt",
+          "days": 365,
+          "bytes": 72178,
+          "sha256": "86c8fcad18d48dbb3b5cb1e64f5ef28b3e9a79480ed738320b9fc9c0b42af13a"
+        },
+        "O5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/O5.txt",
+          "days": 365,
+          "bytes": 72477,
+          "sha256": "1b070335b09b1c54977ed6a69fe0a97e54c416772ab9bbd301ad2181bb4c3ea3"
+        },
+        "HS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/HS.txt",
+          "days": 365,
+          "bytes": 72512,
+          "sha256": "203ddbd774470b919f3e8e1c4bfdccf08eaa458e2f773def90a943d8738d1bfd"
+        },
+        "RH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/RH.txt",
+          "days": 365,
+          "bytes": 71741,
+          "sha256": "4f079f301666faa933c6d8650dcd69c3fd92492b33fc15309f97ef2c1982d774"
+        },
+        "MS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MS.txt",
+          "days": 365,
+          "bytes": 72456,
+          "sha256": "e29536a05ad935671359b699d2434fdd25c6099cfed3c06aa56cf429f4cb8940"
+        },
+        "KU": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KU.txt",
+          "days": 365,
+          "bytes": 72710,
+          "sha256": "da8b16768928d339e90407cd9c9ac770310a4c3ff67236df49eeabcfa02bae3a"
+        },
+        "O6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/O6.txt",
+          "days": 365,
+          "bytes": 72730,
+          "sha256": "53af1026555ebff534467ff32995d179e0c8ec18102604eba5b0d48c97d42441"
+        },
+        "OU": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/OU.txt",
+          "days": 365,
+          "bytes": 72787,
+          "sha256": "1fe8e90cacc1d1f02493b77c57d67c22ee82299c23f79108c7fd394ff6db854d"
+        },
+        "KT": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KT.txt",
+          "days": 365,
+          "bytes": 72223,
+          "sha256": "f59e4831f726feae040ac8ead869e8b99618b37948cf3e09ae5d42931989bf61"
+        },
+        "NS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/NS.txt",
+          "days": 365,
+          "bytes": 71758,
+          "sha256": "ccf192b7ea911416a50d10a82d64dea6f407b207e0666a72c58f7aeb6c0a348d"
+        },
+        "KO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KO.txt",
+          "days": 365,
+          "bytes": 71742,
+          "sha256": "3ba6b58d2bbe8b66c5369c0851942db648b1989b31007410a5c8af1a8752f963"
+        },
+        "FE": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/FE.txt",
+          "days": 365,
+          "bytes": 71719,
+          "sha256": "9f3716d2aa82946f298dbba8497bfc0b22f29db3a910d4effdc69935f6f26551"
+        },
+        "QD": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QD.txt",
+          "days": 365,
+          "bytes": 71767,
+          "sha256": "0f54f275b4e20961da6b618af23bac037f13cb8a68f5b48253728aeb3e64c90b"
+        },
+        "X2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/X2.txt",
+          "days": 365,
+          "bytes": 71520,
+          "sha256": "036987f4191b1747166181d5b958f16beb06b081dc014bcd5625339d68061171"
+        },
+        "ZL": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZL.txt",
+          "days": 365,
+          "bytes": 70519,
+          "sha256": "147e1057e1a4dd228c22975ff15235b936a4a1b1f1c9b37aae01be57665ece4f"
+        },
+        "KA": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/KA.txt",
+          "days": 365,
+          "bytes": 69941,
+          "sha256": "8998e3c96ea25619d4f36f2c49b97753b8bcb9b988ebff2d240ab12ab7de6c96"
+        },
+        "QF": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QF.txt",
+          "days": 365,
+          "bytes": 69426,
+          "sha256": "2f6339ae6d6cf3a282f5f88dce03996f1c89bd0f4a23e93ed56d98ee8a7aaee9"
+        },
+        "X3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/X3.txt",
+          "days": 365,
+          "bytes": 70512,
+          "sha256": "d27e74245d614ea9a34770780f72071648751aadd84f4a0e0a4dc3d52a91c1b1"
+        },
+        "QE": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QE.txt",
+          "days": 365,
+          "bytes": 68303,
+          "sha256": "c7457618998048fcfdc15145b03e1552e9cf46401ce2c5b9475cc21c438be1bb"
+        },
+        "O1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/O1.txt",
+          "days": 365,
+          "bytes": 67885,
+          "sha256": "ea66329897dc722d06a6f6b77f234b0500d50a0d0f9348aed3ba7a81cf0e2591"
+        },
+        "N5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/N5.txt",
+          "days": 365,
+          "bytes": 64371,
+          "sha256": "9154a5e63da3fbb9aea2552fc81eb33e669e272bdd0d1ae1f8129e34034c6140"
+        },
+        "K5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/K5.txt",
+          "days": 365,
+          "bytes": 62086,
+          "sha256": "0631b8422052219eba2265dc047d74eb44815e5c6e0a79b7471aba84f8d5ed1e"
+        },
+        "ZK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZK.txt",
+          "days": 365,
+          "bytes": 60772,
+          "sha256": "389dfb43f19f0f775c29adc7a529400c6cc7c74d44a355bf7fb123080714bb87"
+        },
+        "HA": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/HA.txt",
+          "days": 365,
+          "bytes": 59146,
+          "sha256": "7d57d8bad9cece97907955abd888736cbda4fc1edfe7a6d6e0f14ad252e6620f"
+        },
+        "SK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SK.txt",
+          "days": 365,
+          "bytes": 58550,
+          "sha256": "0795396fbbabd0c6308748345c09348dbd3df3556a68a78fcff67975c2d2cb54"
+        },
+        "SA": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SA.txt",
+          "days": 365,
+          "bytes": 55922,
+          "sha256": "ddeacb93a75dbf0af9ff08452e233cbde9b8029cafdbbfde4827ab35486b9dec"
+        },
+        "ZE": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZE.txt",
+          "days": 365,
+          "bytes": 58083,
+          "sha256": "7997e74685964c41a87b174981694e4a87addd6905102cf8ed2659f2bd434957"
+        },
+        "T6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/T6.txt",
+          "days": 365,
+          "bytes": 57976,
+          "sha256": "068002543f7846116b893b205e2ab9e55eb72c2e011329668faa3879db19a75a"
+        },
+        "T2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/T2.txt",
+          "days": 365,
+          "bytes": 59278,
+          "sha256": "84833b0a0e99195c59b08cc12eb17f23e4faaf5fb5cce16627af90550a1b336b"
+        },
+        "MZ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/MZ.txt",
+          "days": 365,
+          "bytes": 58262,
+          "sha256": "7737880ff79ac95c4bf4fce09801cd252024d7eef008936eb509804348331328"
+        },
+        "XM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/XM.txt",
+          "days": 365,
+          "bytes": 57677,
+          "sha256": "ab222b3e76fd739eab83804a40592c54de42273746b2e75350d2daba78359947"
+        },
+        "ZG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZG.txt",
+          "days": 365,
+          "bytes": 56580,
+          "sha256": "f98153a50aef15a184ffad95e71466af46908d2f44051e5aec8f1fb25ef22f44"
+        },
+        "T1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/T1.txt",
+          "days": 365,
+          "bytes": 56582,
+          "sha256": "7bd479c7b681ae51c6676d62ed5d3d37fc4763ba0a11a3de473b5d8ad33d50f9"
+        },
+        "Z7": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/Z7.txt",
+          "days": 365,
+          "bytes": 56875,
+          "sha256": "554b14b0932454d8637114ac1368a67d997dab216e1b45e71ae351a708ea8027"
+        },
+        "SZ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SZ.txt",
+          "days": 365,
+          "bytes": 56733,
+          "sha256": "b0f5fc5c3d94845177e7418982899745db31c9a8471335c97ac5e29321e16a1d"
+        },
+        "XO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/XO.txt",
+          "days": 365,
+          "bytes": 58513,
+          "sha256": "490eb47b3f445f4139e656e4a9103beb82bd88440e1b7377343a55ee2b450f46"
+        },
+        "XQ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/XQ.txt",
+          "days": 365,
+          "bytes": 58035,
+          "sha256": "d396e8e1b25fb2d5caeb5c6abb712c2953632b1f19b279d3257d07e59748cafb"
+        },
+        "SN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/SN.txt",
+          "days": 365,
+          "bytes": 58020,
+          "sha256": "789b118ed0b918ca290dd04d1ed6fc30d091fe80a4ce0663c41add189cb053f3"
+        },
+        "TY": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/TY.txt",
+          "days": 365,
+          "bytes": 57949,
+          "sha256": "95c80681a96086d4daca41b49539bea175aeae9d16e21fdf8aa2a28062210c93"
+        },
+        "I7": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/I7.txt",
+          "days": 365,
+          "bytes": 57807,
+          "sha256": "b7cce7f9578a6e65fec22640d0ab080b4cf8d90a544e9efa265169446a994551"
+        },
+        "T3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/T3.txt",
+          "days": 365,
+          "bytes": 58827,
+          "sha256": "9313d647d2ca471bdec0ad2951afc7073962cfb33ae84e68abccfa1cbb31d7cc"
+        },
+        "ZC": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZC.txt",
+          "days": 365,
+          "bytes": 56847,
+          "sha256": "9adbf00dde5f0fd078124657de8cfaa2877e03392609d2157e9d73e539dfe20b"
+        },
+        "S6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/S6.txt",
+          "days": 365,
+          "bytes": 57346,
+          "sha256": "3342348d3f125fe0b05b01aa082952c64160d4ef17aa97a0a7585db52b8a32e6"
+        },
+        "I5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/I5.txt",
+          "days": 365,
+          "bytes": 56301,
+          "sha256": "edb18ec1bae9d81a6ed9b17377f83c83b049f13a851a34ebe922cfdb7edb29b0"
+        },
+        "ZN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZN.txt",
+          "days": 365,
+          "bytes": 56562,
+          "sha256": "0eb1c0c6fa2f8bb555f8586cd5361ec575a4db453f4e10c6102174ed17366641"
+        },
+        "RZ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/RZ.txt",
+          "days": 365,
+          "bytes": 57962,
+          "sha256": "a6b8397b01dbc0bf2e01d523e8a4b3f0b31c5bae5fc65579d44ccb64345380a1"
+        },
+        "S0": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/S0.txt",
+          "days": 365,
+          "bytes": 56384,
+          "sha256": "dbae5414bd2d81517bbf636067b56e313a3d14503306b79c89ef00b5b93d179a"
+        },
+        "QR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/QR.txt",
+          "days": 365,
+          "bytes": 57185,
+          "sha256": "0f409876fd4bf121efe82c6e38e4f18dd635c58cf9905608a174c8c35acf2006"
+        },
+        "ZB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZB.txt",
+          "days": 365,
+          "bytes": 56184,
+          "sha256": "5de3232bd1a879afce5887c77ff52db7dd6cf4096152b36d5660628d841b68a5"
+        },
+        "S9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/S9.txt",
+          "days": 365,
+          "bytes": 56337,
+          "sha256": "85495b7eb102a6203e53dada05feae9c0f693b6c58e97327363bf4be62393f4a"
+        },
+        "ZQ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZQ.txt",
+          "days": 365,
+          "bytes": 56267,
+          "sha256": "f9c99216d83fe5d30713891cf17b044963de02f14b1f906bfa45430013077af8"
+        },
+        "S1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/S1.txt",
+          "days": 365,
+          "bytes": 56009,
+          "sha256": "ac7f294b4a4ee795460b17e26d4937b9c273ab8bc88e88f52bd7fb468638c8d2"
+        },
+        "S2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/S2.txt",
+          "days": 365,
+          "bytes": 58267,
+          "sha256": "d89ff08001c1c55a489f25283eef2213c2c046553e6f646c668518bb5be48d9b"
+        },
+        "ZI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/ZI.txt",
+          "days": 365,
+          "bytes": 55869,
+          "sha256": "d07f422a196624d1cde779919c83ecb5306036051d1ead9eb2773ed641b62b43"
+        },
+        "FK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2026/FK.txt",
+          "days": 365,
+          "bytes": 55883,
+          "sha256": "6f4188504cb5c13758739f3561eec0894e360cf4af274ab7567948a4793a3187"
+        }
+      },
+      "failures": [],
+      "stationCount": 239,
+      "bytes": 15928318
+    },
+    "2027": {
+      "stationListUrl": "https://www.data.jma.go.jp/kaiyou/db/tide/suisan/station2027.php",
+      "files": {
+        "WN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/WN.txt",
+          "days": 365,
+          "bytes": 52507,
+          "sha256": "5c9c2ab8826ea2576c784a0f93d1faa9738b7ca9619d855525e166e948dc2a77"
+        },
+        "KE": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KE.txt",
+          "days": 365,
+          "bytes": 58701,
+          "sha256": "4cb04f0ceabb817bb5117bf2f2a6875a850248c2367afa96bb034faabb5d7196"
+        },
+        "A0": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/A0.txt",
+          "days": 365,
+          "bytes": 58291,
+          "sha256": "41a6c612df938692afdb97e801fb1ad2d1d2a9e53c97a0b20564b91a22656fe6"
+        },
+        "AS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/AS.txt",
+          "days": 365,
+          "bytes": 57870,
+          "sha256": "b22248217bd0dc0ce48650ac0510bf08efd36d8a4a832dcbbba6bd3310753a68"
+        },
+        "A6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/A6.txt",
+          "days": 365,
+          "bytes": 58138,
+          "sha256": "3c6549231a3e74ebf2d8821cff775e2a56605a6b1623d3a88f47a7fa4f4e070f"
+        },
+        "NM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/NM.txt",
+          "days": 365,
+          "bytes": 66692,
+          "sha256": "473f200cb675e70c43a0f698823608806d40660cf5fb3913789ba01ee8da0e07"
+        },
+        "HN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/HN.txt",
+          "days": 365,
+          "bytes": 65723,
+          "sha256": "9fb9da4b334de7c42cdfed1a8a75f1f972bc94ddbe6d6c4b85b83a6c65eb84cf"
+        },
+        "KP": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KP.txt",
+          "days": 365,
+          "bytes": 65487,
+          "sha256": "865cf3995fd38d67769e19f8c85f782e451766f3dd6ffdddffc066c1a27c019f"
+        },
+        "KR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KR.txt",
+          "days": 365,
+          "bytes": 66705,
+          "sha256": "72a0a679c9905327a6f074a408a9a082e29744afe81cb3c75e098e428224f83f"
+        },
+        "B1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/B1.txt",
+          "days": 365,
+          "bytes": 66089,
+          "sha256": "833692514658ce912dc195320cd53f65fc029af0a6994b1389cb924d6f4f2ea4"
+        },
+        "A9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/A9.txt",
+          "days": 365,
+          "bytes": 67483,
+          "sha256": "072dc8e0cb72a07cb01578a271054f07199c67987edb347644d8d45fed229a1b"
+        },
+        "C8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/C8.txt",
+          "days": 365,
+          "bytes": 67024,
+          "sha256": "1d2b58e103e8fb0d0653cdf04c80058acaa30923864c3fbc36d55298374c4e68"
+        },
+        "TM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/TM.txt",
+          "days": 365,
+          "bytes": 67047,
+          "sha256": "3faaa9d8f1d6c16b89e60b0aebf10ae1b04588e2f80b4027615dd6d6ca1a4a91"
+        },
+        "SO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SO.txt",
+          "days": 365,
+          "bytes": 67010,
+          "sha256": "fa5e98b892c8f53012bf80ce3be6c7fcd5cb69df1078caa6d27956dff56bbf6c"
+        },
+        "A8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/A8.txt",
+          "days": 365,
+          "bytes": 68499,
+          "sha256": "07ee84b1a3f02a5e4a040dcac369040d2c7ae129c846dfa06cf8dce01937d1ac"
+        },
+        "A3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/A3.txt",
+          "days": 365,
+          "bytes": 68473,
+          "sha256": "a3bb9f24b862a83cc353bacc0e32b43b9c51a3646595b213ac0c014ee9ebd7dc"
+        },
+        "HK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/HK.txt",
+          "days": 365,
+          "bytes": 62906,
+          "sha256": "996133f7496acce9f37b0eb47b5947f77c49e9139066eb2add63f3dbeeb86eae"
+        },
+        "Q0": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Q0.txt",
+          "days": 365,
+          "bytes": 62010,
+          "sha256": "4041b5c728c7366e4f7889c929acc475c1f4938ff1a60fbd71438030573dc3f6"
+        },
+        "A5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/A5.txt",
+          "days": 365,
+          "bytes": 60992,
+          "sha256": "5a740c4c8fac61e216fec5b8526ef695b559ddecf8b551a17e03ae92ca7028b9"
+        },
+        "ES": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ES.txt",
+          "days": 365,
+          "bytes": 55325,
+          "sha256": "ac8478b9718c08e98c7666d6afe83b2f3bcef4efdb6ad809dcd15e11f0e831d5"
+        },
+        "ZP": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZP.txt",
+          "days": 365,
+          "bytes": 59381,
+          "sha256": "4f47eb3301765d406754f2a9f140b38ceeae7ccf507b28aaa93351d931b42a42"
+        },
+        "OR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/OR.txt",
+          "days": 365,
+          "bytes": 59422,
+          "sha256": "c00272f15b148f3d9a1a25d849412f04451b6523de21abf0f0cf9c357c0d7095"
+        },
+        "SE": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SE.txt",
+          "days": 365,
+          "bytes": 57273,
+          "sha256": "4d8ee8d50ac9bab7024e57bf9fa9728d017fce301f3a0ba95f75cc2b72f20e71"
+        },
+        "B6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/B6.txt",
+          "days": 365,
+          "bytes": 58464,
+          "sha256": "0b0de56637c94af27eabdf32a940ed40422b427151eb183471ed6cb992ad534b"
+        },
+        "B5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/B5.txt",
+          "days": 365,
+          "bytes": 57818,
+          "sha256": "8bf11f505acae63523d4746db9ee37aa941a9eb7d24e20f04e153346c7686567"
+        },
+        "Z8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Z8.txt",
+          "days": 365,
+          "bytes": 57257,
+          "sha256": "70e00ace9cdf70d62ae6b1da3d12d0e1b31e1f1c319a77fdd3f2bcb28e27b5a6"
+        },
+        "B3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/B3.txt",
+          "days": 365,
+          "bytes": 57361,
+          "sha256": "a9d0933c4130172a618fc36eda223e7eee6bf234db5c0e0b0a05039f76bc0ed7"
+        },
+        "IK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/IK.txt",
+          "days": 365,
+          "bytes": 57375,
+          "sha256": "1d1dd19bda0c6ab6d5babf7496ca4a0ae541c342897de1cd123e7a29d5c679ad"
+        },
+        "B2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/B2.txt",
+          "days": 365,
+          "bytes": 57533,
+          "sha256": "b183a4a2dd330490a7ed4aa633de3875e904ad7154d4fa04cab6ae32c8767b4b"
+        },
+        "F3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/F3.txt",
+          "days": 365,
+          "bytes": 55756,
+          "sha256": "a4d2bbdffdf929268596c69ab657b9aa27b9ce6dd25ff85c1732dd39734cafa1"
+        },
+        "Q1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Q1.txt",
+          "days": 365,
+          "bytes": 62714,
+          "sha256": "a40484f6e49390bd3659b8a6575c0bdd6bde7d8f541c19745dce123041dd5448"
+        },
+        "AO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/AO.txt",
+          "days": 365,
+          "bytes": 63181,
+          "sha256": "8b8774a5bc13969b6c6d8c4c4259b792b6acabb86df1236915682e407a1398e1"
+        },
+        "ZA": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZA.txt",
+          "days": 365,
+          "bytes": 63194,
+          "sha256": "1b6d629ce98796ba5e684fc9927f8640ed06529b14f99b23bf237593938a65bc"
+        },
+        "Q2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Q2.txt",
+          "days": 365,
+          "bytes": 63303,
+          "sha256": "52b5205f7302853687f9db49799675624a6f49401a200a583ba7e080d7f088d5"
+        },
+        "B4": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/B4.txt",
+          "days": 365,
+          "bytes": 63245,
+          "sha256": "302f09af329a0aae21ac6032d95ffcde8e160e47bfa717c549caf7bbfcbec040"
+        },
+        "SH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SH.txt",
+          "days": 365,
+          "bytes": 66432,
+          "sha256": "1895a4900c70f6a59866e5c5efadaf2cb8f1158bd2ed39a7d2f9beded7777293"
+        },
+        "XS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/XS.txt",
+          "days": 365,
+          "bytes": 66501,
+          "sha256": "a76ac6a3c5bc869a8ba2b4d40b2d4a695a83e110b2210a1c8c2937d075f58113"
+        },
+        "HG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/HG.txt",
+          "days": 365,
+          "bytes": 66665,
+          "sha256": "c19de4f5d162eef1b7b02ec4870323e3fa36a96e2a22bff9454bd9133c882d76"
+        },
+        "XT": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/XT.txt",
+          "days": 365,
+          "bytes": 67078,
+          "sha256": "500fe3a0cca3ec44b411f2e16f4391cab8b0289fd9d6b4ee670b1373c75cef6d"
+        },
+        "MY": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MY.txt",
+          "days": 365,
+          "bytes": 66063,
+          "sha256": "945efe36bac31a0e789712f0ab0a70088969cce3d735c03f83c6e1aeb0ccace0"
+        },
+        "Q6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Q6.txt",
+          "days": 365,
+          "bytes": 66478,
+          "sha256": "a80f1cce4757fcdd2e1a5a74377b6ff8e403722ace606099da291f3ac329c602"
+        },
+        "OF": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/OF.txt",
+          "days": 365,
+          "bytes": 66888,
+          "sha256": "60bd75835ce6481a63d1821440b0419a775d48fbdf776104a66f667154275105"
+        },
+        "AY": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/AY.txt",
+          "days": 365,
+          "bytes": 66873,
+          "sha256": "e9efc187df093712e052c47ee27465f4f513589b7d80960f254c16f72b2944b1"
+        },
+        "E6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/E6.txt",
+          "days": 365,
+          "bytes": 67245,
+          "sha256": "de004c15474df557b6920f5b401510cb5ac1038b2fb9691164fffc963ad4caf7"
+        },
+        "SG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SG.txt",
+          "days": 365,
+          "bytes": 67905,
+          "sha256": "03355c6d9221df04ed5b8870d184526af8e92d4af10508e4f9f6dd8a41cdfe4c"
+        },
+        "SD": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SD.txt",
+          "days": 365,
+          "bytes": 67547,
+          "sha256": "a77ecc77a237e798278a94193a3afe18c128d8bb74878bbb0bd3779303c134e0"
+        },
+        "ZM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZM.txt",
+          "days": 365,
+          "bytes": 67142,
+          "sha256": "0a0f2c671daf71cea86a4f0e65365271eb4ff45396aa873443d0802d9107847a"
+        },
+        "ON": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ON.txt",
+          "days": 365,
+          "bytes": 66435,
+          "sha256": "feed338a08dfc359db9f0660626e1b08de01ac039e00e058c1c92753790ad3e1"
+        },
+        "D1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/D1.txt",
+          "days": 365,
+          "bytes": 67001,
+          "sha256": "06c242c53178653c85c5ffee5d9ca511f27e013d64ebc958590952737b1051b3"
+        },
+        "D3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/D3.txt",
+          "days": 365,
+          "bytes": 66977,
+          "sha256": "6438d8355797bc7e8ef214bf659c9e6607837e638cf1d637a0dfdef8f2f2a967"
+        },
+        "D2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/D2.txt",
+          "days": 365,
+          "bytes": 67119,
+          "sha256": "3e31a19083d498770fa7b451d486b85c6885da4a97f1617be02cfe0b2ae4cc13"
+        },
+        "CS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/CS.txt",
+          "days": 365,
+          "bytes": 67199,
+          "sha256": "26f929d61f52d2a29c51ef4fd247d181a1abe74d278c1b0c8a923cc9d101229b"
+        },
+        "ZF": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZF.txt",
+          "days": 365,
+          "bytes": 67990,
+          "sha256": "391a969423a7775da198932502302ab8d7d091089a6fa43c65ed975caeaa887e"
+        },
+        "MR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MR.txt",
+          "days": 365,
+          "bytes": 67946,
+          "sha256": "62e8dd5ca5e740197c6378e4ef5df1b3a82e34ffec50d349035d0464a9759827"
+        },
+        "TT": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/TT.txt",
+          "days": 365,
+          "bytes": 68941,
+          "sha256": "9dc9252cad813734aac5faf7508d82e9c25f7577380b580febf3d13bdf4b90bd"
+        },
+        "KZ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KZ.txt",
+          "days": 365,
+          "bytes": 70162,
+          "sha256": "f73927394766a82f664ed6b60871832be0eadf372bc30f84de0448b75990214b"
+        },
+        "QL": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QL.txt",
+          "days": 365,
+          "bytes": 70384,
+          "sha256": "6f71bce6cfcc8b3a23b0bacb09018532cdf22c90b6e4337565de2e785b4e09e0"
+        },
+        "CB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/CB.txt",
+          "days": 365,
+          "bytes": 70339,
+          "sha256": "d6c00a501a290b84def3850e0485a713f4c3e7bb84cf611e531440232ff4fb46"
+        },
+        "TK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/TK.txt",
+          "days": 365,
+          "bytes": 70364,
+          "sha256": "972e957c98d777a7e0e30b72676285cc6c0a9d4fc0ecf25c45d651e8d971b6a7"
+        },
+        "KW": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KW.txt",
+          "days": 365,
+          "bytes": 70136,
+          "sha256": "4719231abf20098b06f264bdb46229d937e8568cd6df12570bf796522c822a44"
+        },
+        "YK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/YK.txt",
+          "days": 365,
+          "bytes": 70027,
+          "sha256": "5d6f2434b1934f0a2f55ec0fd73cd8c61e6e00ed24a8c1e04994bdbe7237f8ea"
+        },
+        "QS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QS.txt",
+          "days": 365,
+          "bytes": 70121,
+          "sha256": "8ef08db3a8500a78e0b136915a1fea42bbd29bd2f18db4a7d1318f5ae91d7412"
+        },
+        "HM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/HM.txt",
+          "days": 365,
+          "bytes": 70095,
+          "sha256": "0eb1b4cc28b7a7b0be322c397ae694fb7bb0fc4c4f7dc03cb2a279af910e18a7"
+        },
+        "QN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QN.txt",
+          "days": 365,
+          "bytes": 69767,
+          "sha256": "af37b5f686e8c5897eeca40428d35aac04144a7c1cf43e50359e1381d9c1cefe"
+        },
+        "Z1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Z1.txt",
+          "days": 365,
+          "bytes": 68327,
+          "sha256": "a43006c1760470b146d15d09c13a480336e9d6034bfe9a847d4c6740acae5113"
+        },
+        "OK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/OK.txt",
+          "days": 365,
+          "bytes": 67902,
+          "sha256": "44e8684f75fa9d976a365d756d1d2bb216bd86b9b2108c1d11eb9fe627780e21"
+        },
+        "QO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QO.txt",
+          "days": 365,
+          "bytes": 68796,
+          "sha256": "6ef05ad6632b3649fc4f43a4fd729ec119036986c23632ab74e8153180b68276"
+        },
+        "MJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MJ.txt",
+          "days": 365,
+          "bytes": 68185,
+          "sha256": "c3967c9175343843666ff06331170b36b292d3c9fe8d76ef694fa2e44987237d"
+        },
+        "QP": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QP.txt",
+          "days": 365,
+          "bytes": 67899,
+          "sha256": "77ebd0b2a1eaaf400e8d2f191a32ce6233494c6379ea00ef1128da7916a7bda3"
+        },
+        "D4": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/D4.txt",
+          "days": 365,
+          "bytes": 68315,
+          "sha256": "ff16cd25dd8c1600606c1b8ad1201744771016f3f0fd71794396c14954603569"
+        },
+        "QQ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QQ.txt",
+          "days": 365,
+          "bytes": 66572,
+          "sha256": "bb1b4aedf8b776c6a2255af9b50d8889c22d645df5d4e7f61e37b62937d5ef2d"
+        },
+        "CC": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/CC.txt",
+          "days": 365,
+          "bytes": 64674,
+          "sha256": "efeb6c72156620d0bf8d4e4921ba52ba3579a91ebb6fcb202284c28134b1fe7c"
+        },
+        "MC": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MC.txt",
+          "days": 365,
+          "bytes": 57416,
+          "sha256": "fbb6f4eaba8473d38ac3810233ef9e5e665408f205bfd56f28870b1887b7dfd1"
+        },
+        "D8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/D8.txt",
+          "days": 365,
+          "bytes": 68303,
+          "sha256": "d53ca902b3e01bf5f471ad0bae5e786e58a940c3bbbc152853f600e1edd233a9"
+        },
+        "OD": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/OD.txt",
+          "days": 365,
+          "bytes": 68496,
+          "sha256": "6923390479e9c1a0056d8ee616c6fb457af391604dc4b04ba9616ee3bc0f1190"
+        },
+        "Z3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Z3.txt",
+          "days": 365,
+          "bytes": 68754,
+          "sha256": "b3d853d395ef59273d2e791db2b6269414f6d98fe7cd0dce9bb71af55a0db6d2"
+        },
+        "D6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/D6.txt",
+          "days": 365,
+          "bytes": 69236,
+          "sha256": "b0ae5a9e8be51d5fac9b1bab3e11a74fff87b1602f20881f041b348edeb94b0b"
+        },
+        "QK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QK.txt",
+          "days": 365,
+          "bytes": 69096,
+          "sha256": "0b60b68a3347d987bb181211e23d9a277ca49a5c7a02397e9dab25a523f1383b"
+        },
+        "G9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/G9.txt",
+          "days": 365,
+          "bytes": 69086,
+          "sha256": "c74de5e9fe1b5c08edec942b96d50ac81d494d2561475ca5de0de9c375494c5f"
+        },
+        "Z4": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Z4.txt",
+          "days": 365,
+          "bytes": 69135,
+          "sha256": "3347c73e04e3e36e5c318f9b7f3e109320f974ac8f4c39453adcd5282e47e7a8"
+        },
+        "UC": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/UC.txt",
+          "days": 365,
+          "bytes": 69297,
+          "sha256": "a174774c182d5e1aef59428de94b4f10cb462299c36b750ca8a607f1942b7784"
+        },
+        "SM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SM.txt",
+          "days": 365,
+          "bytes": 68615,
+          "sha256": "26ff58bae903d495b7ed8478e41d56d0ba304ee86ed8f349b21c2ac8eb36d8d9"
+        },
+        "Z5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Z5.txt",
+          "days": 365,
+          "bytes": 68657,
+          "sha256": "8d0a5e163b96374300031ddb7d3e079b6afa7316470ed0cf387266e4ceffda0b"
+        },
+        "OM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/OM.txt",
+          "days": 365,
+          "bytes": 69224,
+          "sha256": "b2575c0f7f6f7e73a5b44d988d1f5f5ce09ed5cfb86b8de739bf3e7d3e579b30"
+        },
+        "MI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MI.txt",
+          "days": 365,
+          "bytes": 65433,
+          "sha256": "824b7ffc64222c675e89b672d39737964741927773f023a0b5001275e108dc7f"
+        },
+        "I4": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/I4.txt",
+          "days": 365,
+          "bytes": 69635,
+          "sha256": "40cf7e91dba5f962b8f436d1271ca9acebee56d8c9d35ac56859c8dd213bacba"
+        },
+        "G4": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/G4.txt",
+          "days": 365,
+          "bytes": 71005,
+          "sha256": "d9b22cc6b4a9fca2fc8de81ddda93406003db7729a9a2371d00cd86635b17cd1"
+        },
+        "G5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/G5.txt",
+          "days": 365,
+          "bytes": 71008,
+          "sha256": "6ee3da4041d3a73627aa2a0309fab9d56e210f0db256f32b19a3aef6f8fcf5c2"
+        },
+        "G8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/G8.txt",
+          "days": 365,
+          "bytes": 70772,
+          "sha256": "08034d6bc31791c545d4ec057a62930ff2457d873e52c0373d69720f361feda6"
+        },
+        "ZD": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZD.txt",
+          "days": 365,
+          "bytes": 70745,
+          "sha256": "b19ef015f179be4e493d6ed4f5490c23719eb0a138ddde40c26bfe0040cf6988"
+        },
+        "NG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/NG.txt",
+          "days": 365,
+          "bytes": 71125,
+          "sha256": "d00cf2596661d932c7f3790aa8626a5dea3a8f58800f5eac16b4d2da919f73c3"
+        },
+        "G3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/G3.txt",
+          "days": 365,
+          "bytes": 70704,
+          "sha256": "264e10fd4d5487dd8cd43ea945c300f900f702532852d6c7cf86586e493d870c"
+        },
+        "TB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/TB.txt",
+          "days": 365,
+          "bytes": 70369,
+          "sha256": "898ff63541ae437095e9c5d253c8c6924b63f34d93c042bff94d808f6a90ee5a"
+        },
+        "OW": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/OW.txt",
+          "days": 365,
+          "bytes": 69597,
+          "sha256": "400b286983069c164d94f11c986b2583d1b90db94f07fadb7bdbc1bd21038ca4"
+        },
+        "KN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KN.txt",
+          "days": 365,
+          "bytes": 69437,
+          "sha256": "1121cbd9d2d17c09e23bfd595775177303abf313f79a9329e8b3aed9b86b88f2"
+        },
+        "UR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/UR.txt",
+          "days": 365,
+          "bytes": 69634,
+          "sha256": "db34602e249c2ac8b290b04f6561ebb0995507e88ef5115963603037c07cbaca"
+        },
+        "KS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KS.txt",
+          "days": 365,
+          "bytes": 69605,
+          "sha256": "03b967312675797142271adf436b14c8263deb17c98eab36b53494dac1f0fb8b"
+        },
+        "SR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SR.txt",
+          "days": 365,
+          "bytes": 69965,
+          "sha256": "877a709f6c7971a9550744b5cceff7c9a27e655f364934a62c14b5b173e910d4"
+        },
+        "GB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/GB.txt",
+          "days": 365,
+          "bytes": 69932,
+          "sha256": "8e7aad12eb1d05389618000afda6d1b761204c1c49d04481280fa9f950782f59"
+        },
+        "H1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/H1.txt",
+          "days": 365,
+          "bytes": 69813,
+          "sha256": "9391ff409034d059d402070f45a63978d939ca156b08b0982745a2a5f44926a6"
+        },
+        "Z9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Z9.txt",
+          "days": 365,
+          "bytes": 69840,
+          "sha256": "b96ba8d10d4514c12e70c9fc013085e58e4db07f183290d576327f3bc426c5e7"
+        },
+        "WY": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/WY.txt",
+          "days": 365,
+          "bytes": 69816,
+          "sha256": "c6bf45f67cca7b0840d94fadbcbca5ef5e0dc0eb714d6b659765cde9adc3983d"
+        },
+        "TN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/TN.txt",
+          "days": 365,
+          "bytes": 66968,
+          "sha256": "876136f8101c719fd91e7cc9cd3f9e9c661c7808f4e6234c46d56cf9b9a5e91c"
+        },
+        "KK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KK.txt",
+          "days": 365,
+          "bytes": 66803,
+          "sha256": "9d9dd99646aee58d58a000d8d8f1ebfbb343547a756bf0fe228bca57f0ddaa04"
+        },
+        "J2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/J2.txt",
+          "days": 365,
+          "bytes": 66994,
+          "sha256": "3ed1d1c70cce0daeaa941cae6c4d0b91d4b149ba642fe5e5668f74b8b0b2be71"
+        },
+        "IO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/IO.txt",
+          "days": 365,
+          "bytes": 66862,
+          "sha256": "dadf37df4e57430d60a05ee782cf032fa2a290c8352229614f378ed46a19ad9e"
+        },
+        "SI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SI.txt",
+          "days": 365,
+          "bytes": 66447,
+          "sha256": "464ef2a1e6474df2ff2307b804bb272eb1dfc56e760bc038b8a2722c4d853b08"
+        },
+        "OS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/OS.txt",
+          "days": 365,
+          "bytes": 66894,
+          "sha256": "f6618c806fe717a5f83c1eb3365c2d68e3116686327fa42a637974c5c708c7e6"
+        },
+        "AM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/AM.txt",
+          "days": 365,
+          "bytes": 66842,
+          "sha256": "24a82003af79205d70ec74b86f1ee8bbaf2b883e8d328c7d94681e50e140f0b2"
+        },
+        "J5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/J5.txt",
+          "days": 365,
+          "bytes": 66811,
+          "sha256": "cb42141a909f14b8fe5681ced44a5ec82b568f194f734f6ce34e6a53d1a7e9b8"
+        },
+        "KB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KB.txt",
+          "days": 365,
+          "bytes": 66474,
+          "sha256": "9bd5ac33d2e446d0be1d609d1997dda28f13a6943d68803f51410be2c0d50ab9"
+        },
+        "AK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/AK.txt",
+          "days": 365,
+          "bytes": 60673,
+          "sha256": "26e90dced633956d145a14ada10c5f0c692d72959386e76b9405bf317940546a"
+        },
+        "ST": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ST.txt",
+          "days": 365,
+          "bytes": 66932,
+          "sha256": "6c67643f81615f7245d7582dfbf7739e1bdcbedc035e7fc46b77624259ba3374"
+        },
+        "EI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/EI.txt",
+          "days": 365,
+          "bytes": 66122,
+          "sha256": "56e806dd948f0b088c681d48e648703e6bf1402ecac0419f255416a6b682b0a3"
+        },
+        "K1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/K1.txt",
+          "days": 365,
+          "bytes": 68012,
+          "sha256": "fd1180ea3ffcbe317b2556cd17590b272491fb1ed533c760efa7194e11145d7d"
+        },
+        "SB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SB.txt",
+          "days": 365,
+          "bytes": 70690,
+          "sha256": "2e1cf6d2f53ad11eb7ac6f4662bd91062f4d7220d32526069505f342cf2e6a52"
+        },
+        "UN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/UN.txt",
+          "days": 365,
+          "bytes": 71006,
+          "sha256": "7c89d46f76c80945b061531efd1ec14c0eb55e599b4195cfdedb38b6f460998e"
+        },
+        "MM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MM.txt",
+          "days": 365,
+          "bytes": 71952,
+          "sha256": "8113f60b74a0ab33cbb05f799a0225cd722b4db881c9564438a265e355ce44b1"
+        },
+        "LG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/LG.txt",
+          "days": 365,
+          "bytes": 72172,
+          "sha256": "7e8a317222f0755867da2cce2cee8ae13cd90e82127412c45ce06d6bf8d1d7f7"
+        },
+        "IZ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/IZ.txt",
+          "days": 365,
+          "bytes": 72111,
+          "sha256": "9f861c6127e6f533236ace1379ca2fe6fbca7cf1828d4d43896891de2b3b226d"
+        },
+        "TH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/TH.txt",
+          "days": 365,
+          "bytes": 72222,
+          "sha256": "cd7c8b0717b741f02c8ded9e710f2e6a970420ad6769d6048a7220e834a7c5a5"
+        },
+        "Q9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Q9.txt",
+          "days": 365,
+          "bytes": 72250,
+          "sha256": "8140da1c05c0cbacbf507759612d968203a4792a415d8b30de58ea85ca4394eb"
+        },
+        "Q8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Q8.txt",
+          "days": 365,
+          "bytes": 72286,
+          "sha256": "32f0aa0c28c73699d6b2a09a20fdf24b78ab752ec26d40bc15f1962499e7b2b8"
+        },
+        "QA": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QA.txt",
+          "days": 365,
+          "bytes": 72093,
+          "sha256": "de24c85525b29e9a788e996b15cae6f0f49cc4642c902d1805b36e99e6cb5990"
+        },
+        "J9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/J9.txt",
+          "days": 365,
+          "bytes": 72037,
+          "sha256": "9148b6ef8ebebe1280f13dc471644270c39bc2101d86597604e2c37973a349f0"
+        },
+        "WH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/WH.txt",
+          "days": 365,
+          "bytes": 72554,
+          "sha256": "782899d5577e8717d9db438bcef537d3d83c7b07d99b83a30e83267d63e298a2"
+        },
+        "CF": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/CF.txt",
+          "days": 365,
+          "bytes": 72436,
+          "sha256": "bcabbd0688f87de73b060963bfe8e3566ae65d7940e85f7cdee325b6b91e82f4"
+        },
+        "A1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/A1.txt",
+          "days": 365,
+          "bytes": 70222,
+          "sha256": "6ef55a0fc630135e750fe8e0527c7c503a8da6520e6d8eed91b80340623ae39a"
+        },
+        "TI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/TI.txt",
+          "days": 365,
+          "bytes": 68905,
+          "sha256": "518d2aa864591709210b1769ad43c2d34b1aee3e9785298780335799278d043c"
+        },
+        "OH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/OH.txt",
+          "days": 365,
+          "bytes": 67960,
+          "sha256": "677f3d35a4c409e2e1e1f3d2c71972d24207d6fb18f96866aa27b36c00b63fc1"
+        },
+        "HR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/HR.txt",
+          "days": 365,
+          "bytes": 66489,
+          "sha256": "61ad08cf58b2bd552ad32871aa79590f945f4131ee2ec95dc659d09e401d7d74"
+        },
+        "MT": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MT.txt",
+          "days": 365,
+          "bytes": 72071,
+          "sha256": "3674c64c0c8c93e1cf159097b60cd50819b5a493ff1f6ef077ee15f5d258eed9"
+        },
+        "M3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/M3.txt",
+          "days": 365,
+          "bytes": 72027,
+          "sha256": "7eb648f0b1c7936236faf179564f93708de1dc2d13b79ab1ac59a6783532d8e7"
+        },
+        "M0": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/M0.txt",
+          "days": 365,
+          "bytes": 72103,
+          "sha256": "4e5ebe42d0006fd977208da0a4981a858c48f90f5997c060091e362fce8bf9f9"
+        },
+        "M1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/M1.txt",
+          "days": 365,
+          "bytes": 72302,
+          "sha256": "efa446c2ea71eef1fd82483ce3d21d99f5ad972acf6f09f6d0433b3c77714757"
+        },
+        "L0": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/L0.txt",
+          "days": 365,
+          "bytes": 72335,
+          "sha256": "485d19d0c86629cbef15485e4b40c36c631cbefc3012f0dd064b9029a8fa7796"
+        },
+        "NI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/NI.txt",
+          "days": 365,
+          "bytes": 72034,
+          "sha256": "6e2faeddae941d7efa2710eb95b9a737f3002561f72c071f44f0c99b86f40a8a"
+        },
+        "L8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/L8.txt",
+          "days": 365,
+          "bytes": 72151,
+          "sha256": "a2c5253cc83bb6cc1bf85dc62cbc81b107294eb220f72feee47cbbbc236f1f4a"
+        },
+        "TX": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/TX.txt",
+          "days": 365,
+          "bytes": 72109,
+          "sha256": "f76efce84dff2ba7748f1071463b2e2d882fb09989c9d31b439d39bfaed4d467"
+        },
+        "AX": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/AX.txt",
+          "days": 365,
+          "bytes": 72105,
+          "sha256": "6625baa6c0e2d4e11f5ae16fe0ce2328cca689f9c20b3fa5e7c062d9adea6492"
+        },
+        "J8": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/J8.txt",
+          "days": 365,
+          "bytes": 71936,
+          "sha256": "82d34da3211eb4c92e7e22568c9efbd4158c27b679c2a276ce0ad389e260cc37"
+        },
+        "TA": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/TA.txt",
+          "days": 365,
+          "bytes": 71020,
+          "sha256": "15e3feb651a0621fb3a57c1a73a68916e19cf0a7ebf6e66a550e32d846fce3cc"
+        },
+        "KM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KM.txt",
+          "days": 365,
+          "bytes": 69047,
+          "sha256": "dd0fef6a8115ddcead80ca73e105c24092e6385208884f4a66d98bd89dc724c2"
+        },
+        "J6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/J6.txt",
+          "days": 365,
+          "bytes": 69754,
+          "sha256": "6a4f9916891c561b709f233f73132b0d3881996622f4ab00b5062eb2fe42dcae"
+        },
+        "AW": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/AW.txt",
+          "days": 365,
+          "bytes": 69612,
+          "sha256": "b75afe8325807d08ae13920da767215d6b6ed30ff797dbb16525abfb0a1e8679"
+        },
+        "HW": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/HW.txt",
+          "days": 365,
+          "bytes": 69688,
+          "sha256": "afabfee5de4a88a5bf9066f9baf7088d6f36da6ff78451f638dae1997d96b9aa"
+        },
+        "L7": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/L7.txt",
+          "days": 365,
+          "bytes": 69867,
+          "sha256": "9118d0d863f449dead2fdcc78e33476bd174fbe273a63f461966ac3c0c6fe109"
+        },
+        "MU": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MU.txt",
+          "days": 365,
+          "bytes": 69909,
+          "sha256": "5832da01d94d27df6e0e0b1718e72b96e3b9948da4f17068ade08e4fc0978c83"
+        },
+        "KC": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KC.txt",
+          "days": 365,
+          "bytes": 69732,
+          "sha256": "c1adfafd828a025e8d6f1d8af96a40c5d0e79e41c4e808b652614bfa6938ba45"
+        },
+        "V7": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/V7.txt",
+          "days": 365,
+          "bytes": 70006,
+          "sha256": "65878cc68d52a3048486b065ef96c72605dcd795c3219cd01b0a753cd3e6b338"
+        },
+        "ZH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZH.txt",
+          "days": 365,
+          "bytes": 69936,
+          "sha256": "c831b72624237abf025ee6fc4bddcb8cdc91eacf9b33a7de987dfa4ca96fd8a3"
+        },
+        "L6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/L6.txt",
+          "days": 365,
+          "bytes": 69707,
+          "sha256": "09ebb957c6b7560ef64937ab340302342b2f45069045e0f91c1363b8e1da398d"
+        },
+        "TS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/TS.txt",
+          "days": 365,
+          "bytes": 69994,
+          "sha256": "2f2e659dac26294432e4a60bca1cc85105463511370b6747f13386e251dc60a6"
+        },
+        "SU": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SU.txt",
+          "days": 365,
+          "bytes": 70266,
+          "sha256": "988f2096db43f8a0f59c14251bf1947b6a42279e333f3bce0b0bcdf966dd9725"
+        },
+        "UW": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/UW.txt",
+          "days": 365,
+          "bytes": 70924,
+          "sha256": "cb470b7940d7205b708cb0a99fc2347c9006fb51bbf709b02215610e213526db"
+        },
+        "N1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/N1.txt",
+          "days": 365,
+          "bytes": 66638,
+          "sha256": "7fd7b4f69f0956573c5f6eef48cb640343aa985b9bfbbc28672275b0ec274d9f"
+        },
+        "N0": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/N0.txt",
+          "days": 365,
+          "bytes": 67933,
+          "sha256": "e5f47767fa56c9dffbf090b65587a58e70e1a8e1fec39ea73b6b3155cf4f92cb"
+        },
+        "MO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MO.txt",
+          "days": 365,
+          "bytes": 70553,
+          "sha256": "201b6db57386a2920ccc6b4164e22a321d2164729bcd3ebb4afc1f82c514071c"
+        },
+        "AH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/AH.txt",
+          "days": 365,
+          "bytes": 72452,
+          "sha256": "cd824ce7882126733f0e51475878c44a67c1c3b14ea8592388d727b98eb79702"
+        },
+        "O3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/O3.txt",
+          "days": 365,
+          "bytes": 72503,
+          "sha256": "fad147770e4491e65a766ce5ad33c459be0a4ba9c66b258682b3ce63629e8608"
+        },
+        "BP": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/BP.txt",
+          "days": 365,
+          "bytes": 70805,
+          "sha256": "4108951919faf4c55a29d90aade5b28c16c21d6ff5ceda70cabf4ccd2d4a2aad"
+        },
+        "QC": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QC.txt",
+          "days": 365,
+          "bytes": 70817,
+          "sha256": "965eafce492a18b1996881b97668006023468fe85229e06b2b3b768e14940bc5"
+        },
+        "X5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/X5.txt",
+          "days": 365,
+          "bytes": 69714,
+          "sha256": "90a2278037df98df7d70d175584bd8c6491abdc70abd6460885aaf9c9b1531de"
+        },
+        "Z6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Z6.txt",
+          "days": 365,
+          "bytes": 69509,
+          "sha256": "10282c912831d8566dcf427a0bc9a25700a515c24bba2b8248a65423c191314e"
+        },
+        "MG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MG.txt",
+          "days": 365,
+          "bytes": 70009,
+          "sha256": "c21ca304bf6c1650d9b44a74fdeb17ac603ec15ddb37167fab77d3752aa40ef7"
+        },
+        "AB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/AB.txt",
+          "days": 365,
+          "bytes": 70231,
+          "sha256": "28f8ed39fca50bc0e8e0a0fe424d156804df5ffc8f85b8f6011961a78bdddf0a"
+        },
+        "X6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/X6.txt",
+          "days": 365,
+          "bytes": 70116,
+          "sha256": "bab0fe14b05bfac7551e400d2b778e797a7c61de55c630c9709131be22d6cd31"
+        },
+        "QG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QG.txt",
+          "days": 365,
+          "bytes": 71208,
+          "sha256": "7def725ce636a16469c7cf78e3ef2244f7d85465833f25e93919f5ebfb90281f"
+        },
+        "KG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KG.txt",
+          "days": 365,
+          "bytes": 71500,
+          "sha256": "2cd5be18c88c203556b82a7996f2166bc9885bdb9115585386fa020e9dcf8b21"
+        },
+        "MK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MK.txt",
+          "days": 365,
+          "bytes": 71507,
+          "sha256": "e4290567959f2a0fda7356fbcdd72e9962bb52a73a758f42a2bbc2af383f841a"
+        },
+        "ZJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZJ.txt",
+          "days": 365,
+          "bytes": 71673,
+          "sha256": "11bb7784831faae2dfbfa4996b11233e0a755d6112c768879aef82481bd22e4b"
+        },
+        "QH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QH.txt",
+          "days": 365,
+          "bytes": 70287,
+          "sha256": "e2f13ffedc9af8903c35a869d6296cb7b55eff1797f939bea5770927af03cd71"
+        },
+        "TJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/TJ.txt",
+          "days": 365,
+          "bytes": 70345,
+          "sha256": "a9cd68d87b8ab35a02d753d4e3d7f67fba88ac959f6aee8ae4e6bc49e5f7c0c0"
+        },
+        "QI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QI.txt",
+          "days": 365,
+          "bytes": 70578,
+          "sha256": "d997465ea273ff5f05dce92dfaa058630a62890ba24f7613653ebe9211dae521"
+        },
+        "QJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QJ.txt",
+          "days": 365,
+          "bytes": 69945,
+          "sha256": "5ac21acaf6089c420fb2d9ad56ab0d132816c9b7a93cda7b9d2e4c909c259d9b"
+        },
+        "O9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/O9.txt",
+          "days": 365,
+          "bytes": 70281,
+          "sha256": "c90e282818d2af8de412aa2154b8101b4e4cecd8ba23241b403a5c13e3a23d9a"
+        },
+        "NK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/NK.txt",
+          "days": 365,
+          "bytes": 70272,
+          "sha256": "f2e39fb36161bd57a7f4b5f7099f5a87de6692e3676008266fcf25f55ed94d1b"
+        },
+        "ZO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZO.txt",
+          "days": 365,
+          "bytes": 70299,
+          "sha256": "8f4fb4d4758cfc61d39d4492adc9392173ba62eee0b1b4bd23ddc402d98f88f1"
+        },
+        "NH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/NH.txt",
+          "days": 365,
+          "bytes": 70108,
+          "sha256": "52fd2367c1a4c6e1f070dc93c60dd5b62f7de3164bd60720899bae70d6b1dbf5"
+        },
+        "DJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/DJ.txt",
+          "days": 365,
+          "bytes": 68920,
+          "sha256": "3905c0a6aebefe08e5b9cd0eaed38918c7ab14c3b16dc47ec7a112baf3d13a1e"
+        },
+        "R1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/R1.txt",
+          "days": 365,
+          "bytes": 69186,
+          "sha256": "16954ce1e1e500480b34459460a65f9e5128ecf21163fe83978a651ba9fe24a4"
+        },
+        "IS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/IS.txt",
+          "days": 365,
+          "bytes": 69517,
+          "sha256": "45edc1ce71c7e900f8ae113c45b53647094d39e6f47b6da2a5e1536e069b7d48"
+        },
+        "IJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/IJ.txt",
+          "days": 365,
+          "bytes": 69366,
+          "sha256": "f1b017e439d8d4f155b57386002b4f863ee1e6cf9b54de397923d296282473e6"
+        },
+        "YJ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/YJ.txt",
+          "days": 365,
+          "bytes": 69001,
+          "sha256": "805958823cfb0b2f38b346f4d71ee4b74ef28fbc188eb93b11183f5501727391"
+        },
+        "O7": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/O7.txt",
+          "days": 365,
+          "bytes": 72220,
+          "sha256": "7eef7bc83130420f46c5fe0838f311e799a939001234d2216993d73798d91e17"
+        },
+        "O5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/O5.txt",
+          "days": 365,
+          "bytes": 72488,
+          "sha256": "cc661a5973eef7222e96a9761ddb99d8a47ffa6d39438d979c48dd81845cdc78"
+        },
+        "HS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/HS.txt",
+          "days": 365,
+          "bytes": 72512,
+          "sha256": "ff5f74546e00570adf1bd883cd5918261d897e110cfe07e4a20b22f5864d2d6c"
+        },
+        "RH": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/RH.txt",
+          "days": 365,
+          "bytes": 71760,
+          "sha256": "614d4da7e980569c69c2b92e450d6a3458612200955dc2b97c0c37191e9e1646"
+        },
+        "MS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MS.txt",
+          "days": 365,
+          "bytes": 72463,
+          "sha256": "207b72b37d8437869f8df1d5250c7c2918d9e9d75c7be3e8d79381061116e078"
+        },
+        "KU": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KU.txt",
+          "days": 365,
+          "bytes": 72750,
+          "sha256": "1602be9dbee1f6fc9af2539b73af1dcf00b4075524bb70f16d9bccab04177b78"
+        },
+        "O6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/O6.txt",
+          "days": 365,
+          "bytes": 72750,
+          "sha256": "a9ba976009c2abfddc930f4f3f76e119f1c99c742fa8aeaa55c90da5401c861a"
+        },
+        "OU": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/OU.txt",
+          "days": 365,
+          "bytes": 72821,
+          "sha256": "d87105bd021bb116db74fe3c78f136f84b838193fcf2a3a8835bb756747c455c"
+        },
+        "KT": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KT.txt",
+          "days": 365,
+          "bytes": 72268,
+          "sha256": "341f2b6fcd66b650fc20307771079af07caf813c7b87d701bd5b5131c7363602"
+        },
+        "NS": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/NS.txt",
+          "days": 365,
+          "bytes": 71745,
+          "sha256": "d41d2b9c6d23484eeb1583a4ec5953796e4d5e4c195c7870dd3f63fe7e6187f3"
+        },
+        "KO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KO.txt",
+          "days": 365,
+          "bytes": 71733,
+          "sha256": "de3c57339d4d28ac97e85dd9a784cc5ce3f5d5d8ccf7c3a751f577b298d02a45"
+        },
+        "FE": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/FE.txt",
+          "days": 365,
+          "bytes": 71738,
+          "sha256": "5677ef68abe19095450a5486d07e61768c4707669cd069f3704aaa80e1bae3fb"
+        },
+        "QD": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QD.txt",
+          "days": 365,
+          "bytes": 71748,
+          "sha256": "9156c2e23facc730c16b7b91449674fbeca68cef849ab22b5c43855edb2a355b"
+        },
+        "X2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/X2.txt",
+          "days": 365,
+          "bytes": 71454,
+          "sha256": "a1bb1fda7a360ae7423dd8ec419caebc75da4fbc5c0a10936a884504be4afc5a"
+        },
+        "ZL": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZL.txt",
+          "days": 365,
+          "bytes": 70421,
+          "sha256": "772a26b47e182f38d18b11f4871d49d2901b7389671626c13ee7fc63d78d517d"
+        },
+        "KA": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/KA.txt",
+          "days": 365,
+          "bytes": 70048,
+          "sha256": "50d50f8f8da29824517ebcbd2e04cc6ac1df5447a14c42511f42125f5fbcc9b6"
+        },
+        "QF": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QF.txt",
+          "days": 365,
+          "bytes": 69517,
+          "sha256": "bb0622dbb394c5093528d1c7f626e2f6c3aeca2146cf797c80d582a5e432e3a4"
+        },
+        "X3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/X3.txt",
+          "days": 365,
+          "bytes": 70533,
+          "sha256": "6715b6657ea7faa06e5b61211be0fbd084f7feed9b752d2812765e83598205af"
+        },
+        "QE": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QE.txt",
+          "days": 365,
+          "bytes": 68274,
+          "sha256": "ce1eab0122250e5eee75aa47593287c950898aa9e734d6b686693e1f321967ca"
+        },
+        "O1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/O1.txt",
+          "days": 365,
+          "bytes": 67856,
+          "sha256": "d6a3902aab31393e6f210ca9c9675c54012eb58dd46a05cc9afaeef80633a81f"
+        },
+        "N5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/N5.txt",
+          "days": 365,
+          "bytes": 64373,
+          "sha256": "67ccbf7fc929da2f8a4606049077c53c6d5d191b03c252dd687b7f8205568370"
+        },
+        "K5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/K5.txt",
+          "days": 365,
+          "bytes": 62360,
+          "sha256": "bb6fb83a9c07f7e84fb2fed9f5920ed7ed69b7dbff2ad64b5cc748838a529887"
+        },
+        "ZK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZK.txt",
+          "days": 365,
+          "bytes": 61104,
+          "sha256": "56ffcc78f87420f343a3102818dce5575cd2b8929514c3c5b17b62fd030f311d"
+        },
+        "HA": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/HA.txt",
+          "days": 365,
+          "bytes": 59152,
+          "sha256": "9fe03d2a0ed9b845920a7062c7ce8ef65e5683132ea1882fa168735f5a576876"
+        },
+        "SK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SK.txt",
+          "days": 365,
+          "bytes": 58799,
+          "sha256": "fbbb92b5abc055a16fceabfc36be33edcd037949750b072e48c8ec4fcaa24f08"
+        },
+        "SA": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SA.txt",
+          "days": 365,
+          "bytes": 55980,
+          "sha256": "e2ce2bad907cd5a25510bf8bb351ec1de7f8c908830e0eece9402be59224ddee"
+        },
+        "ZE": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZE.txt",
+          "days": 365,
+          "bytes": 58165,
+          "sha256": "a1325683ba6b2106b7a571eec8b1461d69521012f329f909c40149e257218a2f"
+        },
+        "T6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/T6.txt",
+          "days": 365,
+          "bytes": 57852,
+          "sha256": "d945c8b0562c4f50b2a937381848cabfe08e5d3e764f4abe78fdd9542d668c89"
+        },
+        "T2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/T2.txt",
+          "days": 365,
+          "bytes": 59339,
+          "sha256": "b4a35b301c2b67ec02b84ecc298ff77e0f1ee4edba3cefe932ad01c1c9c10f70"
+        },
+        "MZ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/MZ.txt",
+          "days": 365,
+          "bytes": 58343,
+          "sha256": "14d04dfa39d24c5bee8e2487ce5cd8ef745cfc29e617ea005b1fec133a166210"
+        },
+        "XM": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/XM.txt",
+          "days": 365,
+          "bytes": 57404,
+          "sha256": "7a70c9a2659df60ff15239eab8608d93338f0689f5551ccab4c9429d9bcd75b6"
+        },
+        "ZG": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZG.txt",
+          "days": 365,
+          "bytes": 56817,
+          "sha256": "3d35c4da548dfd70a35b322aedfb9b68e84bfbbe9e209e3afbdace34c608653f"
+        },
+        "T1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/T1.txt",
+          "days": 365,
+          "bytes": 56775,
+          "sha256": "37a16816f7e04088a1a173fe17da0e54b0aab5071126459e600f244436ebff1a"
+        },
+        "Z7": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/Z7.txt",
+          "days": 365,
+          "bytes": 56967,
+          "sha256": "0d9110abe4a375a482de6625e3162dd3184c05ceea391d33dd1287c9af05c2e4"
+        },
+        "SZ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SZ.txt",
+          "days": 365,
+          "bytes": 57107,
+          "sha256": "73d1afe84a354fd9f5c6ee6da1ffa070ad4e6f2d121fccae1e0cad556c2764d7"
+        },
+        "XO": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/XO.txt",
+          "days": 365,
+          "bytes": 58198,
+          "sha256": "aab412b46c94154fcf90f7e3ac725a343f2f717ddad637071e2f5de6f665c68f"
+        },
+        "XQ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/XQ.txt",
+          "days": 365,
+          "bytes": 57970,
+          "sha256": "be3aa92ece7a55f67242d03d405ea6c50dc5907cb88911e82095f8ff5403f246"
+        },
+        "SN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/SN.txt",
+          "days": 365,
+          "bytes": 57921,
+          "sha256": "26f1b8d5190263a3df0236413485a3fe061d17728f12fe160eed8e83784f20ec"
+        },
+        "TY": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/TY.txt",
+          "days": 365,
+          "bytes": 57994,
+          "sha256": "8a808026bee7569d8df2e5160472590824d30dc3fbb4ea6d959e5812ffcf9249"
+        },
+        "I7": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/I7.txt",
+          "days": 365,
+          "bytes": 57727,
+          "sha256": "b6ee81b55993d4e716d2cfff98a950117543e64c20c697aef9f2e6a598f0669b"
+        },
+        "T3": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/T3.txt",
+          "days": 365,
+          "bytes": 58462,
+          "sha256": "3ea5b446d1c2ab690fd39d2e62a61a630a10f0aa99c25ffb4486699866e7ae61"
+        },
+        "ZC": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZC.txt",
+          "days": 365,
+          "bytes": 57201,
+          "sha256": "5cf2698fee1103df2225f23d7a32a1e607dd183467429191a2739766bd3f560a"
+        },
+        "S6": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/S6.txt",
+          "days": 365,
+          "bytes": 57335,
+          "sha256": "1f115366e29c1da660b1eff6a70bd4e827e11093245660c9a5ad2941077b590d"
+        },
+        "I5": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/I5.txt",
+          "days": 365,
+          "bytes": 56763,
+          "sha256": "763858f71f1d42b5f361a221630d6776a70d2b160d1f2b7e6d85e5302627ab26"
+        },
+        "ZN": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZN.txt",
+          "days": 365,
+          "bytes": 56869,
+          "sha256": "d8b0fea68ca264539f05b7d0b9958832735d3fb86479e2171c018f8cb1e334fe"
+        },
+        "RZ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/RZ.txt",
+          "days": 365,
+          "bytes": 57944,
+          "sha256": "cbfb0043fd7a0540b50e71dd3c07d5fa6a48dc92e8ff663dc1d497e8ea8f7f41"
+        },
+        "S0": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/S0.txt",
+          "days": 365,
+          "bytes": 56811,
+          "sha256": "74abf1463c53452b82e98f58eafef50279eb8ef0ffa63e87abe5f12f14471fc1"
+        },
+        "QR": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/QR.txt",
+          "days": 365,
+          "bytes": 57215,
+          "sha256": "3f69f804a0dbaa277b372e0848de612d914ac3fcf29367e241cc5fa5d7ffc208"
+        },
+        "ZB": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZB.txt",
+          "days": 365,
+          "bytes": 56115,
+          "sha256": "d40a1de3581dae9ebdf3a7fbd47e7be31c09e28df7f52b4c2c86635ec3623c28"
+        },
+        "S9": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/S9.txt",
+          "days": 365,
+          "bytes": 56457,
+          "sha256": "affad405a111a3d815b81baffe5624ee78a7ee12ff2c9d38dd6bebd044384911"
+        },
+        "ZQ": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZQ.txt",
+          "days": 365,
+          "bytes": 56614,
+          "sha256": "77576165b1f3f771c4dc4836b37becbe20b4ef059c71520f223e2770e870c8a9"
+        },
+        "S1": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/S1.txt",
+          "days": 365,
+          "bytes": 56347,
+          "sha256": "e216259aec9e64b2f052412f1932bd41054aad14be89809343e8c7b202a4f365"
+        },
+        "S2": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/S2.txt",
+          "days": 365,
+          "bytes": 58470,
+          "sha256": "6b7d39b0dc3d0c71f039ab489dd8d6629399b994681b950774444d0246543977"
+        },
+        "ZI": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/ZI.txt",
+          "days": 365,
+          "bytes": 56211,
+          "sha256": "a85e07095b77bcd5a771ad3ad8cf005bd4b91192bf57803afdd96005ed853fb1"
+        },
+        "FK": {
+          "sourceUrl": "https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/txt/2027/FK.txt",
+          "days": 365,
+          "bytes": 55968,
+          "sha256": "51937a594a60a5212e70ea409778a5660af67c728d0829ee03abddfb5942dbf4"
+        }
+      },
+      "failures": [],
+      "stationCount": 239,
+      "bytes": 15932844
+    }
+  }
+}

@@ -78,7 +78,7 @@ test("SVGタイドグラフへ潮位線・満干潮・現在時刻を描画す�
     renderTideGraph(svg, tideDay, new Date("2026-07-21T12:00:00+09:00"));
     assert.equal(svg.attributes.role, "img");
     assert.ok(svg.children.some((child) => child.name === "path" && child.attributes.class === "tide-line"));
-    assert.equal(svg.children.filter((child) => child.name === "circle").length, 4);
+    assert.equal(svg.children.filter((child) => child.name === "circle").length, 29);
     assert.ok(svg.children.some((child) => child.attributes.class === "tide-now-line"));
   } finally {
     globalThis.document = originalDocument;

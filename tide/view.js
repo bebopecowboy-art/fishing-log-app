@@ -17,7 +17,9 @@ export function renderTideGraph(svg, tideDay, at) {
   const width = 640;
   const height = 180;
   const padding = { left: 34, right: 18, top: 20, bottom: 28 };
-  const values = tideDay.series.map((point) => point.height);
+  const series = tideDay.series.filter((point) => Number.isFinite(point.height) && !Number.isNaN(point.time.getTime()));
+  if (!series.length) throw new Error("グラフに表示できる毎時潮位がありません");
+  const values = series.map((point) => point.height);
   const min = Math.min(...values);
   const max = Math.max(...values);
   const range = Math.max(1, max - min);
@@ -25,6 +27,8 @@ export function renderTideGraph(svg, tideDay, at) {
   const y = (value) => padding.top + (max - value) / range * (height - padding.top - padding.bottom);
 
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  svg.setAttribute("width", width);
+  svg.setAttribute("height", height);
   svg.setAttribute("role", "img");
   svg.setAttribute("aria-label", `${tideDay.station.name}の${tideDay.date}の推定潮位グラフ`);
 
@@ -36,11 +40,12 @@ export function renderTideGraph(svg, tideDay, at) {
     svg.append(label);
   });
 
-  const pathData = tideDay.series.map((point, index) => `${index ? "L" : "M"}${x(point.time).toFixed(1)},${y(point.height).toFixed(1)}`).join(" ");
+  const pathData = series.map((point, index) => `${index ? "L" : "M"}${x(point.time).toFixed(1)},${y(point.height).toFixed(1)}`).join(" ");
   svg.append(svgElement("path", { d: pathData, class: "tide-area" }));
   svg.append(svgElement("path", { d: pathData, class: "tide-line" }));
+  series.forEach((point) => svg.append(svgElement("circle", { cx: x(point.time), cy: y(point.height), r: 2.5, class: "tide-hourly-point" })));
 
-  tideDay.extremes.forEach((event) => {
+  tideDay.extremes.filter((event) => !Number.isNaN(event.time.getTime()) && Number.isFinite(event.height)).forEach((event) => {
     const eventX = x(event.time);
     const eventY = y(event.height);
     svg.append(svgElement("circle", { cx: eventX, cy: eventY, r: 4, class: `tide-point tide-point-${event.type}` }));
@@ -68,12 +73,8 @@ function toDateKey(date) {
 }
 
 export function renderTidePanel(elements, tideDay, at) {
-  const state = deriveTideState(tideDay, at);
   elements.panel.classList.remove("tide-panel-error");
-  elements.status.textContent = `${getTideCycle(at)} ・ ${state.trendLabel}`;
-  elements.level.textContent = `選択時刻 約${state.estimatedHeight}cm`;
-  const nextLabel = state.nextExtreme.type === "high" ? "次の満潮" : "次の干潮";
-  elements.next.textContent = `${nextLabel} ${formatTime(state.nextExtreme.time)}（${state.nextExtreme.height}cm）`;
+  if (elements.heading) elements.heading.textContent = `${tideDay.station.name}の潮汐`;
   elements.station.textContent = `基準地点：${tideDay.station.name}`;
   elements.extremes.replaceChildren();
   tideDay.extremes.forEach((event) => {
@@ -81,22 +82,35 @@ export function renderTidePanel(elements, tideDay, at) {
     item.textContent = `${event.type === "high" ? "満潮" : "干潮"} ${formatTime(event.time)}　${event.height}cm`;
     elements.extremes.append(item);
   });
-  elements.source.textContent = tideDay.source.attribution;
+  elements.source.textContent = `${tideDay.source.attribution}（${tideDay.source.dataYear}年）`;
   elements.source.href = tideDay.source.url;
   renderTideGraph(elements.graph, tideDay, at);
+  const tideCycle = getTideCycle(at);
+  try {
+    const state = deriveTideState(tideDay, at);
+    elements.status.textContent = [tideCycle, state.trendLabel].filter(Boolean).join("・");
+    elements.level.textContent = `${state.officialHourlyValue ? "気象庁 毎時潮位" : "参考値"} 約${state.referenceHeight}cm`;
+    const nextLabel = state.nextExtreme.type === "high" ? "次の満潮" : "次の干潮";
+    elements.next.textContent = `${nextLabel} ${formatTime(state.nextExtreme.time)}（${state.nextExtreme.height}cm）`;
+  } catch (_error) {
+    elements.status.textContent = [tideCycle, "潮の状態は表示できません"].filter(Boolean).join("・");
+    elements.level.textContent = "参考値は表示できません";
+    elements.next.textContent = "次の満干潮は表示できません";
+  }
 }
 
-function clearTidePanel(elements) {
+function clearTidePanel(elements, { preserveStation = false } = {}) {
   elements.panel.classList.remove("tide-panel-error");
   elements.graph.replaceChildren();
   elements.extremes.replaceChildren();
-  elements.station.textContent = "基準地点：呉";
+  if (elements.heading) elements.heading.textContent = "潮汐";
+  if (!preserveStation) elements.station.textContent = "基準地点：未選択";
   elements.source.textContent = "";
   elements.source.removeAttribute("href");
 }
 
 export function renderTideLoading(elements) {
-  clearTidePanel(elements);
+  clearTidePanel(elements, { preserveStation: true });
   elements.status.textContent = "潮データを確認中…";
   elements.level.textContent = "日時に対応する潮情報を確認しています";
   elements.next.textContent = "入力と保存は続けられます";
@@ -109,8 +123,15 @@ export function renderTideUnavailable(elements) {
   elements.next.textContent = "別の日付・年の潮情報は代用しません";
 }
 
-export function renderTideError(elements, error) {
+export function renderTideUnselected(elements) {
   clearTidePanel(elements);
+  elements.status.textContent = "基準地点を選ぶと潮汐を表示できます";
+  elements.level.textContent = "潮汐の基準地点を選んでください";
+  elements.next.textContent = "釣果の入力と保存はそのまま利用できます";
+}
+
+export function renderTideError(elements, error) {
+  clearTidePanel(elements, { preserveStation: true });
   elements.panel.classList.add("tide-panel-error");
   elements.status.textContent = "潮汐データを表示できません";
   elements.level.textContent = "釣果は潮汐情報なしで保存できます";

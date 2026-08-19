@@ -22,20 +22,36 @@
             <div class="tide-heading-row">
                 <div>
                     <p class="section-kicker">TODAY'S TIDE</p>
-                    <h2 id="tideHeading">呉の潮汐</h2>
+                    <h2 id="tideHeading">潮汐</h2>
                 </div>
-                <span id="tideStation" class="station-badge">読込中</span>
+                <span id="tideStation" class="station-badge">基準地点：未選択</span>
             </div>
             <div class="tide-summary" aria-live="polite">
                 <div><span class="summary-label">潮の状態</span><strong id="tideStatus">読込中…</strong></div>
-                <div><span class="summary-label">推定潮位</span><strong id="tideLevel">—</strong></div>
+                <div><span class="summary-label">潮位の目安</span><strong id="tideLevel">—</strong></div>
             </div>
             <p id="nextTide" class="next-tide">満干潮を確認しています</p>
             <svg id="tideGraph" class="tide-graph"></svg>
             <ul id="tideExtremes" class="tide-extremes" aria-label="本日の満潮と干潮"></ul>
-            <p class="tide-note">天文潮位の推定値です。実際の潮位とは異なる場合があります。航海・安全判断には使用しないでください。</p>
+            <button id="tideStationButton" class="button button-secondary tide-station-button" type="button">基準地点を選ぶ／変更</button>
+            <p class="tide-note">※潮回り（大潮・中潮など）はOtomoによる目安です。<br>グラフは気象庁公表の毎時潮位を点で示し、点間の線と正時以外の参考値はOtomo Fishingが補間しています。表示は天文潮位の予測値です。気象・海況等により実際の潮位と異なります。航海、防災、救命その他の安全判断には使用しないでください。</p>
             <a id="tideSource" class="source-link" href="#" target="_blank" rel="noreferrer">出典を確認</a>
         </section>
+
+        <dialog id="tideStationDialog" class="tide-station-dialog">
+            <form method="dialog" class="station-picker">
+                <div class="section-heading"><p class="section-kicker">TIDE STATION</p><h2>潮汐の基準地点を選ぶ</h2></div>
+                <p>位置情報は端末内で近い候補を探すためだけに使い、自動確定しません。</p>
+                <div class="station-picker-controls">
+                    <select id="tideRegionFilter" aria-label="地域で絞り込み"><option value="">すべての地域</option></select>
+                    <input id="tideStationSearch" type="search" placeholder="地点名・地点記号で検索" autocomplete="off">
+                    <button id="tideNearbyButton" class="button button-secondary" type="button">現在地から候補を探す</button>
+                </div>
+                <p id="tideStationPickerStatus" class="field-status" role="status"></p>
+                <div id="tideStationCandidates" class="station-candidates" role="list"></div>
+                <div class="dialog-actions"><button class="button button-secondary" value="cancel">キャンセル</button></div>
+            </form>
+        </dialog>
 
         <section id="catchFormCard" class="form-card" aria-labelledby="formHeading">
             <div class="section-heading">
@@ -130,7 +146,7 @@
             </div>
             <div id="resultArea" class="result-area"></div>
         </section>
-        <footer class="app-footer">Otomo Fishing Beta / Version 0.20.3</footer>
+        <footer class="app-footer">Otomo Fishing Beta / Version 0.21.0</footer>
     </main>
 
     <dialog id="catchDetailDialog" class="detail-dialog" aria-labelledby="detailTitle">

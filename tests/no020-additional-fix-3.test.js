@@ -22,8 +22,8 @@ test("No.020追加修正3: Otomoだけを右へ移動しワードマークを維
   assert.deepEqual(SNS_CARD_LAYOUT.wordmark, { x: 650, y: 1195, width: 390 });
 });
 
-test("No.020追加修正3: 表示バージョンだけを0.20.3へ更新する", async () => {
+test("No.020追加修正3: 表示バージョンは現行版へ更新されている", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
-  assert.match(html, /Otomo Fishing Beta \/ Version 0\.20\.3/);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.21\.0/);
   assert.doesNotMatch(html, /Otomo Fishing Beta \/ Version 0\.20\.2/);
 });

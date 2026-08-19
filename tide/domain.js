@@ -1,6 +1,5 @@
 const JST_OFFSET = "+09:00";
-const SYNODIC_MONTH_DAYS = 29.530588;
-const NEW_MOON_REFERENCE = Date.parse("2026-07-14T00:00:00+09:00");
+import { officialLunarAgeDays } from "./lunar-phases.js";
 
 export function toJstDateKey(date = new Date()) {
   return new Intl.DateTimeFormat("sv-SE", {
@@ -16,7 +15,8 @@ export function eventDate(dateKey, time) {
 }
 
 export function getTideCycle(date) {
-  const age = ((date.getTime() - NEW_MOON_REFERENCE) / 86400000 % SYNODIC_MONTH_DAYS + SYNODIC_MONTH_DAYS) % SYNODIC_MONTH_DAYS;
+  const age = officialLunarAgeDays(date);
+  if (age === null) return null;
   const day = Math.round(age) % 30;
   if ([0, 1, 2, 14, 15, 16, 17, 29].includes(day)) return "大潮";
   if ([7, 8, 9, 22, 23, 24].includes(day)) return "小潮";
@@ -44,8 +44,17 @@ export function deriveTideState(tideDay, at) {
   const trend = minutesToNext <= 30 || (at - previous.time) / 60000 <= 30
     ? "slack"
     : next.type === "high" ? "rising" : "falling";
+  const hourlyPoints = tideDay.referenceSeries || tideDay.series;
+  const beforePoint = [...hourlyPoints].reverse().find((point) => point.time <= at);
+  const afterPoint = hourlyPoints.find((point) => point.time >= at);
+  const exactOfficial = beforePoint && beforePoint.time.getTime() === at.getTime();
+  const referenceHeight = beforePoint && afterPoint
+    ? Math.round(beforePoint.height + (afterPoint.height - beforePoint.height) * ((at - beforePoint.time) / Math.max(1, afterPoint.time - beforePoint.time)))
+    : interpolateHeight(previous, next, at);
   return {
-    estimatedHeight: interpolateHeight(previous, next, at),
+    estimatedHeight: referenceHeight,
+    referenceHeight,
+    officialHourlyValue: exactOfficial,
     trend,
     trendLabel: trend === "rising" ? "上げ潮" : trend === "falling" ? "下げ潮" : "潮止まり付近",
     previousExtreme: previous,
@@ -70,6 +79,8 @@ export function createTideSnapshot(tideDay, at) {
     },
     tideCycle: getTideCycle(at),
     estimatedHeight: state.estimatedHeight,
+    referenceHeight: state.referenceHeight,
+    referenceValue: !state.officialHourlyValue,
     trend: state.trend,
     trendLabel: state.trendLabel,
     previousExtreme: serializeEvent(state.previousExtreme),
@@ -77,7 +88,9 @@ export function createTideSnapshot(tideDay, at) {
     source: {
       provider: tideDay.source.provider,
       prediction: true,
-      dataYear: Number(tideDay.date.slice(0, 4))
+      dataYear: Number(tideDay.date.slice(0, 4)),
+      sourceType: "official-hourly-tide-table",
+      processed: true
     }
   };
 }

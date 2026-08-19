@@ -1,6 +1,7 @@
-import { KureTideProvider } from "./providers/kure-provider.js";
+import { JmaTideProvider } from "./providers/jma-tide-provider.js";
 import { createTideSnapshot } from "./tide/domain.js";
-import { renderTideLoading, renderTidePanel, renderTideUnavailable } from "./tide/view.js";
+import { renderTideError, renderTideLoading, renderTidePanel, renderTideUnavailable, renderTideUnselected } from "./tide/view.js";
+import { filterStations, nearestStations, readSelectedStationId, saveSelectedStationId } from "./tide/station-selection.js";
 import { renderCatchDetail } from "./catch-detail.js";
 import { createUuid, ensureLogIds } from "./log-model.js";
 import { resizePhoto } from "./image-processor.js";
@@ -69,6 +70,7 @@ const elements = {
   snsPhotoResetButton: document.getElementById("snsPhotoResetButton"),
   tide: {
     panel: document.getElementById("tidePanel"),
+    heading: document.getElementById("tideHeading"),
     status: document.getElementById("tideStatus"),
     level: document.getElementById("tideLevel"),
     next: document.getElementById("nextTide"),
@@ -76,12 +78,23 @@ const elements = {
     graph: document.getElementById("tideGraph"),
     extremes: document.getElementById("tideExtremes"),
     source: document.getElementById("tideSource")
-  }
+  },
+  tideStationButton: document.getElementById("tideStationButton"),
+  tideStationDialog: document.getElementById("tideStationDialog"),
+  tideRegionFilter: document.getElementById("tideRegionFilter"),
+  tideStationSearch: document.getElementById("tideStationSearch"),
+  tideNearbyButton: document.getElementById("tideNearbyButton"),
+  tideStationPickerStatus: document.getElementById("tideStationPickerStatus"),
+  tideStationCandidates: document.getElementById("tideStationCandidates")
 };
+
+const tideProvider = new JmaTideProvider();
+let tideStations = [];
 
 let currentTemperature = "";
 let currentWeather = "";
 let currentTideDay = null;
+let lastTideError = null;
 let selectedPhotoFile = null;
 let selectedPhotoPreviewUrl = "";
 let detailPhotoUrl = "";
@@ -943,12 +956,14 @@ async function getPlaceName(latitude, longitude) {
 }
 
 async function getTideDayForCatchDateTime(catchDateTime) {
-  const provider = new KureTideProvider();
+  const stationId = readSelectedStationId();
+  if (!stationId) return null;
   try {
-    const tideDay = await provider.getTideDay({ date: catchDateTime.dateKey });
-    createTideSnapshot(tideDay, catchDateTime.caughtAt);
+    lastTideError = null;
+    const tideDay = await tideProvider.getTideDay({ stationId, date: catchDateTime.dateKey });
     return tideDay;
-  } catch (_error) {
+  } catch (error) {
+    lastTideError = error;
     return null;
   }
 }
@@ -956,6 +971,10 @@ async function getTideDayForCatchDateTime(catchDateTime) {
 async function initializeTide() {
   const refreshId = ++tideRefreshId;
   currentTideDay = null;
+  if (!readSelectedStationId()) {
+    renderTideUnselected(elements.tide);
+    return;
+  }
   renderTideLoading(elements.tide);
   let catchDateTime;
   try {
@@ -968,12 +987,68 @@ async function initializeTide() {
   if (refreshId !== tideRefreshId) return;
   if (!tideDay) {
     currentTideDay = null;
-    renderTideUnavailable(elements.tide);
+    if (lastTideError) renderTideError(elements.tide, lastTideError);
+    else renderTideUnavailable(elements.tide);
     return;
   }
   currentTideDay = tideDay;
   renderTidePanel(elements.tide, tideDay, catchDateTime.caughtAt);
 }
+
+function renderStationCandidates(stations) {
+  elements.tideStationCandidates.replaceChildren();
+  if (!stations.length) {
+    elements.tideStationPickerStatus.textContent = "該当する地点がありません";
+    return;
+  }
+  elements.tideStationPickerStatus.textContent = `${stations.length}地点を表示`;
+  stations.slice(0, 150).forEach((station) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "station-candidate";
+    button.innerHTML = `<span><strong>${station.displayName}</strong><br><small>${station.region}・${station.providerStationId}</small></span><small>${Number.isFinite(station.distanceKm) ? `約${Math.round(station.distanceKm)}km` : station.dataYears.join("・") + "年"}</small>`;
+    button.addEventListener("click", () => {
+      saveSelectedStationId(station.stationId);
+      elements.tideStationDialog.close();
+      void initializeTide();
+    });
+    elements.tideStationCandidates.append(button);
+  });
+}
+
+function applyStationFilters() {
+  renderStationCandidates(filterStations(tideStations, { region: elements.tideRegionFilter.value, query: elements.tideStationSearch.value }));
+}
+
+async function openStationPicker() {
+  elements.tideStationDialog.showModal();
+  elements.tideStationPickerStatus.textContent = "地点一覧を読み込んでいます…";
+  try {
+    tideStations = await tideProvider.getStations();
+    if (!elements.tideRegionFilter.options.length || elements.tideRegionFilter.options.length === 1) {
+      [...new Set(tideStations.map((station) => station.region))].sort().forEach((region) => elements.tideRegionFilter.add(new Option(region, region)));
+    }
+    applyStationFilters();
+  } catch (_error) {
+    elements.tideStationPickerStatus.textContent = "地点一覧を読み込めませんでした";
+  }
+}
+
+elements.tideStationButton.addEventListener("click", () => { void openStationPicker(); });
+elements.tideRegionFilter.addEventListener("change", applyStationFilters);
+elements.tideStationSearch.addEventListener("input", applyStationFilters);
+elements.tideNearbyButton.addEventListener("click", () => {
+  elements.tideStationPickerStatus.textContent = "現在地を確認しています…";
+  if (!navigator.geolocation) {
+    elements.tideStationPickerStatus.textContent = "位置情報を利用できません。地域または検索から選んでください";
+    return;
+  }
+  navigator.geolocation.getCurrentPosition((position) => {
+    const candidates = nearestStations(tideStations, position.coords.latitude, position.coords.longitude);
+    renderStationCandidates(candidates);
+    if (candidates[0]?.distanceKm > 100) elements.tideStationPickerStatus.textContent = "近い地点でも遠距離です。別海域の可能性を確認して選んでください";
+  }, () => { elements.tideStationPickerStatus.textContent = "位置情報を取得できません。地域または検索から選んでください"; }, { timeout: 10000, maximumAge: 300000 });
+});
 
 showLogs();
 setCatchDateTime(elements);

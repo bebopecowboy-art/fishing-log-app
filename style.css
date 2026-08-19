@@ -27,7 +27,8 @@ body {
 button, input, textarea { font: inherit; }
 
 .app-shell {
-    width: min(100% - 28px, 720px);
+    width: calc(100% - 28px);
+    max-width: 720px;
     margin: 0 auto;
     padding: 32px 0 64px;
 }
@@ -55,13 +56,14 @@ button, input, textarea { font: inherit; }
 .summary-label { display: block; margin-bottom: 3px; color: var(--muted); font-size: 0.72rem; }
 .tide-summary strong { font-size: 1.08rem; }
 .next-tide { margin: 0 0 8px; color: #d8f5f1; font-weight: 700; }
-.tide-graph { display: block; width: 100%; min-height: 145px; margin: 4px 0 8px; overflow: visible; }
+.tide-graph { display: block; width: 100%; max-width: 100%; height: auto; min-height: 145px; aspect-ratio: 640 / 180; margin: 4px 0 8px; overflow: visible; }
 .tide-grid { stroke: rgba(180, 216, 226, 0.14); stroke-width: 1; }
 .tide-line { fill: none; stroke: var(--accent-2); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
 .tide-area { fill: none; stroke: rgba(93, 183, 255, 0.1); stroke-width: 18; }
 .tide-point { stroke: #fff; stroke-width: 2; }
 .tide-point-high { fill: var(--accent-2); }
 .tide-point-low { fill: var(--accent); }
+.tide-hourly-point { fill: #fff; stroke: var(--accent-2); stroke-width: 1; }
 .tide-now-line { stroke: #fff; stroke-width: 2; stroke-dasharray: 5 5; }
 .tide-axis-label, .tide-event-label, .tide-now-label { fill: var(--muted); font-size: 12px; }
 .tide-now-label { fill: #fff; font-weight: 800; }
@@ -69,6 +71,15 @@ button, input, textarea { font: inherit; }
 .tide-note { margin: 12px 0 5px; color: var(--muted); font-size: 0.72rem; line-height: 1.6; }
 .source-link { color: var(--accent); font-size: 0.72rem; }
 .tide-panel-error { border-color: rgba(255, 141, 141, 0.42); }
+.tide-station-button { width: 100%; margin-top: 8px; }
+.tide-station-dialog { width: min(92vw, 620px); max-height: 88vh; padding: 0; border: 1px solid var(--line); border-radius: 18px; background: #10232d; color: var(--text); }
+.tide-station-dialog::backdrop { background: rgba(0, 8, 12, 0.78); }
+.station-picker { padding: 20px; }
+.station-picker-controls { display: grid; gap: 10px; }
+.station-picker-controls select, .station-picker-controls input { width: 100%; }
+.station-candidates { display: grid; gap: 8px; max-height: 42vh; margin: 14px 0; overflow: auto; }
+.station-candidate { display: flex; justify-content: space-between; gap: 12px; width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: rgba(3, 12, 18, 0.35); color: var(--text); text-align: left; }
+.station-candidate small { color: var(--muted); }
 
 .form-card { padding: 20px; }
 .form-card.is-editing { border-color: rgba(68, 215, 194, 0.62); }
@@ -342,8 +353,10 @@ textarea { min-height: 88px; resize: vertical; }
 .sns-share-button[hidden] { display: none; }
 
 @media (max-width: 480px) {
-    .app-shell { width: min(100% - 20px, 720px); padding-top: 22px; }
+    .app-shell { width: calc(100% - 20px); padding-top: 22px; }
     .tide-panel, .form-card { padding: 16px; }
+    .tide-heading-row { flex-wrap: wrap; gap: 10px; }
+    .station-badge { max-width: 100%; white-space: normal; }
     .tide-summary { grid-template-columns: 1fr; }
     .tide-extremes { grid-template-columns: 1fr; }
     .form-grid { grid-template-columns: 1fr; }
