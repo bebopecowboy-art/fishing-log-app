@@ -43,9 +43,12 @@
                 <div class="section-heading"><p class="section-kicker">TIDE STATION</p><h2>潮汐の基準地点を選ぶ</h2></div>
                 <p>位置情報は端末内で近い候補を探すためだけに使い、自動確定しません。</p>
                 <div class="station-picker-controls">
-                    <select id="tideRegionFilter" aria-label="地域で絞り込み"><option value="">すべての地域</option></select>
-                    <input id="tideStationSearch" type="search" placeholder="地点名・地点記号で検索" autocomplete="off">
-                    <button id="tideNearbyButton" class="button button-secondary" type="button">現在地から候補を探す</button>
+                    <button id="tideNearbyButton" class="button button-primary station-nearby-primary" type="button" autofocus>現在地から候補を探す</button>
+                    <div class="station-picker-alternatives">
+                        <p class="station-picker-alternative-label">地域・地点名から探す</p>
+                        <select id="tideRegionFilter" aria-label="地域で絞り込み"><option value="">すべての地域</option></select>
+                        <input id="tideStationSearch" type="search" placeholder="地点名・地点記号で検索" autocomplete="off">
+                    </div>
                 </div>
                 <p id="tideStationPickerStatus" class="field-status" role="status"></p>
                 <div id="tideStationCandidates" class="station-candidates" role="list"></div>
@@ -146,7 +149,7 @@
             </div>
             <div id="resultArea" class="result-area"></div>
         </section>
-        <footer class="app-footer">Otomo Fishing Beta / Version 0.21.0</footer>
+        <footer class="app-footer">Otomo Fishing Beta / Version 0.21.1</footer>
     </main>
 
     <dialog id="catchDetailDialog" class="detail-dialog" aria-labelledby="detailTitle">

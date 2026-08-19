@@ -137,3 +137,24 @@ test("No.022回帰: 対応外年が必要な外側境界でも公式グラフと
     clearTideDataCache();
   }
 });
+
+test("No.022追加修正: 地点選択は現在地を主操作にし入力欄へ初期フォーカスしない", async () => {
+  const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
+  const app = await readFile(new URL("../app.js", import.meta.url), "utf8");
+  const nearbyIndex = html.indexOf('id="tideNearbyButton"');
+  const regionIndex = html.indexOf('id="tideRegionFilter"');
+  const searchIndex = html.indexOf('id="tideStationSearch"');
+  assert.ok(nearbyIndex > 0 && nearbyIndex < regionIndex && regionIndex < searchIndex);
+  assert.match(html, /id="tideNearbyButton"[^>]*button-primary[^>]*autofocus/);
+  assert.doesNotMatch(html, /id="tideRegionFilter"[^>]*autofocus/);
+  assert.doesNotMatch(html, /id="tideStationSearch"[^>]*autofocus/);
+  assert.doesNotMatch(app, /tide(?:RegionFilter|StationSearch)\.(?:focus|showPicker)\s*\(/);
+  assert.doesNotMatch(html, /<h2[^>]*(?:tabindex|autofocus)/);
+  const dialogMarkup = html.slice(html.indexOf('id="tideStationDialog"'), html.indexOf("</dialog>", html.indexOf('id="tideStationDialog"')));
+  assert.equal((dialogMarkup.match(/autofocus/g) || []).length, 1);
+  assert.match(app, /tideStationDialog\.showModal\(\);\s*elements\.tideStationDialog\.scrollTop = 0;\s*elements\.tideNearbyButton\.focus\(\{ preventScroll: true \}\);/);
+  const nearbyHandler = app.indexOf('elements.tideNearbyButton.addEventListener("click"');
+  const geolocationRequest = app.indexOf("navigator.geolocation.getCurrentPosition", nearbyHandler);
+  assert.ok(nearbyHandler > 0 && geolocationRequest > nearbyHandler);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.21\.1/);
+});

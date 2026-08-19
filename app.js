@@ -1022,6 +1022,8 @@ function applyStationFilters() {
 
 async function openStationPicker() {
   elements.tideStationDialog.showModal();
+  elements.tideStationDialog.scrollTop = 0;
+  elements.tideNearbyButton.focus({ preventScroll: true });
   elements.tideStationPickerStatus.textContent = "地点一覧を読み込んでいます…";
   try {
     tideStations = await tideProvider.getStations();

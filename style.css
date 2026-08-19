@@ -76,6 +76,9 @@ button, input, textarea { font: inherit; }
 .tide-station-dialog::backdrop { background: rgba(0, 8, 12, 0.78); }
 .station-picker { padding: 20px; }
 .station-picker-controls { display: grid; gap: 10px; }
+.station-nearby-primary { margin-top: 0; }
+.station-picker-alternatives { display: grid; gap: 10px; padding-top: 14px; border-top: 1px solid var(--line); }
+.station-picker-alternative-label { margin: 0; color: var(--muted); font-size: 0.82rem; font-weight: 700; }
 .station-picker-controls select, .station-picker-controls input { width: 100%; }
 .station-candidates { display: grid; gap: 8px; max-height: 42vh; margin: 14px 0; overflow: auto; }
 .station-candidate { display: flex; justify-content: space-between; gap: 12px; width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: rgba(3, 12, 18, 0.35); color: var(--text); text-align: left; }
