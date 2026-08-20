@@ -7,9 +7,10 @@ const root = resolve(process.cwd());
 const types = { ".css": "text/css", ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".png": "image/png" };
 createServer(async (request, response) => {
   const requested = decodeURIComponent(new URL(request.url, "http://localhost").pathname);
-  const file = resolve(root, `.${requested === "/" ? "/index.html" : requested}`);
+  let file = resolve(root, `.${requested === "/" ? "/index.html" : requested}`);
   if (file !== root && !file.startsWith(`${root}${sep}`)) { response.writeHead(403).end(); return; }
   try {
+    if ((await stat(file)).isDirectory()) file = resolve(file, "index.html");
     await stat(file);
     response.writeHead(200, { "Content-Type": types[extname(file)] || "application/octet-stream" });
     createReadStream(file).pipe(response);

@@ -1,0 +1,125 @@
+AI事業部 開発実装報告書 No.024 追加修正
+
+件名：Otomo Fishing 紹介ページのSNSカード見本を完成画像4枚へ差し替える
+作成日：2026年8月20日
+実装版：Version 0.22.1
+
+────────────────────
+
+【実装結果】
+
+No.024で作成したabout/のSNSカード紹介欄について、HTML/CSS製の仮カード4枚を支給された完成JPEG4枚へ差し替えました。
+表示順はクリーム、ミント、スカイ、サンドです。
+アプリ本体のSNSカード生成処理、テーマ色定義、釣果登録・検索・潮汐・保存・共有機能は変更していません。
+
+────────────────────
+
+【変更内容】
+
+・about/index.htmlの仮カードマークアップを完成画像4枚のimg要素へ置換
+・各画像へwidth="1080"、height="1350"、loading="lazy"、decoding="async"、日本語altを設定
+・about/about.cssから仮カード専用のテーマ、写真、見出し、文字、ロゴ、オトモの重ね合わせCSSを削除
+・画像はwidth: 100%、height: auto、aspect-ratio: 4 / 5で表示し、既存の4列／2列グリッドを維持
+・アプリ本体の表示Versionを0.22.1へ更新
+・Versionを確認する既存テストの期待値を0.22.1へ更新
+・No.024本体テストを完成画像方式へ整合
+・追加修正専用の回帰テストを追加
+・JPEGメタデータを可逆的に除去する補助スクリプトを追加
+
+────────────────────
+
+【追加ファイル】
+
+・assets/about/otomo-sns-card-cream.jpg
+・assets/about/otomo-sns-card-mint.jpg
+・assets/about/otomo-sns-card-sky.jpg
+・assets/about/otomo-sns-card-sand.jpg
+・tests/no024-additional-fix-introduction-card-images.test.js
+・tools/prepare-introduction-card-images.mjs
+・docs/development-instruction-no024-additional-fix-introduction-card-images-20260820.txt
+・docs/development-report-no024-additional-fix-introduction-card-images-20260820.txt
+
+【変更ファイル】
+
+・about/index.html
+・about/about.css
+・index.html
+・tests/no024-introduction-page.test.js
+・Version表記を確認する既存テスト8ファイル
+
+注：No.024本体で未コミットのabout/、tools/serve.mjs、指示書、報告書、テストも同じ作業ツリーに存在します。
+
+────────────────────
+
+【画像確認結果】
+
+・otomo-sns-card-cream.jpg：JPEG、1080×1350px、519,207 bytes
+・otomo-sns-card-mint.jpg：JPEG、1080×1350px、511,882 bytes
+・otomo-sns-card-sky.jpg：JPEG、1080×1350px、512,257 bytes
+・otomo-sns-card-sand.jpg：JPEG、1080×1350px、505,924 bytes
+
+4枚とも4:5比率です。APP1（EXIF）、APP13、COMセグメントを除去しました。
+除去後のファイルにAPP1、APP13、COMが存在しないことを自動テストで確認しました。
+GPS、撮影端末、氏名、撮影日時に相当する公開不要なメタデータは残っていません。
+JPEGのSOS以降の圧縮スキャンデータが支給画像とSHA-256一致することを確認しており、再圧縮、再トリミング、色補正、画像内容の変更は行っていません。
+
+────────────────────
+
+【表示方法とレスポンシブ確認】
+
+・PC幅は4列表示
+・980px以下は2列表示
+・700px以下および390px以下でも2列表示を維持
+・画像はコンテナ幅100%、高さ自動、4:5固定
+・bodyの横方向オーバーフロー防止を維持
+・旧仮カードの場所名、日付、朝まずめ等はSNSカード紹介欄から削除
+
+静的HTML/CSSと自動テストにより320px、375/390px、768px、1280px以上で適用される規則を確認しました。
+実ブラウザーが利用できない環境だったため、各幅での目視確認画像は作成していません。
+
+────────────────────
+
+【テスト結果】
+
+・既存テストを含む全自動テスト：129件成功、0件失敗
+・No.024追加修正テスト：3件成功
+・HTML/CSS静的確認：成功
+・JPEG形式、寸法、メタデータ、圧縮スキャンデータ確認：成功
+・画像表示順確認：成功
+・Version 0.22.1確認：成功
+・git diff --check：エラーなし（Gitの既存改行コード警告のみ）
+・ローカルHTTP確認：ルート、about/、画像4URLの全6件がHTTP 200
+・sns-card-renderer.jsおよびsns-card-settings.js：差分なし
+
+ローカル確認URL：http://127.0.0.1:4173/about/
+
+────────────────────
+
+【未確認事項】
+
+・実ブラウザーを利用できなかったため、PC幅およびiPhone相当幅の最終目視確認は未実施
+・GitHub Pages上での公開確認は未実施
+
+【残るリスク】
+
+静的規則と自動テストでは画像切れ、比率崩れ、表示順、横スクロール防止を確認していますが、実端末固有のフォントや描画差は社長によるローカル目視確認が必要です。
+
+【次工程への提案】
+
+ローカルURLをPCとiPhone相当幅で確認し、4枚の内容、順序、画像切れ、横スクロール、Version 0.22.1を承認後、No.024本体と本追加修正の対象ファイルだけを選別してコミット・公開してください。
+
+【公開状態】
+
+コミット、mainへのプッシュ、GitHub Pages公開は行っていません。社長承認待ちです。
+
+【Codex利用状況】
+
+利用量の取得機能がないため取得不可です。
+
+【作業規模】
+
+中規模。画像4点の公開用整理、HTML/CSS差し替え、Version更新、既存および追加テスト、メタデータの可逆除去検証を含むためです。
+
+【作業難易度】
+
+中。画像自体を変更せず不要メタデータだけを除去し、圧縮スキャンデータの同一性、レスポンシブ表示、既存機能非変更を同時に保証する必要があったためです。
