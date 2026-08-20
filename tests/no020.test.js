@@ -37,7 +37,7 @@ test("No.020: logo, distinct empty states, responsive sizing, and display versio
   assert.match(html, /assets\/otomo-fishing-logo-horizontal\.png[^>]+alt="Otomo Fishing"/);
   assert.doesNotMatch(html, />FISHING LOG<|<h1>Otomo Fishing<\/h1>/);
   assert.match(html, /釣れた瞬間を、30秒で記録。/);
-  assert.match(html, /Otomo Fishing Beta \/ Version 0\.21\.1/);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.21\.2/);
   assert.match(app, /fishingLogs\.length === 0 && !isSearching[\s\S]+otomo-character-empty-history\.png/);
   assert.match(app, /displayedLogs\.length === 0[\s\S]+otomo-character-search-empty\.png/);
   assert.match(app, /aria-hidden/);
