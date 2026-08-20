@@ -156,5 +156,5 @@ test("No.022追加修正: 地点選択は現在地を主操作にし入力欄へ
   const nearbyHandler = app.indexOf('elements.tideNearbyButton.addEventListener("click"');
   const geolocationRequest = app.indexOf("navigator.geolocation.getCurrentPosition", nearbyHandler);
   assert.ok(nearbyHandler > 0 && geolocationRequest > nearbyHandler);
-  assert.match(html, /Otomo Fishing Beta \/ Version 0\.21\.2/);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.21\.3/);
 });

@@ -10,10 +10,10 @@ export const SNS_CARD_LAYOUT = Object.freeze({
   character: Object.freeze({ x: 610, y: 970, width: 400 })
 });
 export const SNS_CARD_THEMES = Object.freeze({
-  cream: Object.freeze({ label: "クリーム", background: "#F3E9D8", photoFrame: "#E5D7C0", text: "#111820", rule: "#C7C0B3", icon: "#173E67" }),
-  mint: Object.freeze({ label: "ミント", background: "#CFE6E1", photoFrame: "#BBD8D1", text: "#15333A", rule: "#B5D0C8", icon: "#1F6F6A" }),
-  sky: Object.freeze({ label: "スカイ", background: "#D4E3EF", photoFrame: "#BED2E1", text: "#172D40", rule: "#B8CAD8", icon: "#2D6080" }),
-  sand: Object.freeze({ label: "サンド", background: "#E6D2BA", photoFrame: "#D2B99B", text: "#392B23", rule: "#CAB8A3", icon: "#6E5B35" })
+  cream: Object.freeze({ label: "クリーム", background: "#F2E9D8", accent: "#173C5A", text: "#111820" }),
+  mint: Object.freeze({ label: "ミント", background: "#BFE0D6", accent: "#146A65", text: "#15333A" }),
+  sky: Object.freeze({ label: "スカイ", background: "#C6DAEE", accent: "#245F8B", text: "#172D40" }),
+  sand: Object.freeze({ label: "サンド", background: "#DFC09C", accent: "#6F5728", text: "#392B23" })
 });
 export const SNS_CARD_DEFAULT_THEME = "cream";
 export const SNS_CARD_PHOTO_FILTER = Object.freeze({ canvas: "saturate(92%) contrast(96%) sepia(6%) brightness(102%)", warmOverlay: "rgba(244, 218, 178, 0.055)" });
@@ -49,17 +49,17 @@ export async function renderSnsCardCanvas(canvas, model, photoUrl, adjustment, t
   if (photo) {
     const frame = SNS_CARD_LAYOUT.photo;
     if (typeof context.save !== "function") { drawAdjustedSnsPhoto(context, photo, frame.width, frame.height, adjustment); }
-    else { context.save(); context.fillStyle = theme.photoFrame; path(context, frame); context.fill(); context.clip(); context.translate(frame.x, frame.y);
+    else { context.save(); context.fillStyle = theme.accent; path(context, frame); context.fill(); context.clip(); context.translate(frame.x, frame.y);
     if ("filter" in context) context.filter = SNS_CARD_PHOTO_FILTER.canvas;
     drawAdjustedSnsPhoto(context, photo, frame.width, frame.height, adjustment);
     if ("filter" in context) context.filter = "none";
     context.fillStyle = SNS_CARD_PHOTO_FILTER.warmOverlay; context.fillRect(0, 0, frame.width, frame.height); context.restore();
-    context.save(); context.strokeStyle = theme.photoFrame; context.lineWidth = frame.borderWidth; path(context, frame); context.stroke(); context.restore(); }
+    context.save(); context.strokeStyle = theme.accent; context.lineWidth = frame.borderWidth; path(context, frame); context.stroke(); context.restore(); }
   }
-  const left = 59, right = 59, top = 828; context.textBaseline = "top"; context.fillStyle = theme.text; context.font = `700 80px ${FONT}`;
+  const left = 59, right = 59, top = 828; context.textBaseline = "top"; context.fillStyle = theme.accent; context.font = `700 80px ${FONT}`;
   context.fillText(fit(context, model.name, 645), left, top); context.font = `700 60px ${FONT}`; context.textAlign = "right"; context.fillText(fit(context, model.size, 285), 1021, top + 13); context.textAlign = "left";
-  context.strokeStyle = theme.rule; context.lineWidth = 2; context.beginPath(); context.moveTo(left, top + 97); context.lineTo(1021, top + 97); context.stroke();
-  let rowY = top + 123; for (const row of model.rows) { context.fillStyle = theme.icon; context.font = `700 37px ${FONT}`; context.textAlign = "center"; context.fillText(row.icon, left + 28, rowY); context.fillStyle = theme.text; context.font = `400 35px ${FONT}`; context.textAlign = "left"; context.fillText(fit(context, row.value, 500), left + 75, rowY); rowY += 48; }
+  context.strokeStyle = theme.accent; context.lineWidth = 2; context.beginPath(); context.moveTo(left, top + 97); context.lineTo(1021, top + 97); context.stroke();
+  let rowY = top + 123; for (const row of model.rows) { context.fillStyle = theme.accent; context.font = `700 37px ${FONT}`; context.textAlign = "center"; context.fillText(row.icon, left + 28, rowY); context.fillStyle = theme.text; context.font = `400 35px ${FONT}`; context.textAlign = "left"; context.fillText(fit(context, row.value, 500), left + 75, rowY); rowY += 48; }
   if (wordmark) { const l = SNS_CARD_LAYOUT.wordmark; context.drawImage(wordmark, l.x, l.y, l.width, l.width * ((wordmark.naturalHeight || wordmark.height) / (wordmark.naturalWidth || wordmark.width))); }
   if (character) { const l = SNS_CARD_LAYOUT.character; context.drawImage(character, l.x, l.y, l.width, l.width * ((character.naturalHeight || character.height) / (character.naturalWidth || character.width))); }
   return canvas;

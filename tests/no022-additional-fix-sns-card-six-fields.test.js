@@ -90,11 +90,11 @@ test("No.022-B: JPEG export uses the same six-row model as preview", async () =>
   assert.equal(rowValues(exported.operations).length, 6);
 });
 
-test("No.022-B: displayed version is 0.21.2 and no five-row cutoff remains", async () => {
+test("No.022-B: current display version and no five-row cutoff remain", async () => {
   const [html, renderer] = await Promise.all([
     readFile(new URL("../index.html", import.meta.url), "utf8"),
     readFile(new URL("../sns-card-renderer.js", import.meta.url), "utf8")
   ]);
-  assert.match(html, /Otomo Fishing Beta \/ Version 0\.21\.2/);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.21\.3/);
   assert.doesNotMatch(renderer, /rowY\s*>\s*1160/);
 });
