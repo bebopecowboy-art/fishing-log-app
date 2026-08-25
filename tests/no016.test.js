@@ -5,15 +5,15 @@ import { KureTideProvider } from "../providers/kure-provider.js";
 import { createTideSnapshot } from "../tide/domain.js";
 import { renderTideUnavailable } from "../tide/view.js";
 
-test("user-facing application name is Otomo Fishing and No.015 icons remain", () => {
+test("user-facing application name is Otomo Fishing and current icons remain", () => {
   const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
   assert.match(html, /<title>Otomo Fishing<\/title>/);
   assert.match(html, /name="application-name" content="Otomo Fishing"/);
   assert.match(html, /name="apple-mobile-web-app-title" content="Otomo Fishing"/);
   assert.match(html, /<h1 class="app-logo-heading"><img[^>]+alt="Otomo Fishing"[^>]*><\/h1>/);
   assert.doesNotMatch(html, /釣果メモアプリ|<h1>釣果メモ<\/h1>/);
-  assert.match(html, /otomo-icon-32\.png\?v=15/);
-  assert.match(html, /otomo-icon-180\.png\?v=15/);
+  assert.match(html, /otomo-fishing-icon-32\.png/);
+  assert.match(html, /otomo-fishing-icon-180\.png/);
 });
 
 test("another available date and selected time produce a matching tide snapshot", async () => {

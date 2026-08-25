@@ -1,0 +1,157 @@
+AI事業部 開発完了報告書 No.026
+
+件名：Otomo Fishing ホーム画面アイコンの透明外周修正
+作成日：2026年8月25日
+実装版：Version 0.22.3
+
+【最終実装状態】
+
+・採用された現在の青緑色 #5BB4B7 を使用した。
+・アイコンへ魚、釣り針、波、泡、模様、文字は追加していない。
+・現行アイコンの透明な外周余白を、不透明なクリーム枠と青緑背景で外側へ拡張した。
+・Otomoの顔、耳、目、口、葉、輪郭の前景RGBA画素、大きさ、位置は変更していない。
+・中央断面のクリーム枠は従来と同じ9pxを維持した。
+・faviconとapple-touch-iconへ確定反映した。
+・Web App Manifest、192px、512px、maskableアイコンは現行プロジェクトに存在しないため変更していない。
+
+【原因調査結果】
+
+・従来の180×180 apple-touch-iconには完全透明画素が11,035画素あった。
+・従来アイコンの非透明領域は概ねx=15～164、y=14～170で、画像外端に透明余白が存在した。
+・中央断面では外端からクリーム枠まで約15pxが完全透明だった。
+・iPhoneホーム画面で透明外周が黒として合成される現象と整合するため、完全透明な外周が原因と判断した。
+・確定アイコンは完全透明画素0であり、外周に黒い合成色が現れる領域を除去した。
+
+【変更内容】
+
+・180px確定アイコンをassets/icons/otomo-fishing-icon-180.pngとして追加した。
+・32px確定アイコンをassets/icons/otomo-fishing-icon-32.pngとして追加した。
+・index.htmlとabout/index.htmlのfaviconおよびapple-touch-icon参照を確定アイコンへ変更した。
+・アプリ表示Versionを0.22.3へ更新した。
+・Versionとアイコン参照を確認する既存テストを更新した。
+・No.026専用テストを最終仕様へ整理した。
+
+【追加ファイル】
+
+・assets/icons/otomo-fishing-icon-180.png
+・assets/icons/otomo-fishing-icon-32.png
+・tests/no026.test.js
+・docs/development-report-no026-fishing-app-icon-20260825.txt
+
+【変更ファイル】
+
+・index.html
+・about/index.html
+・tests/no016.test.js
+・tests/no019.test.js
+・tests/no020.test.js
+・tests/no020-additional-fix.test.js
+・tests/no020-additional-fix-2.test.js
+・tests/no020-additional-fix-3.test.js
+・tests/no022.test.js
+・tests/no022-additional-fix-sns-card-six-fields.test.js
+・tests/no023-sns-card-theme-colors.test.js
+・tests/no024-introduction-page.test.js
+・tests/no024-additional-fix-introduction-card-images.test.js
+・tests/no025.test.js
+
+【最終アイコン情報】
+
+・otomo-fishing-icon-180.png：PNG、180×180、14,199 bytes、RGBA。
+・otomo-fishing-icon-32.png：PNG、32×32、1,643 bytes、RGBA。
+・背景色：#5BB4B7。
+・クリーム色：#FAF0DE。
+・中央断面の外周から青緑背景までのクリーム枠幅：9px。
+・完全透明画素：180px版0、32px版0。
+・180px版には、顔のRGBA画素を維持するため、元素材由来の半透明アンチエイリアス画素が7,576画素ある。外周と新規背景は不透明である。
+
+【画素検証結果】
+
+・従来アイコンと確定180pxアイコンをPNG復号後のRGBA値で比較した。
+・顔、耳、目、口、葉、輪郭として抽出した前景画素は、同じ座標で完全一致した。
+・顔の大きさと位置は変更していない。
+・完全透明外周のみを不透明なクリーム色と青緑背景へ置き換えた。
+・魚または模様の画素が存在しないことを目視および生成内容で確認した。
+
+【参照結果】
+
+・index.html favicon：assets/icons/otomo-fishing-icon-32.png
+・index.html apple-touch-icon：assets/icons/otomo-fishing-icon-180.png
+・about/index.html favicon：../assets/icons/otomo-fishing-icon-32.png
+・about/index.html apple-touch-icon：../assets/icons/otomo-fishing-icon-180.png
+・Manifest参照：なし。
+
+【メタデータ確認結果】
+
+・確定PNGにeXIf、tEXt、iTXt、zTXtチャンクがないことを確認した。
+・EXIF、GPS、コメント等の公開不要メタデータは含まれていない。
+
+【実施したテスト】
+
+・既存を含む全自動テスト。
+・No.026専用テスト5件。
+・従来アイコンの完全透明画素数確認。
+・確定180pxアイコンの完全透明画素0確認。
+・前景RGBA画素の位置・値一致確認。
+・背景色#5BB4B7確認。
+・32px、180pxのPNG寸法確認。
+・HTMLのfavicon、apple-touch-icon参照確認。
+・Version 0.22.3確認。
+・PNGメタデータ確認。
+・各ローカルURLのHTTP確認。
+・git diff --check。
+
+【テスト結果】
+
+・全自動テスト：139件成功、失敗0件。
+・No.026専用テスト：5件成功、失敗0件（全139件に含む）。
+・git diff --check：エラーなし（Gitの改行コード予告警告のみ）。
+・LANローカルURL：HTTP 200。
+・180px apple-touch-icon URL：HTTP 200。
+・32px favicon URL：HTTP 200。
+・LAN配信HTMLでVersion 0.22.3を確認した。
+
+【Version更新結果】
+
+・アプリ本体の表示Versionを0.22.3へ更新した。
+・Versionを確認する既存テストの期待値を0.22.3へ更新した。
+・紹介ページにVersion表示はないため、Version文言は追加していない。
+
+【未確認事項】
+
+・既に追加済みのホーム画面アイコンに残るiOSキャッシュの更新挙動。
+
+【iPhone実機確認・承認結果】
+
+・社長がiPhone実機のホーム画面で確認した。
+・黒い外周が解消され、採用したA案どおり表示されることを確認した。
+・No.026の承認を受領した。
+
+【残るリスク】
+
+・iOSが古いapple-touch-iconをキャッシュしている場合、ホーム画面ショートカットの削除と再追加が必要になる可能性がある。
+・別の端末やiOSバージョンによるマスク形状・キャッシュ挙動の差は残る。
+
+【次工程への提案】
+
+・Version 0.22.3としてコミット、プッシュ、GitHub Pages公開を行う。
+・公開後にVersion、favicon、apple-touch-iconのHTTP 200を確認する。
+
+【Git・公開状況】
+
+・社長承認およびVersion 0.22.3のコミット、プッシュ、公開許可を受領した。
+・本報告書をVersion 0.22.3のリリースコミットへ含める。
+
+【Codex利用状況】
+
+・取得不可。
+
+【作業規模】
+
+・中。
+・確定アイコン2ファイル、HTML参照2ページ、Version関連テスト、専用テスト、報告書を更新した。
+
+【作業難易度】
+
+・高。
+・透明外周だけを修正しながら、顔と葉のRGBA画素、位置、大きさ、クリーム枠幅を維持する画素単位の検証が必要だったため。

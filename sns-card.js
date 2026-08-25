@@ -49,7 +49,11 @@ export async function renderSnsCard(container, log, photoUrl, visibility, adjust
   let canvas = container.querySelector(".sns-card-photo");
   if (!canvas) { canvas = document.createElement("canvas"); canvas.className = "sns-card-photo"; canvas.setAttribute("role", "img"); canvas.setAttribute("aria-label", `${model.name}のSNSカード`); container.replaceChildren(canvas); }
   const token = Symbol("sns-card-render"); canvas.snsCardRenderToken = token;
-  await renderSnsCardCanvas(canvas, model, photoUrl, normalizeSnsPhotoAdjustment(adjustment), themeId);
+  if (!canvas.snsCardImageCache || canvas.snsCardPhotoUrl !== photoUrl) {
+    canvas.snsCardImageCache = new Map();
+    canvas.snsCardPhotoUrl = photoUrl;
+  }
+  await renderSnsCardCanvas(canvas, model, photoUrl, normalizeSnsPhotoAdjustment(adjustment), themeId, { imageCache: canvas.snsCardImageCache });
   return canvas.snsCardRenderToken === token ? canvas : null;
 }
 import { normalizeSnsPhotoAdjustment } from "./sns-photo-adjustment.js";

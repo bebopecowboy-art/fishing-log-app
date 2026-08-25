@@ -21,14 +21,17 @@ const FONT = '"Hiragino Sans", "Yu Gothic UI", sans-serif';
 
 export function normalizeSnsCardTheme(value) { return Object.hasOwn(SNS_CARD_THEMES, value) ? value : SNS_CARD_DEFAULT_THEME; }
 
-function loadImage(source, ImageConstructor, label, optional = false) {
+function loadImage(source, ImageConstructor, label, optional = false, imageCache) {
   if (!source || typeof ImageConstructor !== "function") return Promise.resolve(null);
-  return new Promise((resolve, reject) => {
+  if (imageCache?.has(source)) return imageCache.get(source);
+  const pending = new Promise((resolve, reject) => {
     const image = new ImageConstructor();
     image.onload = () => resolve(image);
     image.onerror = () => optional ? resolve(null) : reject(new Error(`${label}を読み込めませんでした`));
     image.src = source;
   });
+  if (imageCache) imageCache.set(source, pending);
+  return pending;
 }
 function path(context, { x, y, width, height, radius }) {
   context.beginPath(); context.moveTo(x + radius, y); context.lineTo(x + width - radius, y); context.quadraticCurveTo(x + width, y, x + width, y + radius); context.lineTo(x + width, y + height - radius); context.quadraticCurveTo(x + width, y + height, x + width - radius, y + height); context.lineTo(x + radius, y + height); context.quadraticCurveTo(x, y + height, x, y + height - radius); context.lineTo(x, y + radius); context.quadraticCurveTo(x, y, x + radius, y); context.closePath();
@@ -36,13 +39,14 @@ function path(context, { x, y, width, height, radius }) {
 function fit(context, value, width) { const chars = Array.from(value); while (chars.length && context.measureText(chars.join("") + "…").width > width) chars.pop(); return context.measureText(value).width <= width ? value : chars.join("") + "…"; }
 
 export async function renderSnsCardCanvas(canvas, model, photoUrl, adjustment, themeId, options = {}) {
-  canvas.width = SNS_CARD_WIDTH; canvas.height = SNS_CARD_HEIGHT;
+  if (canvas.width !== SNS_CARD_WIDTH) canvas.width = SNS_CARD_WIDTH;
+  if (canvas.height !== SNS_CARD_HEIGHT) canvas.height = SNS_CARD_HEIGHT;
   const context = canvas.getContext("2d"); if (!context) throw new Error("このブラウザではカードを描画できません");
   const ImageConstructor = options.ImageConstructor || globalThis.Image;
   const [photo, wordmark, character] = await Promise.all([
-    loadImage(photoUrl, ImageConstructor, "カードの写真", true),
-    loadImage(options.wordmarkUrl || SNS_CARD_WORDMARK_URL, ImageConstructor, "Otomo Fishingロゴ"),
-    loadImage(options.characterUrl || SNS_CARD_CHARACTER_URL, ImageConstructor, "Otomoの画像")
+    loadImage(photoUrl, ImageConstructor, "カードの写真", true, options.imageCache),
+    loadImage(options.wordmarkUrl || SNS_CARD_WORDMARK_URL, ImageConstructor, "Otomo Fishingロゴ", false, options.imageCache),
+    loadImage(options.characterUrl || SNS_CARD_CHARACTER_URL, ImageConstructor, "Otomoの画像", false, options.imageCache)
   ]);
   const theme = SNS_CARD_THEMES[normalizeSnsCardTheme(themeId)];
   context.fillStyle = theme.background; context.fillRect(0, 0, SNS_CARD_WIDTH, SNS_CARD_HEIGHT);

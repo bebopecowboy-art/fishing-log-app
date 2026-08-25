@@ -54,15 +54,16 @@ test("存在しないログと写真なし相当の配列を安全に扱う", ()
 });
 
 test("写真調整UIはドラッグ・ピンチ・スライダー・リセット操作を備える", async () => {
-  const [html, css, app] = await Promise.all([
+  const [html, css, app, gesture] = await Promise.all([
     readFile(new URL("../index.html", import.meta.url), "utf8"),
     readFile(new URL("../style.css", import.meta.url), "utf8"),
-    readFile(new URL("../app.js", import.meta.url), "utf8")
+    readFile(new URL("../app.js", import.meta.url), "utf8"),
+    readFile(new URL("../sns-photo-gesture.js", import.meta.url), "utf8")
   ]);
   assert.match(html, /id="snsPhotoScale"[^>]*type="range"[^>]*min="100"[^>]*max="300"/);
   assert.match(html, /id="snsPhotoResetButton"/);
   assert.match(css, /touch-action:\s*none/);
   assert.match(app, /addEventListener\("pointermove"/);
-  assert.match(app, /type:\s*"pinch"/);
+  assert.match(gesture, /type:\s*"pinch"/);
   assert.match(app, /photoSelectionName\.textContent\s*=\s*""/);
 });

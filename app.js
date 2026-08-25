@@ -10,6 +10,8 @@ import { SNS_CARD_DEFAULTS, renderSnsCard } from "./sns-card.js";
 import { canShareSnsCard, createSnsCardFilename, downloadSnsCard, generateSnsCardJpeg, shareSnsCardFile } from "./sns-card-export.js";
 import { normalizeSnsCardTheme, SNS_CARD_DEFAULT_THEME, SNS_CARD_THEMES } from "./sns-card-renderer.js";
 import { applySnsPhotoAdjustmentToLogs, normalizeSnsPhotoAdjustment, SNS_PHOTO_ADJUSTMENT_DEFAULTS } from "./sns-photo-adjustment.js";
+import { cancelSnsPhotoGesture, createSnsPhotoGestureState, finishSnsPhotoPointer, moveSnsPhotoPointer, startSnsPhotoPointer } from "./sns-photo-gesture.js";
+import { createLatestFrameScheduler } from "./latest-frame-scheduler.js";
 import { readCatchDateTime, resetCatchDateTimeIfDateCleared, resetCatchForm, resetCatchTimeIfCleared, setCatchDateTime } from "./catch-form.js";
 import { createBackupFilename, mergeFishingLogs, parseFishingLogBackup, serializeFishingLogBackup } from "./log-backup.js";
 import { updateFishingLog } from "./log-editor.js";
@@ -103,8 +105,7 @@ let detailOpening = false;
 let snsPhotoAdjustment = { ...SNS_PHOTO_ADJUSTMENT_DEFAULTS };
 const SNS_THEME_STORAGE_KEY = "otomoFishingSnsCardTheme";
 let snsCardTheme = SNS_CARD_DEFAULT_THEME;
-const snsPhotoPointers = new Map();
-let snsPhotoGesture = null;
+const snsPhotoGestureState = createSnsPhotoGestureState();
 let environmentRefreshId = 0;
 let tideRefreshId = 0;
 let editingLogId = "";
@@ -668,19 +669,26 @@ function openSnsCard(log) {
   snsCardTheme = normalizeSnsCardTheme(localStorage.getItem(SNS_THEME_STORAGE_KEY));
   updateSnsThemeControls();
   updateSnsPhotoScaleControl();
-  void redrawActiveSnsCard();
+  snsRenderScheduler.request();
   setSnsActionStatus("");
   elements.snsShareButton.hidden = false;
   elements.snsDialog.showModal();
 }
 
 function closeSnsCard() {
+  cancelSnsPhotoGesture(snsPhotoGestureState);
+  snsRenderScheduler.cancel();
+  const canvas = getSnsPhotoCanvas();
+  if (canvas) {
+    canvas.snsCardRenderToken = Symbol("sns-card-closed");
+    canvas.snsCardImageCache?.clear();
+  }
   elements.snsDialog.close();
 }
 
 elements.snsControls.addEventListener("change", () => {
   if (!activeDetailLog || !detailPhotoUrl) return;
-  void redrawActiveSnsCard();
+  snsRenderScheduler.request();
 });
 elements.snsCloseButton.addEventListener("click", closeSnsCard);
 elements.snsDoneButton.addEventListener("click", closeSnsCard);
@@ -707,6 +715,8 @@ async function redrawActiveSnsCard() {
   catch (error) { setSnsActionStatus(error?.message || "SNSカードを表示できませんでした", true); }
 }
 
+const snsRenderScheduler = createLatestFrameScheduler(redrawActiveSnsCard);
+
 function updateSnsThemeControls() {
   elements.snsThemeControls.querySelectorAll("[data-theme]").forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.theme === snsCardTheme));
@@ -719,7 +729,7 @@ elements.snsThemeControls.addEventListener("click", (event) => {
   snsCardTheme = normalizeSnsCardTheme(button.dataset.theme);
   localStorage.setItem(SNS_THEME_STORAGE_KEY, snsCardTheme);
   updateSnsThemeControls();
-  void redrawActiveSnsCard();
+  snsRenderScheduler.request();
 });
 
 function saveSnsPhotoAdjustment() {
@@ -739,62 +749,46 @@ function saveSnsPhotoAdjustment() {
   }
 }
 
-function pointerDistance(points) {
-  return Math.hypot(points[0].x - points[1].x, points[0].y - points[1].y);
-}
-
 elements.snsPreview.addEventListener("pointerdown", (event) => {
   if (!event.target.classList.contains("sns-card-photo")) return;
   event.preventDefault();
   event.target.setPointerCapture(event.pointerId);
-  snsPhotoPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-  const points = [...snsPhotoPointers.values()];
-  snsPhotoGesture = points.length >= 2
-    ? { type: "pinch", distance: pointerDistance(points.slice(0, 2)), scale: snsPhotoAdjustment.scale }
-    : { type: "drag", x: event.clientX, y: event.clientY, adjustment: { ...snsPhotoAdjustment } };
-});
+  startSnsPhotoPointer(snsPhotoGestureState, event, snsPhotoAdjustment);
+}, { passive: false });
 
 elements.snsPreview.addEventListener("pointermove", (event) => {
-  if (!snsPhotoPointers.has(event.pointerId) || !snsPhotoGesture) return;
+  if (!snsPhotoGestureState.pointers.has(event.pointerId)) return;
   event.preventDefault();
-  snsPhotoPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-  const points = [...snsPhotoPointers.values()];
-  if (points.length >= 2 && snsPhotoGesture.type === "pinch") {
-    const distance = pointerDistance(points.slice(0, 2));
-    snsPhotoAdjustment = normalizeSnsPhotoAdjustment({
-      ...snsPhotoAdjustment,
-      scale: snsPhotoGesture.scale * (distance / Math.max(1, snsPhotoGesture.distance))
-    });
-  } else if (points.length === 1 && snsPhotoGesture.type === "drag") {
-    const bounds = getSnsPhotoCanvas().getBoundingClientRect();
-    snsPhotoAdjustment = normalizeSnsPhotoAdjustment({
-      ...snsPhotoAdjustment,
-      x: snsPhotoGesture.adjustment.x - ((event.clientX - snsPhotoGesture.x) * 2 / Math.max(1, bounds.width)),
-      y: snsPhotoGesture.adjustment.y - ((event.clientY - snsPhotoGesture.y) * 2 / Math.max(1, bounds.height))
-    });
-  }
-  void redrawActiveSnsCard();
-});
+  const canvas = getSnsPhotoCanvas();
+  snsPhotoAdjustment = moveSnsPhotoPointer(
+    snsPhotoGestureState,
+    event,
+    snsPhotoAdjustment,
+    canvas?.getBoundingClientRect()
+  );
+  updateSnsPhotoScaleControl();
+  snsRenderScheduler.request();
+}, { passive: false });
 
-function finishSnsPhotoPointer(event) {
-  if (!snsPhotoPointers.has(event.pointerId)) return;
-  snsPhotoPointers.delete(event.pointerId);
-  const point = [...snsPhotoPointers.values()][0];
-  snsPhotoGesture = point ? { type: "drag", x: point.x, y: point.y, adjustment: { ...snsPhotoAdjustment } } : null;
+function endSnsPhotoPointer(event) {
+  if (!snsPhotoGestureState.pointers.has(event.pointerId)) return;
+  finishSnsPhotoPointer(snsPhotoGestureState, event.pointerId, snsPhotoAdjustment);
   saveSnsPhotoAdjustment();
 }
 
-elements.snsPreview.addEventListener("pointerup", finishSnsPhotoPointer);
-elements.snsPreview.addEventListener("pointercancel", finishSnsPhotoPointer);
+elements.snsPreview.addEventListener("pointerup", endSnsPhotoPointer);
+elements.snsPreview.addEventListener("pointercancel", endSnsPhotoPointer);
+elements.snsPreview.addEventListener("lostpointercapture", endSnsPhotoPointer);
 
 elements.snsPhotoScale.addEventListener("input", () => {
   snsPhotoAdjustment = normalizeSnsPhotoAdjustment({ ...snsPhotoAdjustment, scale: Number(elements.snsPhotoScale.value) / 100 });
-  void redrawActiveSnsCard();
+  updateSnsPhotoScaleControl();
+  snsRenderScheduler.request();
 });
 elements.snsPhotoScale.addEventListener("change", saveSnsPhotoAdjustment);
 elements.snsPhotoResetButton.addEventListener("click", () => {
   snsPhotoAdjustment = { ...SNS_PHOTO_ADJUSTMENT_DEFAULTS };
-  void redrawActiveSnsCard();
+  snsRenderScheduler.request();
   saveSnsPhotoAdjustment();
 });
 
@@ -806,10 +800,7 @@ function setSnsActionStatus(message, isError = false) {
 async function createActiveSnsFile() {
   if (!activeDetailLog || !detailPhotoUrl) throw new Error("カードの写真を読み込めませんでした");
   const exportLog = { ...activeDetailLog, snsPhotoAdjustment: normalizeSnsPhotoAdjustment(snsPhotoAdjustment) };
-  const canvas = getSnsPhotoCanvas();
-  const blob = canvas
-    ? await new Promise((resolve, reject) => canvas.toBlob((value) => value ? resolve(value) : reject(new Error("JPEG画像を生成できませんでした")), "image/jpeg", 0.92))
-    : await generateSnsCardJpeg(exportLog, detailPhotoUrl, getSnsVisibility(), { themeId: snsCardTheme });
+  const blob = await generateSnsCardJpeg(exportLog, detailPhotoUrl, getSnsVisibility(), { themeId: snsCardTheme });
   const filename = createSnsCardFilename(activeDetailLog);
   return { blob, filename, file: new File([blob], filename, { type: blob.type }) };
 }

@@ -15,4 +15,4 @@ createServer(async (request, response) => {
     response.writeHead(200, { "Content-Type": types[extname(file)] || "application/octet-stream" });
     createReadStream(file).pipe(response);
   } catch { response.writeHead(404).end("Not found"); }
-}).listen(Number(process.argv[2] || 4173), "127.0.0.1", () => console.log("Otomo Fishing local server ready"));
+}).listen(Number(process.argv[2] || 4173), process.argv[3] || "127.0.0.1", () => console.log("Otomo Fishing local server ready"));

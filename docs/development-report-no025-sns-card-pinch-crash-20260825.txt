@@ -1,0 +1,177 @@
+AI事業部 開発完了報告書 No.025
+
+【承認・リリース状態（2026年8月25日）】
+
+・社長承認を受領した。
+・Version 0.22.3としてNo.026と同時にコミット、プッシュ、公開する許可を受領した。
+・Codex自身によるiPhone Safari実機試験は実施していないという本書記載の区別は維持する。
+・本項は、下部にある作業完了時点の「承認待ち」「未公開」という記録より新しい最終状態である。
+
+件名：iPhone SafariでSNSカード写真を二本指操作した際のページクラッシュ修正
+作成日：2026年8月25日
+実装版：Version 0.22.2
+
+【再現結果と再現環境】
+
+・指示書記載の公開環境での現象、および社長提供の再現情報を確認した。
+・Codex環境にはiPhone Safari実機がないため、ページクラッシュそのものの実機再現は未実施。
+・ローカルサーバー http://127.0.0.1:4173/ を起動し、HTTP 200とVersion 0.22.2の配信を確認した。
+・操作可能なPCブラウザーがCodex環境へ接続されていなかったため、PC実画面操作は未実施。
+
+【原因調査の結果】
+
+確認できた事実：
+
+・写真操作領域はstyle.cssの.sns-card-photoでtouch-action: noneが設定済みだった。
+・ピンチとドラッグはapp.jsのsnsPreviewに登録したpointerdown、pointermove、pointerup、pointercancelで処理していた。touchイベント、gestureイベントとの重複登録はなかった。
+・イベントリスナーはモジュール初期化時に1回だけ登録され、画面を開くたびの重複登録ではなかった。
+・旧pointermove処理は移動イベントごとにredrawActiveSnsCardを呼び、1080×1350 Canvas全体の非同期描画を開始していた。
+・旧描画は毎回、写真、ワードマーク、Otomoの3個のImageを新規生成して読み込んでいた。
+・描画結果のトークン判定は古い結果の返却を防いでいたが、古い非同期描画処理自体は中止せず、複数処理が並行して完了まで走る構造だった。
+・Canvasのwidth、heightを描画ごとに再代入し、同じ1080×1350バッファーを毎回初期化していた。
+・Object URLは写真詳細表示側とダウンロード側で生成され、既存処理でrevokeObjectURLされていた。ピンチ移動ごとのObject URL、Blob、Data URL、ImageBitmap生成はなかった。
+・旧ピンチ開始距離はMath.max(1, distance)で除算だけを保護し、0、極小値、非有限値を開始状態から排除していなかった。
+・pointercancelは存在したが、lostpointercaptureと画面終了時の明示的な全状態解除はなかった。
+・シークバーも同じ調整値と描画経路へ入るが、pointermoveのような高頻度連続イベントになりにくいため、ピンチより処理が積み上がりにくい。
+
+推測：
+
+・iPhone Safariクラッシュの主因は、高頻度pointermoveごとに1080×1350 Canvas全体の非同期描画、3画像の生成・デコード、Canvasバッファー初期化が並行して積み上がり、メモリと描画負荷が急増したことと考える。
+・Codex環境でSafariクラッシュ時のメモリ計測や実機再現を行えていないため、Safari内部の単一原因までは断定していない。
+
+【ピンチ操作とシークバー操作の処理経路の違い】
+
+・ピンチ：pointerdownで指ID、座標、開始距離、開始倍率を保持し、pointermoveごとに距離比から倍率を更新する。修正後は画面更新をrequestAnimationFrameへ集約する。
+・ドラッグ：同じPointer Events経路で開始座標と開始調整値からx、yを更新し、同じ描画予約へ入る。
+・シークバー：input値を倍率へ変換し、同じ正規化処理と同じ描画予約へ入る。change時に保存する。
+・いずれも最終的に同じsnsPhotoAdjustmentへ反映し、プレビューと保存描画が同じ値を使う。
+
+【変更内容】
+
+・指ID、指本数、開始距離、開始倍率を管理する専用ジェスチャーモジュールを追加した。
+・1本から2本、2本から1本へ変わる際に、その時点の最新調整値からジェスチャーを再開始するようにした。
+・開始距離2px未満、NaN、Infinityを計算対象外とし、全調整値を既存範囲（倍率1～3、位置-1～1）へ正規化した。
+・pointerup、pointercancel、lostpointercapture、画面終了で状態を解除するようにした。
+・pointerdownとpointermoveをpassive: falseで明示し、写真領域だけpreventDefaultと既存touch-action: noneを適用した。
+・描画予約を1フレーム最大1件、実行中最大1件、保留は最新1件だけに制限した。
+・画面終了時に未実行フレームをキャンセルし、古い描画結果を無効化した。
+・プレビューCanvas単位で写真、ワードマーク、OtomoのImage Promiseを再利用し、写真変更時と画面終了時にキャッシュ参照を解放した。
+・Canvasサイズが変わらない場合はwidth、heightを再代入せず、バッファー再初期化を避けた。
+・JPEG保存・共有時はプレビューCanvasの処理完了タイミングに依存せず、最新調整値から1080×1350、image/jpeg、品質0.92で確定描画するようにした。
+・表示Versionと関連テストを0.22.2へ更新した。紹介ページ側にVersion表記はなかった。
+
+【追加ファイル】
+
+・latest-frame-scheduler.js
+・sns-photo-gesture.js
+・tests/no025.test.js
+・docs/development-report-no025-sns-card-pinch-crash-20260825.txt
+
+【変更ファイル】
+
+・app.js
+・index.html
+・sns-card.js
+・sns-card-renderer.js
+・tests/no009.test.js
+・tests/no019.test.js
+・tests/no020.test.js
+・tests/no020-additional-fix.test.js
+・tests/no020-additional-fix-2.test.js
+・tests/no020-additional-fix-3.test.js
+・tests/no022.test.js
+・tests/no022-additional-fix-sns-card-six-fields.test.js
+・tests/no023-sns-card-theme-colors.test.js
+・tests/no024-introduction-page.test.js
+・tests/no024-additional-fix-introduction-card-images.test.js
+
+【イベント管理と描画負荷への対応】
+
+・Pointer Eventsのみを使用し、touch、gestureとの重複はない。
+・リスナーは従来どおり初期化時の1回だけで、開閉による増殖はない。
+・100件の連続更新を与える専用テストで、最初の予約1件と、実行中に更新された場合の最新追随1件だけになることを確認した。
+・非同期描画は同時に1件だけ実行し、古い処理を無制限に積み上げない。
+
+【画像、Canvas、Object URL等の資源管理確認結果】
+
+・操作中の写真、ワードマーク、Otomo画像をCanvas単位で再利用する。
+・写真変更または画面終了時に画像キャッシュをclearする。
+・同一サイズのCanvasバッファーを再利用する。
+・操作中にBlob、Data URL、ImageBitmap、Object URLを生成しない。
+・既存の写真Object URLとダウンロードObject URLにはrevokeObjectURL処理がある。
+・保存用Canvasは保存・共有実行時だけ新規作成し、1080×1350の品質を維持する。
+
+【実施した自動テストと件数】
+
+・npm.cmd test：全134件
+・No.025専用テスト：5件（全134件に含む）
+・node --check：app.js、sns-photo-gesture.js、latest-frame-scheduler.js、sns-card.js、sns-card-renderer.jsの5ファイル
+・git diff --check：1件
+・ローカルHTTP疎通とVersion確認：1件
+
+【テスト結果】
+
+・全自動テスト：134件成功、失敗0件
+・No.025専用テスト：5件成功、失敗0件
+・構文チェック：5ファイル成功
+・git diff --check：エラーなし（Gitの改行コード予告警告のみ）
+・ローカルHTTP：200、Version 0.22.2確認
+・最小、最大、0、極小、NaN、Infinity、負数、指本数変化、終了、キャンセル、高頻度更新を自動テストで確認した。
+・既存テストにより、4色、6項目、写真なし、1080×1350、JPEG品質0.92、調整値と切り抜き座標の回帰を確認した。
+
+【iPhone Safari実機確認】
+
+・実施不可。Codex環境にiPhone Safari実機がないため、30回以上の連続ピンチとクラッシュ非再現は未確認。
+・PCのモバイル表示や自動テストを実機確認として扱っていない。
+
+【Android、PCでの回帰確認】
+
+・Android実機：未実施。
+・PC実画面操作：操作可能なブラウザーが接続されていなかったため未実施。
+・PC上のNode自動テスト、構文確認、ローカルHTTP疎通は成功した。
+
+【Version 0.22.2への更新結果】
+
+・アプリ本体フッターをVersion 0.22.2へ更新した。
+・Versionを確認する既存テストを0.22.2へ更新し、すべて成功した。
+・紹介ページにVersion表記は存在しないため変更なし。
+
+【未確認事項】
+
+・iPhone Safari実機での連続30回以上のピンチ、ドラッグ交互操作、シークバーとの交互操作、最小・最大倍率付近、再開後の操作。
+・Safariのページ強制再読み込みと「問題が繰り返し起きました」の非再現。
+・AndroidおよびPCブラウザーでの実画面操作。
+・実機上のメモリ使用量、GPU使用量、長時間操作時の負荷。
+
+【残るリスク】
+
+・プレビュー自体は承認済みデザインと一致させるため1080×1350 Canvasを維持している。描画の並行増殖と再デコードは除去したが、1回の描画負荷は残る。
+・iPhone Safari実機での最終的なクラッシュ非再現確認が必要。
+
+【次工程への提案】
+
+・社長によるiPhone Safari実機確認を最優先とする。
+・同一写真で連続30回以上の拡大縮小、ドラッグ、シークバー、画面再開、保存画像一致を確認する。
+・問題が残る場合はSafari Web InspectorのメモリタイムラインとCanvasメモリを実機計測し、操作中だけ低解像度プレビューを使う追加案を別指示で検討する。
+
+【Git・公開状況】
+
+・コミット、プッシュ、公開は行っていない。
+・社長承認待ちで停止する。
+
+【Codex利用状況】
+
+・取得不可。
+
+【作業規模】
+
+・中。
+・変更ファイル15件、追加ファイル4件（本報告書を含む）。
+・主な実装はジェスチャー状態管理、描画スケジューラー、画像再利用、保存描画分離、Version更新、テスト追加。
+・自動テスト134件、構文チェック5件、差分チェック1件、HTTP確認1件を実施した。
+
+【作業難易度】
+
+・高。
+・難しかった点は、iPhone実機なしで非同期描画の増殖、画像デコード、Canvas再初期化、指本数変化を事実と推測に分け、既存操作と保存品質を維持して最小修正する点。
+・比較的容易だった点は、既存の倍率正規化、touch-action、JPEG品質、4色・6項目のテスト資産を再利用できた点。

@@ -101,7 +101,7 @@ test("No.023: color swatches use shared backgrounds and theme switching still re
     readFile(new URL("../style.css", import.meta.url), "utf8")
   ]);
   assert.match(app, /sns-theme-swatch"\)\.style\.backgroundColor\s*=\s*SNS_CARD_THEMES\[button\.dataset\.theme\]\.background/);
-  assert.match(app, /snsCardTheme\s*=\s*normalizeSnsCardTheme\(button\.dataset\.theme\)[\s\S]*redrawActiveSnsCard\(\)/);
+  assert.match(app, /snsCardTheme\s*=\s*normalizeSnsCardTheme\(button\.dataset\.theme\)[\s\S]*snsRenderScheduler\.request\(\)/);
   assert.match(html, /data-theme="cream"[\s\S]*data-theme="mint"[\s\S]*data-theme="sky"[\s\S]*data-theme="sand"/);
   assert.match(css, /\.sns-theme-options\s*\{[^}]*grid-template-columns:\s*repeat\(4, minmax\(0, 1fr\)\)/);
 });
@@ -123,5 +123,5 @@ test("No.023: layout, assets, photo treatment, JPEG contract, default theme, and
   assert.match(renderer, /otomo-fishing-wordmark\.png/);
   assert.match(renderer, /otomo-character-fishing-back-final\.png/);
   assert.match(photoAdjustment, /SNS_PHOTO_SCALE_MAX\s*=\s*3/);
-  assert.match(html, /Otomo Fishing Beta \/ Version 0\.22\.1/);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.22\.3/);
 });
