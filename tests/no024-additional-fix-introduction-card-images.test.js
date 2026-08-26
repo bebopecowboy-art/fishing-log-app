@@ -74,7 +74,7 @@ test("No.024 additional fix: output JPEGs preserve pixels and omit removable met
   }
 });
 
-test("No.024 additional fix: layout and Version 0.22.3 are retained", async () => {
+test("No.024 additional fix: layout and Version 0.23.0 are retained", async () => {
   const [css, rootHtml] = await Promise.all([
     readFile(new URL("about/about.css", root), "utf8"),
     readFile(new URL("index.html", root), "utf8")
@@ -83,5 +83,5 @@ test("No.024 additional fix: layout and Version 0.22.3 are retained", async () =
   assert.doesNotMatch(css, /\.sample-card\s|\.theme-(?:cream|mint|sky|sand)|\.sample-photo|\.sample-heading|\.sample-wordmark|\.sample-otomo/);
   assert.match(css, /grid-template-columns:\s*repeat\(4, minmax\(0, 1fr\)\)/);
   assert.match(css, /grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\)/);
-  assert.match(rootHtml, /Otomo Fishing Beta \/ Version 0\.22\.3/);
+  assert.match(rootHtml, /Otomo Fishing Beta \/ Version 0\.23\.0/);
 });

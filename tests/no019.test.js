@@ -67,5 +67,5 @@ test("No.019: required UI and version text are present", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
   assert.match(html, /id="logsHeading"[\s\S]*id="logSearchInput"[\s\S]*id="resultArea"/);
   assert.match(html, /placeholder="魚種・場所・釣り方・メモを検索"/);
-  assert.match(html, /Otomo Fishing Beta \/ Version 0\.22\.3/);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.23\.0/);
 });

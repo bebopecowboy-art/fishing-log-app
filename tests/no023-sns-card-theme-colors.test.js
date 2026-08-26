@@ -123,5 +123,5 @@ test("No.023: layout, assets, photo treatment, JPEG contract, default theme, and
   assert.match(renderer, /otomo-fishing-wordmark\.png/);
   assert.match(renderer, /otomo-character-fishing-back-final\.png/);
   assert.match(photoAdjustment, /SNS_PHOTO_SCALE_MAX\s*=\s*3/);
-  assert.match(html, /Otomo Fishing Beta \/ Version 0\.22\.3/);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.23\.0/);
 });

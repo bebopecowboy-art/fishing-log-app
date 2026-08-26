@@ -202,6 +202,9 @@ textarea { min-height: 88px; resize: vertical; }
 .log-search-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; min-width: 0; }
 .log-search-row input { min-width: 0; }
 .log-search-clear { min-height: 44px; padding: 0 14px; }
+.log-date-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; min-width: 0; }
+.log-date-filters label { display: grid; gap: 5px; min-width: 0; }
+.log-date-filters select { width: 100%; min-width: 0; }
 .log-result-count { margin: 0; color: var(--muted); font-size: 0.8rem; }
 .result-area { display: grid; gap: 12px; }
 .result-card { padding: 17px; border: 1px solid var(--line); border-radius: 15px; background: rgba(16, 33, 43, 0.72); }

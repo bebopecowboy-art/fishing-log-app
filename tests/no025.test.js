@@ -93,5 +93,5 @@ test("No.025: integration keeps pointer cancellation, non-passive handling, imag
   assert.match(app, /generateSnsCardJpeg\(exportLog/);
   assert.match(renderer, /imageCache/);
   assert.match(css, /\.sns-card-photo[\s\S]*?touch-action:\s*none/);
-  assert.match(html, /Otomo Fishing Beta \/ Version 0\.22\.3/);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.23\.0/);
 });

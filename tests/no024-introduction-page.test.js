@@ -83,10 +83,10 @@ test("No.024: responsive CSS covers required widths, avoids overflow, and keeps 
   assert.match(css, /grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\)/);
 });
 
-test("No.024: app version is 0.22.3 and the root remains the application", async () => {
+test("No.024: app version is 0.23.0 and the root remains the application", async () => {
   const rootHtml = await readFile(new URL("../index.html", import.meta.url), "utf8");
   assert.match(rootHtml, /id="catchFormCard"/);
-  assert.match(rootHtml, /Otomo Fishing Beta \/ Version 0\.22\.3/);
+  assert.match(rootHtml, /Otomo Fishing Beta \/ Version 0\.23\.0/);
   assert.doesNotMatch(rootHtml, /about\/index\.html/);
 });
 

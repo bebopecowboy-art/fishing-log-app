@@ -15,7 +15,7 @@ import { createLatestFrameScheduler } from "./latest-frame-scheduler.js";
 import { readCatchDateTime, resetCatchDateTimeIfDateCleared, resetCatchForm, resetCatchTimeIfCleared, setCatchDateTime } from "./catch-form.js";
 import { createBackupFilename, mergeFishingLogs, parseFishingLogBackup, serializeFishingLogBackup } from "./log-backup.js";
 import { updateFishingLog } from "./log-editor.js";
-import { filterFishingLogs } from "./log-search.js";
+import { createLogYearOptions, filterFishingLogs } from "./log-search.js";
 import { createFishNameCandidates, filterFishNameCandidates, prepareFishName,
   renderFishNameCandidates } from "./fish-name.js";
 
@@ -51,6 +51,8 @@ const elements = {
   refreshStatus: document.getElementById("refreshStatus"),
   resultArea: document.getElementById("resultArea"),
   logSearchInput: document.getElementById("logSearchInput"),
+  logYearFilter: document.getElementById("logYearFilter"),
+  logMonthFilter: document.getElementById("logMonthFilter"),
   logSearchClearButton: document.getElementById("logSearchClearButton"),
   logResultCount: document.getElementById("logResultCount"),
   detailDialog: document.getElementById("catchDetailDialog"),
@@ -166,8 +168,15 @@ function addLine(container, label, value) {
 function showLogs() {
   elements.resultArea.replaceChildren();
   const query = elements.logSearchInput.value;
-  const displayedLogs = filterFishingLogs(fishingLogs, query);
-  const isSearching = query.trim().length > 0;
+  const selectedYear = elements.logYearFilter.value;
+  const availableYears = createLogYearOptions(fishingLogs);
+  elements.logYearFilter.replaceChildren(new Option("すべての年", ""), ...availableYears.map((year) => new Option(`${year}年`, String(year))));
+  elements.logYearFilter.value = availableYears.includes(Number(selectedYear)) ? selectedYear : "";
+  const displayedLogs = filterFishingLogs(fishingLogs, query, {
+    year: elements.logYearFilter.value,
+    month: elements.logMonthFilter.value
+  });
+  const isSearching = query.trim().length > 0 || elements.logYearFilter.value || elements.logMonthFilter.value;
   elements.logSearchClearButton.hidden = !isSearching;
   elements.logResultCount.textContent = `${displayedLogs.length}件の釣果`;
   if (fishingLogs.length === 0 && !isSearching) {
@@ -584,8 +593,12 @@ function setBackupStatus(message = "", isError = false) {
 }
 
 elements.logSearchInput.addEventListener("input", showLogs);
+elements.logYearFilter.addEventListener("change", showLogs);
+elements.logMonthFilter.addEventListener("change", showLogs);
 elements.logSearchClearButton.addEventListener("click", () => {
   elements.logSearchInput.value = "";
+  elements.logYearFilter.value = "";
+  elements.logMonthFilter.value = "";
   showLogs();
   elements.logSearchInput.focus();
 });

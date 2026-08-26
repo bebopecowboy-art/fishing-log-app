@@ -89,7 +89,7 @@ test("No.026: app pages reference the final favicon and apple-touch-icon", async
     assert.match(html, /rel="apple-touch-icon"[^>]*sizes="180x180"[^>]*otomo-fishing-icon-180\.png/);
     assert.doesNotMatch(html, /padding-candidate/);
   }
-  assert.match(rootHtml, /Otomo Fishing Beta \/ Version 0\.22\.3/);
+  assert.match(rootHtml, /Otomo Fishing Beta \/ Version 0\.23\.0/);
 });
 
 test("No.026: current app has no Web App Manifest or maskable reference to leave stale", async () => {
