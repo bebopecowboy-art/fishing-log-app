@@ -31,7 +31,7 @@ test("No.027: 全期間では不正・旧日付も表示し、ローカル日付
   assert.equal(readLogYearMonth("old"), null);
 });
 
-test("No.027: 年月UI、クリア連携、紹介ページ案内、Version 0.23.0が存在する", async () => {
+test("No.027: 年月UI、クリア連携、紹介ページ案内、Version 0.23.1が存在する", async () => {
   const [html, app, css, aboutHtml, aboutCss] = await Promise.all([
     readFile(new URL("../index.html", import.meta.url), "utf8"),
     readFile(new URL("../app.js", import.meta.url), "utf8"),
@@ -46,5 +46,5 @@ test("No.027: 年月UI、クリア連携、紹介ページ案内、Version 0.23.
   assert.match(aboutHtml, /ホーム画面に追加して、すぐ記録。/);
   assert.match(aboutHtml, /iPhone（Safari）[\s\S]*共有ボタン[\s\S]*Android（Chrome）[\s\S]*アプリをインストール/);
   assert.match(aboutCss, /\.home-screen-grid[\s\S]*@media \(max-width: 700px\)[\s\S]*grid-template-columns:\s*1fr/);
-  assert.match(html, /Otomo Fishing Beta \/ Version 0\.23\.0/);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.23\.1/);
 });

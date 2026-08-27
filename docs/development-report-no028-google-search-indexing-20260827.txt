@@ -1,0 +1,158 @@
+AI事業部 開発完了報告書 No.028
+
+件名：Otomo FishingのGoogle検索登録準備と検索表示情報の整備
+作成日：2026年8月27日
+実装Version：0.23.1
+
+【変更内容】
+
+1. Google所有権確認用HTMLを公開ルートへ配置した。
+2. 紹介ページのtitleとmeta descriptionを検索時に名称と用途が伝わる内容へ更新した。
+3. 紹介ページへcanonicalと最低限のOGPを追加した。
+4. 紹介ページ本文へ「オトモフィッシング」と「釣果記録アプリ」を自然な文章として追加した。
+5. アプリ本体へmeta descriptionと自己canonicalを追加した。
+6. アプリ本体のフッターへ紹介ページへの通常のa要素によるリンクを追加し、相互移動を可能にした。
+7. 公開ルートへsitemap.xmlを追加した。
+8. アプリ本体の表示Versionと既存Versionテストを0.23.1へ更新した。
+9. 検索向け要件を継続確認するNo.028専用テストを追加した。
+
+【追加ファイル】
+
+・google83e30c054acb0a28.html
+・sitemap.xml
+・tests/no028.test.js
+・docs/development-report-no028-google-search-indexing-20260827.txt
+
+【変更ファイル】
+
+・index.html
+・about/index.html
+・Version表示を確認する既存テスト13ファイル
+
+釣果登録、検索、バックアップ、潮汐、SNSカード、写真、保存処理の実装ファイルは変更していない。
+
+【確認用HTML】
+
+配置先：プロジェクト公開ルート/google83e30c054acb0a28.html
+公開予定URL：https://bebopecowboy-art.github.io/fishing-log-app/google83e30c054acb0a28.html
+本文：google-site-verification: google83e30c054acb0a28.html
+支給ファイル、配置ファイル、ローカルHTTP応答本文が末尾改行の有無を含め、指定の1行と完全一致することを確認した。
+
+【各ページの検索情報】
+
+紹介ページ
+・title：Otomo Fishing｜30秒で残せる釣果記録アプリ
+・description：Otomo Fishingは、釣れた瞬間を手早く記録し、写真や潮・天気と一緒に振り返れる無料の釣果記録Webアプリです。登録不要でスマートフォンから使えます。
+・canonical：https://bebopecowboy-art.github.io/fishing-log-app/about/
+
+アプリ本体
+・title：Otomo Fishing
+・description：Otomo Fishingは、釣果を写真や潮・天気と一緒に記録し、あとから検索して振り返れる無料の釣果記録Webアプリです。
+・canonical：https://bebopecowboy-art.github.io/fishing-log-app/
+
+【OGP】
+
+紹介ページへog:type、og:title、og:description、og:url、og:site_nameを設定した。
+og:imageは設定していない。既存画像には紹介ページの共有画像として承認済みであることを安全に特定できる画像がなかったため、新規生成や実釣果写真の転用を避けた。
+
+【本文名称】
+
+紹介ページのbody内に、画像の代替文字だけでなく取得可能なテキストとして「Otomo Fishing」「オトモフィッシング」「釣果記録アプリ」が自然に存在することを専用テストで確認した。
+
+【sitemap.xml】
+
+次の2 URLを収録した。
+・https://bebopecowboy-art.github.io/fishing-log-app/
+・https://bebopecowboy-art.github.io/fishing-log-app/about/
+
+根拠のない更新頻度、優先度、lastmodは設定していない。PowerShellのXMLパーサーと専用テストで有効なXMLとして解釈でき、URLが2件であることを確認した。
+
+【インデックス阻害要因とリンク】
+
+・紹介ページとアプリ本体にnoindexがないことを静的走査と専用テストで確認した。
+・各canonicalが自己ページの正しい絶対公開URLを指すことを確認した。
+・紹介ページからアプリ本体へ既存の通常a要素が4件以上あることを確認した。
+・アプリ本体から紹介ページへ通常のa要素を追加し、相互リンクを確認した。
+・指示どおりrobots.txtは新設していない。
+・構造化データは追加していない。
+
+【ローカルHTTP確認】
+
+tools/serve.mjsを使用し、次の全URLがHTTP 200となることを確認した。
+・/：200
+・/about/：200
+・/sitemap.xml：200
+・/google83e30c054acb0a28.html：200
+
+ディレクトリルートがindex.htmlへ解決される既存サーバー処理とHTTP応答により、ローカル公開構成で対象ページが404にならないことを確認した。
+
+【実施したテスト】
+
+・全自動テスト：npm.cmd test
+・No.028専用テスト：全自動テスト内で4件
+・JavaScript構文確認：全50ファイルへnode --check
+・ローカルHTTP確認：4 URL
+・確認HTML本文完全一致確認：1件
+・sitemap XML解析および収録URL確認
+・title、description、canonical、OGP、本文名称、noindex、相互リンクの静的確認
+・変更ファイル差分確認
+・git diff --check
+
+【テスト結果】
+
+・全自動テスト：147件成功、失敗0件
+・No.028専用テスト：4件成功
+・JavaScript構文確認：50ファイル成功
+・ローカルHTTP確認：4 URLすべてHTTP 200
+・確認HTML本文：完全一致
+・sitemap.xml：XML解析成功、指定2 URLを確認
+・noindex：該当なし
+・相互リンク：確認成功
+・git diff --check：成功（空白エラーなし。Gitの改行コード警告のみ）
+
+【Version 0.23.1への更新結果】
+
+アプリ本体フッターをOtomo Fishing Beta / Version 0.23.1へ更新した。表示Versionを確認する既存テストの期待値も0.23.1へ更新し、全自動テストが成功した。バックアップJSON等の別用途のversion値は変更していない。
+
+【既存機能・データへの影響】
+
+釣果登録、検索、潮汐、SNSカード、写真、バックアップ処理、localStorage、IndexedDB、保存形式には変更を加えていない。差分はHTMLの検索情報・本文の一部・リンク・表示Version、検索登録用静的ファイル、テスト、報告書に限定した。
+
+【未確認事項】
+
+・GitHub Pages公開後の実URLにおけるHTTP応答
+・Google Search Consoleでの所有権確認
+・Googleによるクロール、インデックス登録、検索結果への反映
+・実ブラウザーでの検索スニペットおよびOGP表示
+
+【残るリスク】
+
+検索結果への反映時期、表示文、順位はGoogle側の判断であり保証できない。公開環境での確認は承認後のデプロイが必要である。og:imageを省略しているため、共有先によっては画像なしのプレビューとなる可能性がある。
+
+【公開後に社長が行うSearch Console操作】
+
+1. https://bebopecowboy-art.github.io/fishing-log-app/google83e30c054acb0a28.html を開き、確認文字列を確認する。
+2. Search ConsoleのURLプレフィックス所有権確認画面で「確認」を押す。
+3. https://bebopecowboy-art.github.io/fishing-log-app/sitemap.xml を送信する。
+4. URL検査で https://bebopecowboy-art.github.io/fishing-log-app/about/ を検査し、「インデックス登録をリクエスト」を行う。
+5. 必要に応じて https://bebopecowboy-art.github.io/fishing-log-app/ も同様に登録をリクエストする。
+
+【次工程への提案】
+
+社長承認後に公開し、上記4 URLのHTTP 200、確認HTML本文、canonicalを公開環境で再確認してからSearch Console操作を行う。検索表示の反映後は、Search Consoleのインデックス状況を確認する。og:imageが必要になった場合は、紹介ページ用の承認済み共有画像を別途選定してから追加する。
+
+【Git・公開状況】
+
+コミット、プッシュ、GitHub Pages公開、Search Console操作は行っていない。社長承認待ちで停止する。
+
+【Codex利用状況】
+
+取得不可。
+
+【作業規模】
+
+中。変更ファイル15件、追加ファイル4件。主な実装は所有権確認ファイル、2ページの検索情報、OGP、相互リンク、sitemap、Version更新、専用テストである。自動テスト147件、構文確認50件、HTTP確認4件を実施した。
+
+【作業難易度】
+
+中。既存紹介ページの確定デザインと過去テストを維持しながら、検索エンジン向け絶対URLと自然な本文名称を追加し、アプリ本体と紹介ページの役割を分けたcanonicalを設定する点が主な注意点だった。静的HTML中心で保存処理へ触れずに実装できた点は容易だった。

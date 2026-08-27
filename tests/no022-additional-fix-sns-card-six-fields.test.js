@@ -95,6 +95,6 @@ test("No.022-B: current display version and no five-row cutoff remain", async ()
     readFile(new URL("../index.html", import.meta.url), "utf8"),
     readFile(new URL("../sns-card-renderer.js", import.meta.url), "utf8")
   ]);
-  assert.match(html, /Otomo Fishing Beta \/ Version 0\.23\.0/);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.23\.1/);
   assert.doesNotMatch(renderer, /rowY\s*>\s*1160/);
 });

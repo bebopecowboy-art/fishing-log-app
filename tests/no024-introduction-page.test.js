@@ -9,10 +9,10 @@ test("No.024: introduction page files, metadata, and semantic regions exist", as
   const [html, css] = await Promise.all([readFile(htmlUrl, "utf8"), readFile(cssUrl, "utf8")]);
   assert.match(html, /<meta charset="UTF-8">/);
   assert.match(html, /<meta name="viewport" content="width=device-width, initial-scale=1\.0">/);
-  assert.match(html, /<title>Otomo Fishing｜釣れた瞬間を30秒で記録<\/title>/);
-  assert.match(html, /content="釣れた瞬間を30秒で記録。潮・天気・写真までひとつに残せる、登録不要のシンプルな釣果ログです。"/);
+  assert.match(html, /<title>Otomo Fishing｜30秒で残せる釣果記録アプリ<\/title>/);
+  assert.match(html, /content="Otomo Fishingは、釣れた瞬間を手早く記録し、写真や潮・天気と一緒に振り返れる無料の釣果記録Webアプリです。登録不要でスマートフォンから使えます。"/);
   assert.match(html, /<header[\s\S]*<main id="main">[\s\S]*<footer/);
-  assert.doesNotMatch(html, /<script|https?:\/\/|href="#"/);
+  assert.doesNotMatch(html, /<script|href="#"/);
   assert.match(css, /prefers-reduced-motion/);
 });
 
@@ -83,10 +83,10 @@ test("No.024: responsive CSS covers required widths, avoids overflow, and keeps 
   assert.match(css, /grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\)/);
 });
 
-test("No.024: app version is 0.23.0 and the root remains the application", async () => {
+test("No.024: app version is 0.23.1 and the root remains the application", async () => {
   const rootHtml = await readFile(new URL("../index.html", import.meta.url), "utf8");
   assert.match(rootHtml, /id="catchFormCard"/);
-  assert.match(rootHtml, /Otomo Fishing Beta \/ Version 0\.23\.0/);
+  assert.match(rootHtml, /Otomo Fishing Beta \/ Version 0\.23\.1/);
   assert.doesNotMatch(rootHtml, /about\/index\.html/);
 });
 

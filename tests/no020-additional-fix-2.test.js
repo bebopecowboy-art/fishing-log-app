@@ -21,7 +21,7 @@ test("No.020追加修正2: 背景と写真枠だけを指定色へ更新する",
 
 test("No.020追加修正2: 現行表示バージョンと4枚の1080×1350確認画像がある", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
-  assert.match(html, /Otomo Fishing Beta \/ Version 0\.23\.0/);
+  assert.match(html, /Otomo Fishing Beta \/ Version 0\.23\.1/);
   for (const theme of Object.keys(SNS_CARD_THEMES)) {
     const png = await readFile(new URL(`../docs/no020-additional-fix-2-verification/sns-card-${theme}.png`, import.meta.url));
     assert.deepEqual([...png.subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10]);
